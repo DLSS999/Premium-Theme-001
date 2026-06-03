@@ -427,7 +427,7 @@
           "settings": {
             "show_view_all": true,
             "collection": "ami",
-            "collection_name": ""
+            "collection_name": "Ami"
           }
         },
         "collection_Abnpwb": {
@@ -435,7 +435,7 @@
           "settings": {
             "show_view_all": true,
             "collection": "jacquemus",
-            "collection_name": ""
+            "collection_name": "Jacquemus"
           }
         },
         "collection_XJVRpU": {
@@ -443,7 +443,7 @@
           "settings": {
             "show_view_all": true,
             "collection": "balenciaga",
-            "collection_name": ""
+            "collection_name": "Balenciaga"
           }
         }
       },
