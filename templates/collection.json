@@ -1,1 +1,200 @@
-{"sections":{"banner":{"type":"main-collection-banner","disabled":true,"settings":{"show_breadcrumbs":true,"show_collection_description":true,"show_collection_image":false,"image_aspect":"custom","desktop_height":100,"mobile_height":100,"focal_point":"image_presentation","text_position":"center_center","text_position_mobile":"center_center","text_color":"#ffffff","color_overlay":"#000000","color_overlay_gradient":"","overlay_opacity":30,"enable_animation":true,"section_padding":"section--vertical-padding-none"}},"rich_text_9kWHFe":{"type":"rich-text","blocks":{"subheading_DGY9mi":{"type":"subheading","settings":{"subheading":"{{ collection.title }}","subheading_font_class":"fs-heading-5-base"}}},"block_order":["subheading_DGY9mi"],"name":"t:sections.rich_text.presets.name","settings":{"alignment":"left_left","enable_animation":true,"divider_style":"none","section_padding":"section--vertical-padding-top-bottom","content_width":"custom","custom_content_width":1000}},"product-grid":{"type":"main-collection-product-grid","settings":{"columns":"4","rows":"4","show_item_count":true,"show_product_title":false,"custom_product_text_source":"name_type","custom_product_text":"","custom_product_text_position":"above_title","show_sort":true,"show_filters":true,"enable_sticky_filter_bar":true,"collapse_filter_bar":true,"collapse_filter_groups_mobile":true,"show_swatch_filters":true,"show_chip_filters":true,"chip_layout":"3col","pagination":"paginated","enable_animation":true,"divider_style":"none"}},"rich_text_6tjBBe":{"type":"rich-text","blocks":{"text_Vwc3w9":{"type":"text","settings":{"text":"{{ collection.description }}","text_font_class":"fs-body-75"}}},"block_order":["text_Vwc3w9"],"custom_css":[],"name":"t:sections.rich_text.presets.name","settings":{"alignment":"left_left","enable_animation":true,"divider_style":"none","section_padding":"section--vertical-padding-top-bottom","content_width":"full","custom_content_width":1000}}},"order":["banner","rich_text_9kWHFe","product-grid","rich_text_6tjBBe"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "grid_wEXwTp": {
+      "type": "grid",
+      "blocks": {
+        "item_rrawVC": {
+          "type": "item",
+          "settings": {
+            "width": "50",
+            "height": 500,
+            "mobile_height": 500,
+            "image": "shopify://shop_images/PalmAngels_ONA2.jpg",
+            "media_fit": "cover",
+            "focal_point": "image_presentation",
+            "mobile_focal_point": "image_presentation",
+            "text_position": "center_center",
+            "accent": "",
+            "title": "",
+            "heading_font_class": "fs-heading-3-base",
+            "subheading": "",
+            "subheading_font_class": "fs-heading-5-base",
+            "text": "",
+            "text_font_class": "fs-body-100",
+            "link": "shopify://collections/ami-paris-men",
+            "link_text": "Чоловікам",
+            "button_style": "btn--callout",
+            "background_color": "",
+            "text_color": "#FFFFFF",
+            "button_background_color": "#000000",
+            "button_text_color": "#000000",
+            "color_overlay": "#000",
+            "color_overlay_gradient": "",
+            "overlay_opacity": 30
+          }
+        },
+        "item_6j9wqe": {
+          "type": "item",
+          "settings": {
+            "width": "50",
+            "height": 500,
+            "mobile_height": 500,
+            "image": "shopify://shop_images/PalmAngels_ON.jpg",
+            "media_fit": "cover",
+            "focal_point": "image_presentation",
+            "mobile_focal_point": "image_presentation",
+            "text_position": "center_center",
+            "accent": "",
+            "title": "",
+            "heading_font_class": "fs-heading-2-base",
+            "subheading": "",
+            "subheading_font_class": "fs-heading-5-base",
+            "text": "",
+            "text_font_class": "fs-body-100",
+            "link": "shopify://collections/ami-paris-women",
+            "link_text": "Жінкам",
+            "button_style": "btn--callout",
+            "background_color": "",
+            "text_color": "#FFFFFF",
+            "button_background_color": "#111111",
+            "button_text_color": "#000000",
+            "color_overlay": "#000",
+            "color_overlay_gradient": "",
+            "overlay_opacity": 30
+          }
+        }
+      },
+      "block_order": [
+        "item_rrawVC",
+        "item_6j9wqe"
+      ],
+      "name": "t:sections.grid.presets.name",
+      "settings": {
+        "heading": "",
+        "subheading": "<p><strong>{{ collection.title }}</strong></p>",
+        "content_alignment": "left",
+        "enable_animation": true,
+        "full_width": false,
+        "spacing": 12,
+        "mobile_columns": "2",
+        "image_width_desktop": 100,
+        "image_width_mobile": 100,
+        "small_image_aspect_ratio": "natural",
+        "item_text_layout": "below",
+        "show_top_divider": true,
+        "padding_top": 20,
+        "padding_bottom": 0
+      }
+    },
+    "banner": {
+      "type": "main-collection-banner",
+      "disabled": true,
+      "settings": {
+        "show_breadcrumbs": true,
+        "show_collection_description": true,
+        "show_collection_image": false,
+        "image_aspect": "custom",
+        "desktop_height": 100,
+        "mobile_height": 100,
+        "focal_point": "image_presentation",
+        "text_position": "center_center",
+        "text_position_mobile": "center_center",
+        "text_color": "#ffffff",
+        "color_overlay": "#000000",
+        "color_overlay_gradient": "",
+        "overlay_opacity": 30,
+        "enable_animation": true,
+        "section_padding": "section--vertical-padding-none"
+      }
+    },
+    "rich_text_9kWHFe": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_DGY9mi": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "{{ collection.title }}",
+            "subheading_font_class": "fs-heading-5-base"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_DGY9mi"
+      ],
+      "disabled": true,
+      "name": "t:sections.rich_text.presets.name",
+      "settings": {
+        "alignment": "left_left",
+        "enable_animation": true,
+        "divider_style": "none",
+        "section_padding": "section--vertical-padding-top-only",
+        "content_width": "custom",
+        "custom_content_width": 1000
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "settings": {
+        "columns": "4",
+        "rows": "4",
+        "show_item_count": true,
+        "show_product_title": false,
+        "custom_product_text_source": "name_type",
+        "custom_product_text": "",
+        "custom_product_text_position": "above_title",
+        "show_sort": true,
+        "show_filters": true,
+        "enable_sticky_filter_bar": true,
+        "collapse_filter_bar": true,
+        "collapse_filter_groups_mobile": true,
+        "show_swatch_filters": true,
+        "show_chip_filters": true,
+        "chip_layout": "3col",
+        "pagination": "paginated",
+        "enable_animation": true,
+        "divider_style": "none"
+      }
+    },
+    "rich_text_6tjBBe": {
+      "type": "rich-text",
+      "blocks": {
+        "text_Vwc3w9": {
+          "type": "text",
+          "settings": {
+            "text": "{{ collection.description }}",
+            "text_font_class": "fs-body-75"
+          }
+        }
+      },
+      "block_order": [
+        "text_Vwc3w9"
+      ],
+      "custom_css": [],
+      "name": "t:sections.rich_text.presets.name",
+      "settings": {
+        "alignment": "left_left",
+        "enable_animation": true,
+        "divider_style": "none",
+        "section_padding": "section--vertical-padding-none",
+        "content_width": "full",
+        "custom_content_width": 1000
+      }
+    }
+  },
+  "order": [
+    "grid_wEXwTp",
+    "banner",
+    "rich_text_9kWHFe",
+    "product-grid",
+    "rich_text_6tjBBe"
+  ]
+}
