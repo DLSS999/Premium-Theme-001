@@ -1,0 +1,174 @@
+{%- liquid
+  assign max_products = block.settings.max_products
+  assign should_render_content = false
+
+  assign compact_image_width_desktop = block.settings.compact_product_image_width_desktop | default: 120
+  assign compact_image_width_mobile = block.settings.compact_product_image_width_mobile | default: 92
+
+  assign compact_image_source_width = compact_image_width_desktop
+  if compact_image_width_mobile > compact_image_source_width
+    assign compact_image_source_width = compact_image_width_mobile
+  endif
+  assign compact_image_source_width = compact_image_source_width | times: 2
+
+  if block.settings.product_source == 'custom-product-list' and block.settings.product_list.count > 0
+    assign should_render_content = true
+  elsif block.settings.product_source == 'app-recommendations'
+    assign should_render_content = true
+  endif
+-%}
+
+{%- if should_render_content -%}
+  {% capture product_grid_classes %}
+    product__block-featured-products-grid
+    product__block-featured-products-grid--compact-images
+    {% if block.settings.enable_swiper_mobile %}
+      product__block-featured-products-grid--has-mobile-swipe
+    {% else %}
+      product__block-featured-products-grid--has-mobile-grid
+    {% endif %}
+    {% if block.settings.display_as_collapsible_row %}
+      product__block-featured-products-grid--is-collapsible-row
+    {% endif %}
+    carousel__wrapper swiper-wrapper
+  {% endcapture %}
+
+  {% capture product_list_products %}
+    <div class="{{ product_grid_classes }}">
+      {%- for product_item in block.settings.product_list limit: max_products -%}
+        {%- liquid
+          assign product_image = product_item.featured_media.preview_image | default: product_item.featured_image
+          assign product_label = product_item.metafields.custom.name_type.value | default: product_item.metafields.custom.name_type | default: product_item.title
+        -%}
+
+        <div
+          class="
+            carousel__slide
+            swiper-slide
+            product__block-featured-products-compact-slide
+            {% if product_item.id == product.id %}
+              product__block-featured-products-compact-slide--selected
+            {% endif %}
+          "
+          data-slide
+        >
+          <a
+            href="{{ product_item.url }}"
+            class="product__block-featured-products-compact-link"
+            aria-label="{{ product_label | escape }}"
+          >
+            {%- if product_image != blank -%}
+              <img
+                class="product__block-featured-products-compact-image"
+                src="{{ product_image | image_url: width: compact_image_source_width }}"
+                alt="{{ product_image.alt | default: product_item.title | escape }}"
+                width="{{ product_image.width }}"
+                height="{{ product_image.height }}"
+                loading="lazy"
+              >
+            {%- else -%}
+              <span class="product__block-featured-products-compact-placeholder">
+                {{ product_item.title }}
+              </span>
+            {%- endif -%}
+          </a>
+        </div>
+      {%- endfor -%}
+    </div>
+  {% endcapture %}
+
+  {% capture app_recommended_products %}
+    {%- if recommendations.performed and recommendations.products_count > 0 -%}
+      <div data-featured-products-content>
+        <div class="{{ product_grid_classes }}">
+          {%- for product_item in recommendations.products limit: max_products -%}
+            {%- liquid
+              assign product_image = product_item.featured_media.preview_image | default: product_item.featured_image
+              assign product_label = product_item.metafields.custom.name_type.value | default: product_item.metafields.custom.name_type | default: product_item.title
+            -%}
+
+            <div
+              class="
+                carousel__slide
+                swiper-slide
+                product__block-featured-products-compact-slide
+                {% if product_item.id == product.id %}
+                  product__block-featured-products-compact-slide--selected
+                {% endif %}
+              "
+              data-slide
+            >
+              <a
+                href="{{ product_item.url }}"
+                class="product__block-featured-products-compact-link"
+                aria-label="{{ product_label | escape }}"
+              >
+                {%- if product_image != blank -%}
+                  <img
+                    class="product__block-featured-products-compact-image"
+                    src="{{ product_image | image_url: width: compact_image_source_width }}"
+                    alt="{{ product_image.alt | default: product_item.title | escape }}"
+                    width="{{ product_image.width }}"
+                    height="{{ product_image.height }}"
+                    loading="lazy"
+                  >
+                {%- else -%}
+                  <span class="product__block-featured-products-compact-placeholder">
+                    {{ product_item.title }}
+                  </span>
+                {%- endif -%}
+              </a>
+            </div>
+          {%- endfor -%}
+        </div>
+      </div>
+    {%- endif -%}
+  {% endcapture %}
+
+  {% capture content %}
+    <div
+      class="carousel swiper product__block-featured-products-compact"
+      data-featured-products
+      data-product-id="{{ product.id }}"
+      data-section-id="{{ section.id }}"
+      data-recommendations-type="{{ block.settings.product_source }}"
+      data-max-recommendations="{{ max_products }}"
+      data-enable-mobile-swiper="{{ block.settings.enable_swiper_mobile }}"
+      style="
+        --compact-product-image-width-desktop: {{ compact_image_width_desktop }}px;
+        --compact-product-image-width-mobile: {{ compact_image_width_mobile }}px;
+      "
+    >
+      {%- if block.settings.product_source == 'custom-product-list' -%}
+        {{ product_list_products }}
+      {%- else -%}
+        {{ app_recommended_products }}
+      {%- endif -%}
+    </div>
+  {% endcapture %}
+
+  {% if block.settings.display_as_collapsible_row %}
+    {%-
+      render 'product-block-accordion' with
+      block: block,
+      block_settings: block.settings,
+      classes: 'product__block-featured-products product__block-featured-products--compact-images',
+      heading: block.settings.heading,
+      disable_rte: true,
+      content: content
+    -%}
+  {% else %}
+    <div
+      class="product__block product__block-featured-products product__block-featured-products--compact-images{% if block.settings.product_source == 'app-recommendations' %} hidden{% endif %} product__block--medium"
+      {{ block.shopify_attributes }}
+    >
+      {%- unless block.settings.heading == blank -%}
+        <h3 class="product__block-featured-products__heading ff-heading fs-heading-5-base">
+          {{ block.settings.heading }}
+        </h3>
+      {%- endunless -%}
+
+      {{ content }}
+    </div>
+  {% endif %}
+{%- endif -%}

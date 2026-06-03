@@ -1,0 +1,102 @@
+{%- liquid
+  assign file_extension = 'png'
+
+  if scope
+    assign scope = scope | prepend: '--'
+  endif
+
+  # custom swatch colors
+  assign custom_colors = settings.custom_swatch_colors | newline_to_br | split: '<br />'
+  assign custom_color_map_key = ''
+  assign custom_color_map_value = ''
+
+  for color_value in custom_colors
+    assign custom_color_key = color_value | split: ':' | first | strip
+    assign custom_color_value = color_value | split: ':' | last | strip
+
+    assign custom_color_map_key = custom_color_map_key | append: ',' | append: custom_color_key
+    assign custom_color_map_value = custom_color_map_value | append: ',' | append: custom_color_value
+  endfor
+
+  assign custom_color_map_key = custom_color_map_key | remove_first: ',' | split: ','
+  assign custom_color_map_value = custom_color_map_value | remove_first: ',' | split: ','
+-%}
+
+<li
+  class="
+    filter-item
+    {% if type == 'chip' %} filter-item--chip{% endif %}
+  "
+>
+  <label
+    data-filter-item
+    class="filter-item__content {% if filter_value.count == 0 and filter_value.active == false %}filter-item__content--disabled{% endif %}"
+    for="filter--{{ filter_value.param_name | url_escape }}--{{ filter_value.label | url_escape }}{{ scope }}"
+  >
+    <input
+      type="checkbox"
+      name="{{ filter_value.param_name }}"
+      value="{{ filter_value.value }}"
+      class="filter-item__checkbox visually-hidden"
+      data-filter-item-input
+      data-filter="{{ filter_value.param_name }}={{ filter_value.value }}"
+      data-value-escaped="{{ filter_value.value | url_escape }}"
+      id="filter--{{ filter_value.param_name | url_escape }}--{{ filter_value.label | url_escape }}{{ scope }}"
+      {% if filter_value.active -%}
+        checked
+      {% endif %}
+      {%- if key != blank and val != blank -%}
+        data-{{ key }}="{{ val | handle }}"
+      {%- endif -%}
+      {% if filter_value.count == 0 and filter_value.active == false %}
+        disabled
+      {% endif %}
+    >
+
+    <div class="filter-item__content-inner">
+      {%- if type == 'swatch' -%}
+        {%- assign custom_swatch_image = filter_value.label | handle | append: '.' | append: file_extension -%}
+        <div
+          class="filter-item__swatch"
+          data-shape="{{ settings.swatch_shape }}"
+          style="
+            {% if custom_color_map_key contains filter_value.label %}
+              {% for color_name in custom_color_map_key %}
+                {% if color_name == filter_value.label %}
+                  background-color: {{ custom_color_map_value[forloop.index0] }};
+                  {% break %}
+                {% endif %}
+              {% endfor %}
+            {% else %}
+              background-color: {{ filter_value.label | downcase }};
+            {% endif %}
+            {% if images[custom_swatch_image] != blank %}
+              background-image: url({{ custom_swatch_image | file_url }});
+            {% endif %}
+          "
+        ></div>
+      {%- endif -%}
+
+      {%- if type == 'checkbox' -%}
+        <div class="filter-input__input">
+          {% render 'icon' with icon: 'checkmark' %}
+        </div>
+      {%- endif -%}
+
+      {%- if type == 'checkbox' or type == 'swatch' -%}
+        <span class="filter-item__label">
+          {{ filter_value.label }}
+        </span>
+        <span class="filter-item__count fs-body-75">
+          {{- 'filters.item_count_html' | t: value: filter_value.count -}}
+        </span>
+      {%- endif -%}
+
+      {%- if type == 'chip' -%}
+        <div class="filter-item__chip">
+          {{ filter_value.label }}
+        </div>
+      {%- endif -%}
+    </div>
+  </label>
+</li>

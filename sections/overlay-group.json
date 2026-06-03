@@ -1,0 +1,1 @@
+{"type":"custom.overlay","name":"t:groups.overlay_group.name","sections":{"quick-cart":{"type":"quick-cart","settings":{"enable_quick_cart":true,"show_product_currency":true,"promotion_text":"<p>Перегляньте ці колекції.<\/p>","collection_list":[],"collection_list_button_style":"btn--secondary"}},"popup":{"type":"popup","settings":{}}},"order":["quick-cart","popup"]}

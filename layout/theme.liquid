@@ -1,0 +1,526 @@
+<!doctype html>
+
+<!--
+  ___                 ___           ___           ___
+       /  /\                     /__/\         /  /\         /  /\
+      /  /:/_                    \  \:\       /  /:/        /  /::\
+     /  /:/ /\  ___     ___       \  \:\     /  /:/        /  /:/\:\
+    /  /:/ /:/ /__/\   /  /\  ___  \  \:\   /  /:/  ___   /  /:/  \:\
+   /__/:/ /:/  \  \:\ /  /:/ /__/\  \__\:\ /__/:/  /  /\ /__/:/ \__\:\
+   \  \:\/:/    \  \:\  /:/  \  \:\ /  /:/ \  \:\ /  /:/ \  \:\ /  /:/
+    \  \::/      \  \:\/:/    \  \:\  /:/   \  \:\  /:/   \  \:\  /:/
+     \  \:\       \  \::/      \  \:\/:/     \  \:\/:/     \  \:\/:/
+      \  \:\       \__\/        \  \::/       \  \::/       \  \::/
+       \__\/                     \__\/         \__\/         \__\/
+
+  --------------------------------------------------------------------
+  #  Stiletto v2.1.1
+  #  Documentation: https://fluorescent.co/help/stiletto/
+  #  Purchase: https://themes.shopify.com/themes/stiletto/
+  #  A product by Fluorescent: https://fluorescent.co/
+  --------------------------------------------------------------------
+-->
+
+<html class="no-js" lang="{{ request.locale.iso_code }}" style="--announcement-height: 1px;">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    {% render 'meta-description' %}
+
+    <link rel="canonical" href="{{ canonical_url }}">
+    <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+
+    {%- if settings.favicon != blank -%}
+      <link rel="shortcut icon" href="{{ settings.favicon | image_url: width: 32, height: 32 }}" type="image/png">
+    {%- endif -%}
+
+    {%- capture seo_title -%}
+      {%- if request.page_type == 'search' and search.performed == true -%}
+        {{ 'search.heading' | t: count: search.results_count }}:
+        {{ 'search.results_with_count' | t: terms: search.terms, count: search.results_count }}
+      {%- else -%}
+        {{ page_title }}
+      {%- endif -%}
+      {%- if current_tags -%}
+        {%- assign meta_tags = current_tags | join: ', ' -%}
+        &ndash; {{ 'general.meta.tags' | t: tags: meta_tags -}}
+      {%- endif -%}
+      {%- if current_page != 1 -%}
+        &ndash; {{ 'general.meta.page' | t: page: current_page }}
+      {%- endif -%}
+      {%- assign escaped_page_title = page_title | escape -%}
+      {%- unless escaped_page_title contains shop.name -%}
+        &ndash; {{ shop.name }}
+      {%- endunless -%}
+    {%- endcapture -%}
+    <title>{{ seo_title | strip }}</title>
+
+    {% render 'social-meta-tags' %}
+
+    {% render 'theme-setup' %}
+    {% render 'theme-setting-vars' %}
+    {%- render 'theme-globals' -%}
+
+    {{ content_for_header }}
+  </head>
+
+  <body class="template-{{ request.page_type | handle }}">
+    <div class="page">
+      {% if settings.enable_page_transitions %}
+        {% render 'page-transition-overlay' %}
+      {% endif %}
+
+      <div class="theme-editor-scroll-offset"></div>
+
+      <div class="header__space" data-header-space></div>
+
+      {% sections 'header-group' %}
+      {% sections 'overlay-group' %}
+
+      {%- if settings.enable_quick_search -%}
+        {% render 'quick-search' %}
+      {%- endif -%}
+
+      <div class="header-overlay" data-header-overlay>
+        <div class="header-overlay__inner"></div>
+      </div>
+
+      <main id="main" class="main">
+        {{ content_for_layout }}
+      </main>
+
+      {% sections 'footer-group' %}
+
+      {% render 'store-availability-drawer' %}
+      {% render 'quick-view-modal' %}
+      {% render 'modal' %}
+      {% render 'back-to-top' %}
+    </div>
+
+    {{ '//www.youtube.com/iframe_api' | script_tag }}
+    {{ '//cdn.shopify.com/shopifycloud/shopify-plyr/v1.0/shopify-plyr.css' | stylesheet_tag }}
+  
+<!-- CHECKVO CHECKOUT REDIRECT START -->
+<style>
+  .quick-cart__footer-inner > a[href*="/checkout"]:not(.btn):not(.button),
+  .quick-cart__footer-inner > a[href*="checkout"]:not(.btn):not(.button),
+  .quick-cart__footer-inner > .btn--text-link[href*="/checkout"],
+  .quick-cart__footer-inner > .btn--text-link[href*="checkout"],
+  .cart__footer a[href*="/checkout"]:not(.btn):not(.button),
+  .cart__footer a[href*="checkout"]:not(.btn):not(.button),
+  .cart__summary a[href*="/checkout"]:not(.btn):not(.button),
+  .cart__summary a[href*="checkout"]:not(.btn):not(.button),
+  .cart__checkout a[href*="/checkout"]:not(.btn):not(.button),
+  .cart__checkout a[href*="checkout"]:not(.btn):not(.button),
+  .cart__footer .btn--text-link[href*="/checkout"],
+  .cart__summary .btn--text-link[href*="/checkout"] {
+    display: none !important;
+  }
+
+  .quick-cart__submit,
+  button[name="checkout"],
+  input[name="checkout"],
+  .btn--primary[name="checkout"] {
+    display: inline-flex !important;
+  }
+
+  .shopify-payment-button__button,
+  .shopify-payment-button__button--unbranded {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+</style>
+
+<script>
+(function () {
+  if (window.__CHECKVO_THEME_REDIRECT_LOADED__) {
+    return;
+  }
+
+  window.__CHECKVO_THEME_REDIRECT_LOADED__ = true;
+
+  var CHECKVO_APP_URL = "https://app.checkvo.app";
+  var CHECKVO_SHOP = {{ shop.permanent_domain | json }};
+  var creatingCheckout = false;
+
+  function normalizeText(value) {
+    return String(value || "").replace(/\s+/g, " ").trim().toLowerCase();
+  }
+
+  function isCartContext(element) {
+    if (!element || !element.closest) return false;
+
+    return Boolean(
+      element.closest(".quick-cart") ||
+      element.closest('[data-section-type="quick-cart"]') ||
+      element.closest(".cart") ||
+      element.closest(".cart-page") ||
+      element.closest(".cart__footer") ||
+      element.closest(".cart__summary") ||
+      element.closest("[data-cart]") ||
+      element.closest("form[action='/cart']") ||
+      element.closest("form[action*='/cart?']") ||
+      window.location.pathname === "/cart"
+    );
+  }
+
+  function isProductContext(element) {
+    if (!element || !element.closest) return false;
+
+    return Boolean(
+      element.closest("form[action*='/cart/add']") ||
+      element.closest("[data-product-form]") ||
+      element.closest(".product-form") ||
+      element.closest(".product__form") ||
+      element.closest(".product") ||
+      window.location.pathname.indexOf("/products/") !== -1
+    );
+  }
+
+  function isBuyNowTrigger(element) {
+    if (!element) return false;
+
+    var text = normalizeText(element.innerText || element.value || element.getAttribute("aria-label"));
+    var name = String(element.getAttribute("name") || "").toLowerCase();
+    var className = String(element.className || "").toLowerCase();
+
+    if (!isProductContext(element)) return false;
+    if (element.hasAttribute("data-checkvo-ignore")) return false;
+
+    if (className.indexOf("shopify-payment-button") !== -1) return true;
+    if (name === "checkout") return true;
+    if (text === "buy it now" || text === "купити зараз" || text === "купить сейчас") return true;
+
+    return false;
+  }
+
+  function isCheckoutTrigger(element) {
+    if (!element) return false;
+
+    var tag = element.tagName ? element.tagName.toLowerCase() : "";
+    var text = normalizeText(element.innerText || element.value || element.getAttribute("aria-label"));
+    var href = tag === "a" ? String(element.getAttribute("href") || "") : "";
+    var name = String(element.getAttribute("name") || "").toLowerCase();
+
+    if (element.hasAttribute("data-checkvo-ignore")) return false;
+
+    if (isCartContext(element) && name === "checkout") return true;
+    if (isCartContext(element) && (href.indexOf("/checkout") !== -1 || href.indexOf("checkout.shopify.com") !== -1)) return true;
+    if (isCartContext(element) && (text === "оформити замовлення" || text === "оформить заказ" || text === "checkout")) return true;
+    if (isBuyNowTrigger(element)) return true;
+
+    return false;
+  }
+
+  function setLoading(trigger, isLoading) {
+    if (!trigger) return;
+
+    if (isLoading) {
+      trigger.setAttribute("data-checkvo-loading", "true");
+
+      if ("disabled" in trigger) {
+        trigger.disabled = true;
+      }
+
+      if (!trigger.getAttribute("data-checkvo-original-text")) {
+        trigger.setAttribute("data-checkvo-original-text", trigger.innerText || trigger.value || "");
+      }
+
+      if (trigger.tagName && trigger.tagName.toLowerCase() === "input") {
+        trigger.value = "Завантаження...";
+      } else if (trigger.innerText) {
+        trigger.innerText = "Завантаження...";
+      }
+
+      return;
+    }
+
+    trigger.removeAttribute("data-checkvo-loading");
+
+    if ("disabled" in trigger) {
+      trigger.disabled = false;
+    }
+
+    var originalText = trigger.getAttribute("data-checkvo-original-text");
+
+    if (originalText) {
+      if (trigger.tagName && trigger.tagName.toLowerCase() === "input") {
+        trigger.value = originalText;
+      } else {
+        trigger.innerText = originalText;
+      }
+    }
+  }
+
+  function getCurrency(cart) {
+    if (cart && cart.currency) return cart.currency;
+
+    if (window.Shopify && window.Shopify.currency && window.Shopify.currency.active) {
+      return window.Shopify.currency.active;
+    }
+
+    return "UAH";
+  }
+
+  function mapCartItem(item, currency) {
+    return {
+      id: String(item.id || item.variant_id || item.key || ""),
+      key: String(item.key || item.id || item.variant_id || ""),
+      lineKey: String(item.key || ""),
+      productId: String(item.product_id || ""),
+      variantId: String(item.variant_id || item.id || ""),
+      title: String(item.title || item.product_title || ""),
+      productTitle: String(item.product_title || item.title || ""),
+      variantTitle: String(item.variant_title || ""),
+      vendor: String(item.vendor || ""),
+      imageUrl: item.image || "",
+      sku: String(item.sku || ""),
+      quantity: Number(item.quantity || 1),
+      price: Number(item.final_price || item.price || 0) / 100,
+      currency: currency,
+      properties: item.properties || {}
+    };
+  }
+
+  function getProductForm(trigger) {
+    if (trigger && trigger.closest) {
+      var form = trigger.closest("form[action*='/cart/add']");
+      if (form) return form;
+    }
+
+    return (
+      document.querySelector("form[action*='/cart/add']") ||
+      document.querySelector("form[action='/cart/add']")
+    );
+  }
+
+  function getSelectedVariantId(form) {
+    if (!form) return "";
+
+    var idInput =
+      form.querySelector("[name='id']:checked") ||
+      form.querySelector("select[name='id']") ||
+      form.querySelector("input[name='id']");
+
+    return idInput ? String(idInput.value || "").trim() : "";
+  }
+
+  function getSelectedQuantity(form) {
+    if (!form) return 1;
+
+    var quantityInput = form.querySelector("[name='quantity']");
+    var quantity = quantityInput ? Number(quantityInput.value || 1) : 1;
+
+    return Number.isFinite(quantity) && quantity > 0 ? quantity : 1;
+  }
+
+  async function addSelectedProductToCart(trigger) {
+    var form = getProductForm(trigger);
+    var variantId = getSelectedVariantId(form);
+
+    if (!variantId) {
+      throw new Error("Selected product variant is missing.");
+    }
+
+    var response = await fetch("/cart/add.js", {
+      method: "POST",
+      credentials: "same-origin",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify({
+        id: variantId,
+        quantity: getSelectedQuantity(form)
+      })
+    });
+
+    var data = await response.json().catch(function () {
+      return {};
+    });
+
+    if (!response.ok) {
+      throw new Error(data.description || data.message || "Cannot add product to cart.");
+    }
+
+    return data;
+  }
+
+  async function fetchCart() {
+    var response = await fetch("/cart.js", {
+      method: "GET",
+      credentials: "same-origin",
+      headers: {
+        "Accept": "application/json"
+      }
+    });
+
+    if (!response.ok) {
+      throw new Error("Cannot read Shopify cart");
+    }
+
+    return response.json();
+  }
+
+  async function createCheckvoCheckout(cart) {
+    var currency = getCurrency(cart);
+
+    var payload = {
+      source: "shopify-theme-installer",
+      shop: CHECKVO_SHOP,
+      storeDomain: window.location.hostname,
+      storefrontOrigin: window.location.origin,
+      storefrontUrl: window.location.origin,
+      sourceUrl: window.location.href,
+      referrer: document.referrer || "",
+      cartUrl: window.location.origin + "/cart",
+      returnToCartUrl: window.location.origin + "/cart",
+      returnUrl: window.location.origin + "/cart",
+      cartToken: cart.token || "",
+      language: document.documentElement.lang || "uk",
+      currency: currency,
+      totalPrice: Number(cart.total_price || 0) / 100,
+      itemCount: Number(cart.item_count || 0),
+      cart: cart,
+      items: (cart.items || []).map(function (item) {
+        return mapCartItem(item, currency);
+      })
+    };
+
+    var response = await fetch(String(CHECKVO_APP_URL).replace(/\/+$/, "") + "/api/checkout/create", {
+      method: "POST",
+      mode: "cors",
+      credentials: "omit",
+      headers: {
+        "Content-Type": "application/json",
+        "X-Checkvo-Shop": CHECKVO_SHOP,
+        "X-Shopify-Shop-Domain": CHECKVO_SHOP
+      },
+      body: JSON.stringify(payload)
+    });
+
+    var data = await response.json().catch(function () {
+      return {};
+    });
+
+    if (!response.ok || !data.ok) {
+      throw new Error(data.message || data.error || "CheckVo checkout create failed");
+    }
+
+    return data.checkoutUrl || data.url;
+  }
+
+  async function redirectToCheckvo(trigger) {
+    if (creatingCheckout) return;
+
+    creatingCheckout = true;
+    setLoading(trigger, true);
+
+    try {
+      if (isBuyNowTrigger(trigger)) {
+        await addSelectedProductToCart(trigger);
+      }
+
+      var cart = await fetchCart();
+
+      if (!cart || !cart.items || cart.items.length === 0) {
+        window.location.href = "/cart";
+        return;
+      }
+
+      var checkoutUrl = await createCheckvoCheckout(cart);
+
+      if (!checkoutUrl) {
+        throw new Error("CheckVo checkout URL is missing");
+      }
+
+      window.location.href = checkoutUrl;
+    } catch (error) {
+      console.error("[CheckVo] Checkout redirect failed:", error);
+      window.location.href = "/checkout";
+    } finally {
+      creatingCheckout = false;
+      setLoading(trigger, false);
+    }
+  }
+
+  function handleCheckoutClick(event) {
+    var trigger = event.target && event.target.closest
+      ? event.target.closest("a, button, input")
+      : null;
+
+    if (!isCheckoutTrigger(trigger)) return;
+
+    event.preventDefault();
+    event.stopPropagation();
+
+    if (event.stopImmediatePropagation) {
+      event.stopImmediatePropagation();
+    }
+
+    redirectToCheckvo(trigger);
+  }
+
+  function handleCheckoutSubmit(event) {
+    var form = event.target;
+    var submitter = event.submitter;
+
+    if (!form || !form.matches || !form.matches("form")) return;
+
+    var action = String(form.getAttribute("action") || "");
+    var isCartForm =
+      action === "/cart" ||
+      action.indexOf("/cart?") !== -1 ||
+      form.className.indexOf("cart") !== -1 ||
+      Boolean(form.closest && form.closest(".quick-cart, .cart, .cart-page"));
+
+    if (!isCartForm) return;
+
+    if (submitter && !isCheckoutTrigger(submitter)) return;
+
+    event.preventDefault();
+    event.stopPropagation();
+
+    if (event.stopImmediatePropagation) {
+      event.stopImmediatePropagation();
+    }
+
+    redirectToCheckvo(submitter || form.querySelector('[name="checkout"]'));
+  }
+
+  function relabelBuyNowButtons() {
+    var buttons = document.querySelectorAll(
+      ".shopify-payment-button__button, .shopify-payment-button__button--unbranded"
+    );
+
+    buttons.forEach(function (button) {
+      if (button.getAttribute("data-checkvo-buy-now-label") === "done") return;
+
+      button.setAttribute("data-checkvo-buy-now-label", "done");
+
+      if (button.innerText) {
+        button.innerText = "Оформити замовлення";
+      }
+    });
+  }
+
+  document.addEventListener("click", handleCheckoutClick, true);
+  document.addEventListener("submit", handleCheckoutSubmit, true);
+  relabelBuyNowButtons();
+
+  if (window.MutationObserver) {
+    new MutationObserver(relabelBuyNowButtons).observe(document.documentElement, {
+      childList: true,
+      subtree: true
+    });
+  }
+
+  document.documentElement.setAttribute("data-checkvo-theme-installer", "enabled");
+})();
+</script>
+<!-- CHECKVO CHECKOUT REDIRECT END -->
+</body>
+  {{ 'theme-deferred.css' | asset_url | stylesheet_tag }}
+</html>
