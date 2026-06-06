@@ -469,39 +469,6 @@
         "section_padding": "section--vertical-padding-none"
       }
     },
-    "165488047346f59e49": {
-      "type": "collection-list-slider",
-      "settings": {
-        "heading": "",
-        "subheading": "<h5>Бренди</h5>",
-        "link": "shopify://collections",
-        "link_text": "БІльше",
-        "columns": "5",
-        "mobile_columns": "2",
-        "collection_list": [
-          "ami",
-          "balenciaga",
-          "burberry",
-          "carhartt-wip",
-          "golden-goose",
-          "jacquemus",
-          "jil-sander",
-          "loewe",
-          "maison-margiela",
-          "marni",
-          "moncler",
-          "stone-island"
-        ],
-        "collection_listing_aspect_ratio": "natural",
-        "label_style": "overlay",
-        "overlay_title_background_style": "gradient",
-        "overlay_text_color": "#ffffff",
-        "overlay_title_background": "#000000",
-        "enable_animation": true,
-        "divider_style": "none",
-        "section_padding": "section--vertical-padding-none"
-      }
-    },
     "shoppable_feature_qTX7AU": {
       "type": "shoppable-feature",
       "blocks": {
@@ -542,6 +509,28 @@
         "divider_style": "none",
         "section_padding": "section--vertical-padding-top-bottom",
         "content_position_desktop": "inside"
+      }
+    },
+    "blog_posts_RL9eeV": {
+      "type": "blog-posts",
+      "name": "t:sections.blog_posts.presets.name",
+      "settings": {
+        "heading": "{{ section.settings.blog.title }}",
+        "subheading": "",
+        "button_link": "{{ section.settings.blog.url }}",
+        "link_text": "Переглянути усі",
+        "display_type": "all",
+        "blog": "cinq-journal",
+        "max_articles": 2,
+        "show_tags": false,
+        "show_author": false,
+        "show_date": true,
+        "show_excerpt": true,
+        "show_featured_image": true,
+        "aspect_ratio": "portrait",
+        "enable_animation": false,
+        "divider_style": "none",
+        "section_padding": "section--vertical-padding-top-bottom"
       }
     },
     "d71df2af-ba99-428a-9772-57ebe99ef94d": {
@@ -598,8 +587,8 @@
     "1655855558c1ac2348",
     "16558561315f6147d3",
     "featured_collection_slider_pW7ndr",
-    "165488047346f59e49",
     "shoppable_feature_qTX7AU",
+    "blog_posts_RL9eeV",
     "d71df2af-ba99-428a-9772-57ebe99ef94d"
   ]
 }
