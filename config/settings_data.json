@@ -40,6 +40,7 @@
     "product_listing_title_letter_spacing": 5,
     "capitalize_buttons": true,
     "buttons_letter_spacing": 5,
+    "enable_section_animations": false,
     "sale_badge_format": "percent_off",
     "custom_product_badge_group_1_tag_names": "Responsible",
     "custom_product_badge_group_1_color": "#3c9342",
