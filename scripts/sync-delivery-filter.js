@@ -14,24 +14,26 @@
  * - write_products
  * - read_inventory
  *
- * How to use:
- * 1. Replace SHOP_DOMAIN with your myshopify.com domain.
- * 2. Replace ADMIN_API_ACCESS_TOKEN with your Admin API access token.
- * 3. Run once with DRY_RUN: true.
- * 4. If console output is correct, set DRY_RUN: false and run again.
+ * Important:
+ * - Do not paste Admin API tokens into GitHub.
+ * - Keep the token only in a local .env file or in GitHub Actions secrets.
  */
 
-const CONFIG = {
-  SHOP_DOMAIN: '2szizg-0m.myshopify.com',
-  ADMIN_API_ACCESS_TOKEN: 'shpat_XXXXXXXXXXXXXXXXXXXXXXXX',
+import 'dotenv/config';
 
-  API_VERSION: '2026-04',
+const CONFIG = {
+  SHOP_DOMAIN: process.env.SHOPIFY_SHOP_DOMAIN,
+  ADMIN_API_ACCESS_TOKEN: process.env.SHOPIFY_ADMIN_API_ACCESS_TOKEN,
+
+  API_VERSION: process.env.SHOPIFY_API_VERSION || '2026-04',
 
   // true = only logs what would be changed. false = writes metafields to Shopify.
-  DRY_RUN: true,
+  DRY_RUN: String(process.env.DRY_RUN || 'true').toLowerCase() !== 'false',
 
-  UKRAINE_LOCATION_ID: 'gid://shopify/Location/84664811651',
-  EUROPE_USA_LOCATION_ID: 'gid://shopify/Location/91178336387',
+  UKRAINE_LOCATION_ID:
+    process.env.UKRAINE_LOCATION_ID || 'gid://shopify/Location/84664811651',
+  EUROPE_USA_LOCATION_ID:
+    process.env.EUROPE_USA_LOCATION_ID || 'gid://shopify/Location/91178336387',
 
   METAFIELD_NAMESPACE: 'custom',
   METAFIELD_KEY: 'delivery_filter',
@@ -356,15 +358,12 @@ async function syncDeliveryFilter() {
 }
 
 async function main() {
-  if (!CONFIG.SHOP_DOMAIN || CONFIG.SHOP_DOMAIN === 'YOUR-STORE.myshopify.com') {
-    throw new Error('Заполни CONFIG.SHOP_DOMAIN. Нужен домен вида your-store.myshopify.com');
+  if (!CONFIG.SHOP_DOMAIN) {
+    throw new Error('Заполни SHOPIFY_SHOP_DOMAIN в .env. Нужен домен вида your-store.myshopify.com');
   }
 
-  if (
-    !CONFIG.ADMIN_API_ACCESS_TOKEN ||
-    CONFIG.ADMIN_API_ACCESS_TOKEN === 'shpat_XXXXXXXXXXXXXXXXXXXXXXXX'
-  ) {
-    throw new Error('Заполни CONFIG.ADMIN_API_ACCESS_TOKEN');
+  if (!CONFIG.ADMIN_API_ACCESS_TOKEN) {
+    throw new Error('Заполни SHOPIFY_ADMIN_API_ACCESS_TOKEN в .env');
   }
 
   console.log('Starting CINQ delivery filter sync...');
