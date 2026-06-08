@@ -22,7 +22,7 @@
  */
 
 const CONFIG = {
-  SHOP_DOMAIN: 'YOUR-STORE.myshopify.com',
+  SHOP_DOMAIN: '2szizg-0m.myshopify.com',
   ADMIN_API_ACCESS_TOKEN: 'shpat_XXXXXXXXXXXXXXXXXXXXXXXX',
 
   API_VERSION: '2026-04',
