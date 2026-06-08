@@ -34,7 +34,7 @@
             "link_text": "Чоловікам",
             "button_style": "btn--callout",
             "background_color": "",
-            "text_color": "#FFFFFF",
+            "text_color": "#ffffff",
             "button_background_color": "#000000",
             "button_text_color": "#000000",
             "color_overlay": "#000",
@@ -64,7 +64,7 @@
             "link_text": "Жінкам",
             "button_style": "btn--callout",
             "background_color": "",
-            "text_color": "#FFFFFF",
+            "text_color": "#ffffff",
             "button_background_color": "#111111",
             "button_text_color": "#000000",
             "color_overlay": "#000",
@@ -77,6 +77,7 @@
         "item_rrawVC",
         "item_6j9wqe"
       ],
+      "disabled": true,
       "name": "t:sections.grid.presets.name",
       "settings": {
         "heading": "",
@@ -130,7 +131,6 @@
       "block_order": [
         "subheading_DGY9mi"
       ],
-      "disabled": true,
       "name": "t:sections.rich_text.presets.name",
       "settings": {
         "alignment": "left_left",
