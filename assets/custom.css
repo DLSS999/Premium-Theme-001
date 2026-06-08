@@ -119,3 +119,44 @@
     flex: 0 0 var(--compact-product-image-width-desktop) !important;
   }
 }
+
+/* CINQ location-based availability badges */
+.product-item__availability-badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.product-item__availability-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+.product-item__availability-badge--in-stock {
+  background: #e8f7ed;
+  color: #137333;
+}
+
+.product-item__availability-badge--preorder {
+  background: #fff4e5;
+  color: #a15c00;
+}
+
+.product-item__availability-badge--default {
+  background: #f4f4f4;
+  color: #555555;
+}
+
+.inventory-counter__message {
+  font-weight: 500;
+}

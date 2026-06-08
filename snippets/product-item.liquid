@@ -244,6 +244,26 @@
           {% render 'unit-price', item: current_variant %}
         </p>
 
+        {%- assign cinq_availability_filter = prod.metafields.custom.availability_filter.value -%}
+        {%- if cinq_availability_filter != blank -%}
+          <div class="product-item__availability-badges" aria-label="Наявність">
+            {%- for cinq_availability_label in cinq_availability_filter -%}
+              {%- assign cinq_availability_label_downcase = cinq_availability_label | downcase -%}
+              {%- assign cinq_availability_badge_class = 'product-item__availability-badge--default' -%}
+
+              {%- if cinq_availability_label_downcase contains 'наяв' or cinq_availability_label_downcase contains 'in_stock' or cinq_availability_label_downcase contains 'in stock' -%}
+                {%- assign cinq_availability_badge_class = 'product-item__availability-badge--in-stock' -%}
+              {%- elsif cinq_availability_label_downcase contains 'замов' or cinq_availability_label_downcase contains 'preorder' or cinq_availability_label_downcase contains 'pre-order' -%}
+                {%- assign cinq_availability_badge_class = 'product-item__availability-badge--preorder' -%}
+              {%- endif -%}
+
+              <span class="product-item__availability-badge {{ cinq_availability_badge_class }}">
+                {{ cinq_availability_label }}
+              </span>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+
         {% if has_hover_swatches %}
           <h5 class="ff-body fs-body-50 product-item__swatch-count">
             {{ 'products.product.swatch_count' | t: count: displayed_swatch_count }}

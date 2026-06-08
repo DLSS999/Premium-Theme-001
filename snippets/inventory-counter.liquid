@@ -34,34 +34,92 @@
     {
       "inventory": {
         {%- for variant in product.variants -%}
-          {%- if variant.available -%}
-            {%- if variant.inventory_management == nil and block_settings.show_untracked_quantity -%}
-              {%- capture inventory_message -%}{{ 'products.inventory.in_stock' | t }}{%- endcapture -%}
-            {%- else -%}
-              {%- if variant.inventory_management and variant.inventory_quantity > 0 and low_inventory_threshold_to_num > 0 -%}
-                {%- if variant.inventory_quantity <= low_inventory_threshold_to_num -%}
-                  {%- capture inventory_message -%}{{ 'products.inventory.low_stock' | t : count: variant.inventory_quantity }}{%- endcapture -%}
-                {%- else -%}
-                  {%- capture inventory_message -%}{{ 'products.inventory.in_stock' | t }}{%- endcapture -%}
-                {%- endif -%}
-              {%- else -%}
-                {%- if variant.inventory_policy == 'deny' and variant.inventory_quantity <= 0 and variant.requires_shipping -%}
-                  {%- capture inventory_message -%}{{ 'products.inventory.sold_out' | t }}{%- endcapture -%}
-                {%- elsif variant.inventory_policy == 'continue' and variant.inventory_quantity <= 0 and variant.requires_shipping -%}
-                  {%- capture inventory_message -%}{{ 'products.inventory.backordered' | t }}{%- endcapture -%}
-                {%- else %}
-                  {%- capture inventory_message -%}{%- endcapture -%}
-                {%- endif -%}
-              {%- endif -%}
-            {%- endif -%}
-          {%- else -%}
-            {%- capture inventory_message -%}{{ 'products.inventory.sold_out' | t }}{%- endcapture -%}
-          {%- endif -%}
+          {%- liquid
+            assign cinq_stock_status = variant.metafields.custom.stock_status.value | default: variant.metafields.custom.stock_status | strip
+            assign inventory_management_for_json = variant.inventory_management
+            assign inventory_policy_for_json = variant.inventory_policy
+            assign inventory_quantity_for_json = variant.inventory_quantity
+
+            if cinq_stock_status == 'in_stock'
+              capture inventory_message
+                echo 'В наявності'
+              endcapture
+
+              if inventory_management_for_json == blank
+                assign inventory_management_for_json = 'shopify'
+              endif
+
+              if inventory_quantity_for_json <= 0
+                assign inventory_quantity_for_json = 1
+              endif
+            elsif cinq_stock_status == 'preorder'
+              capture inventory_message
+                echo 'Під замовлення'
+              endcapture
+
+              assign inventory_policy_for_json = 'continue'
+
+              if inventory_management_for_json == blank
+                assign inventory_management_for_json = 'shopify'
+              endif
+
+              if inventory_quantity_for_json <= 0
+                assign inventory_quantity_for_json = 1
+              endif
+            elsif cinq_stock_status == 'out_of_stock'
+              capture inventory_message
+                echo 'Немає в наявності'
+              endcapture
+
+              assign inventory_policy_for_json = 'deny'
+              assign inventory_quantity_for_json = 0
+
+              if inventory_management_for_json == blank
+                assign inventory_management_for_json = 'shopify'
+              endif
+            elsif variant.available
+              if variant.inventory_management == nil and block_settings.show_untracked_quantity
+                capture inventory_message
+                  echo 'products.inventory.in_stock' | t
+                endcapture
+              else
+                if variant.inventory_management and variant.inventory_quantity > 0 and low_inventory_threshold_to_num > 0
+                  if variant.inventory_quantity <= low_inventory_threshold_to_num
+                    capture inventory_message
+                      echo 'products.inventory.low_stock' | t: count: variant.inventory_quantity
+                    endcapture
+                  else
+                    capture inventory_message
+                      echo 'products.inventory.in_stock' | t
+                    endcapture
+                  endif
+                else
+                  if variant.inventory_policy == 'deny' and variant.inventory_quantity <= 0 and variant.requires_shipping
+                    capture inventory_message
+                      echo 'products.inventory.sold_out' | t
+                    endcapture
+                  elsif variant.inventory_policy == 'continue' and variant.inventory_quantity <= 0 and variant.requires_shipping
+                    capture inventory_message
+                      echo 'products.inventory.backordered' | t
+                    endcapture
+                  else
+                    capture inventory_message
+                    endcapture
+                  endif
+                endif
+              endif
+            else
+              capture inventory_message
+                echo 'products.inventory.sold_out' | t
+              endcapture
+            endif
+          -%}
           "{{ variant.id }}": {
-            "inventory_management": {{ variant.inventory_management | json }},
-            "inventory_policy": {{ variant.inventory_policy | json }},
-            "inventory_quantity": {{ variant.inventory_quantity | json }},
-            "inventory_message": {{ inventory_message | json }}
+            "inventory_management": {{ inventory_management_for_json | json }},
+            "inventory_policy": {{ inventory_policy_for_json | json }},
+            "inventory_quantity": {{ inventory_quantity_for_json | json }},
+            "inventory_message": {{ inventory_message | strip | json }},
+            "stock_status": {{ cinq_stock_status | json }}
           }{% unless forloop.last %},{% endunless %}
         {%- endfor -%}
       }
