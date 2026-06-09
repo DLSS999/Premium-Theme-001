@@ -1,1 +1,576 @@
-{"account":{"add_address":"Додати адресу","log_out":"Вийти","orders":{"none":"Ви ще не оформлювали замовлень.","note":"Примітка клієнта","title":"Історія замовлень"},"orders_paginate":"замовлення","title":"Мій акаунт","view_addresses":"Переглянути адреси","welcome":"З поверненням, {{ name }}!","welcome_nameless":"З поверненням!"},"blogs":{"article":{"by":"Автор","pagination":{"next":"Наступна публікація","previous":"Попередня публікація"},"read":"Читати далі","tags":"Теги"},"comment":"Коментар","comments":{"comments_with_count":{"one":"{{ count }} коментар","other":"{{ count }} коментарів"},"email":"Електронна пошта","message":"Повідомлення","moderated":"Зверніть увагу: коментарі мають бути схвалені перед публікацією.","name":"Ім'я","on":" на ","post":"Опублікувати коментар","success":"Ваш коментар успішно опубліковано. Дякуємо!","success_moderated":"Ваш коментар успішно надіслано. Ми опублікуємо його трохи пізніше, оскільки блог модеруються.","title":"Залишити коментар","unapproved":"Вказану email-адресу не схвалено для публікації коментарів."},"general":{"all":"Усі"}},"cart":{"general":{"add":"Додати","cart":"Ваш кошик","checkout":"Оформити замовлення","confirmation_popup_heading":"Додано до кошика","continue_shopping":"Продовжити покупки","cookies_required":"Увімкніть cookies, щоб користуватися кошиком","empty":"Ваш кошик порожній","empty_message":"У вашому кошику немає товарів","error":"У кошику вже максимальна кількість цього товару","free_shipping":"Ваше замовлення підпадає під безкоштовну доставку!","free_shipping_remaining_html":"До безкоштовної доставки залишилося лише {{ remaining_amount }}!","go_to_cart":"Перейти до кошика","inventory_warning":"Залишилося лише {{ amount }}!","items_with_count":{"one":"{{ count }} товар","other":"{{ count }} товарів"},"order_note_button_add":"Додати примітку до замовлення","order_note_button_edit":"Редагувати примітку до замовлення","order_note_label":"Примітка до замовлення","order_note_placeholder":"Додайте спеціальні інструкції для продавця...","remove":"Видалити","subtotal":"Проміжний підсумок","taxes_and_shipping_at_checkout":"Податки та доставка розраховуються під час оформлення замовлення","taxes_and_shipping_policy_at_checkout_html":"Податки та <a href=\"{{ link }}\">доставка<\/a> розраховуються під час оформлення замовлення","taxes_included_and_shipping_policy_html":"Податок включено. <a href=\"{{ link }}\">Доставка<\/a> розраховується під час відправки замовлення.","taxes_included_but_shipping_at_checkout":"Податок включено, доставка розраховується під час відправки замовлення","title":"Ваш кошик","update":"Оновити","view_cart":"Переглянути кошик ({{ cart_total }})"},"label":{"product":"Товар","quantity":"Кількість","total":"Разом"}},"collections":{"general":{"collection_label":"Колекція","no_matches":"На жаль, у цій колекції немає товарів","no_products":"Немає товарів","view_all":"Переглянути все"}},"contact":{"form":{"email":"Електронна пошта","message":"Повідомлення","name":"Ім'я","phone":"Телефон","post_success":"Дякуємо за звернення. Ми зв'яжемося з вами якнайшвидше.","recaptcha_terms_html":"Цей сайт захищено reCAPTCHA, застосовуються <a href='https:\/\/policies.google.com\/privacy'>Політика конфіденційності<\/a> та <a href='https:\/\/policies.google.com\/terms'>Умови використання<\/a> Google.","submit":"Надіслати"}},"customer":{"account":{"details":"Дані акаунта","title":"Мій акаунт"},"activate_account":{"cancel":"Відхилити запрошення","password":"Пароль","password_confirm":"Підтвердьте пароль","submit":"Активувати акаунт","subtext":"Створіть пароль, щоб активувати акаунт.","success":"Ваш акаунт успішно активовано","title":"Активація акаунта"},"addresses":{"add":"Додати адресу","add_new":"Додати нову адресу","address1":"Адреса","address2":"Квартира, офіс тощо","cancel":"Скасувати","city":"Місто","company":"Компанія","country":"Країна\/регіон","default":"За замовчуванням","delete":"Видалити","delete_confirm":"Ви впевнені, що хочете видалити цю адресу?","edit":"Редагувати","edit_address":"Редагувати адресу","first_name":"Ім'я","last_name":"Прізвище","phone":"Телефон","province":"Область\/регіон","set_default":"Зробити адресою за замовчуванням","title":"Ваші адреси","update":"Оновити адресу","zip":"Поштовий індекс"},"login":{"email":"Електронна пошта","forgot_password":"Забули пароль?","guest_continue":"Продовжити","guest_title":"Продовжити як гість","password":"Пароль","sign_in":"Увійти","title":"Вхід"},"order":{"billing_address":"Платіжна адреса","cancelled_html":"Замовлення скасовано {{ date }}","cancelled_reason":"Причина: {{ reason }}","date_html":"Оформлено {{ date }}","discount":"Знижка","fulfilled_at_html":"Виконано {{ date }}","fulfillment_status":"Статус виконання","payment_status":"Статус оплати","price":"Ціна","product":"Товар","quantity":"Кількість","shipping":"Доставка","shipping_address":"Адреса доставки","sku":"SKU","subtotal":"Проміжний підсумок","summary":"Підсумок нарахувань","tax":"Податок","title":"Замовлення {{ name }}","total":"Разом","track_shipment":"Відстежити відправлення"},"orders":{"date":"Дата","fulfillment_status":"Статус виконання","order_number":"Замовлення","order_number_link":"Номер замовлення {{ number }}","payment_status":"Статус оплати","total":"Разом"},"recover_password":{"cancel":"Скасувати","email":"Електронна пошта","submit":"Надіслати","subtext":"Ми надішлемо вам лист для скидання пароля.","success":"Ми надіслали вам лист із посиланням для оновлення пароля.","title":"Скидання пароля"},"register":{"email":"Електронна пошта","first_name":"Ім'я","last_name":"Прізвище","password":"Пароль","submit":"Створити","success":"Ваш акаунт успішно зареєстровано","title":"Створити акаунт"},"reset_password":{"password":"Пароль","password_confirm":"Підтвердьте пароль","submit":"Скинути пароль","subtext":"Введіть новий пароль для {{ email }}","success":"Ваш пароль успішно скинуто","title":"Скидання пароля акаунта"}},"filters":{"apply":"Застосувати","clear":"Очистити","clear_all":"Очистити все","clear_filters":"Очистити фільтри","done":"Готово","from":"Від","item_count_html":"({{ value }})","many_results_html":"{{ value }} результатів","max_price":"Найвища ціна — {{ price }}","no_results":"Немає результатів","one_result_html":"{{ value }} результат","sort_title":"Сортування","title":"Фільтр","to":"До","zero_selected":"0 вибрано"},"general":{"404":{"link":"Повернутися на головну","subtext":"Запитуваної сторінки не існує.","title":"404 Сторінку не знайдено"},"accessibility":{"accordion_groups":"Кнопки керування групами акордеона","back":"Назад","back_to_top":"Нагору","carousel_next":"Перейти до наступного слайда каруселі","carousel_previous":"Перейти до попереднього слайда каруселі","carousel_select":"Перейти до слайда {{ number }}","close_menu":"Закрити меню","close_modal":"Закрити","down":"Вниз","error":"Помилка","go_account":"Перейти на сторінку акаунта","image_thumbail":"Змінити зображення на зображення {{ number }}","loading":"завантаження&hellip;","mobile_filters":"Показати або приховати фільтри колекції","next":"Далі","open_cart":"Відкрити кошик","open_menu":"Відкрити меню","open_modal":"Відкрити модальне вікно","open_search":"Відкрити пошук","pause":"Пауза","play":"Відтворити","play_video":"Відтворити відео","previous":"Назад","quantity":"Кількість товару","quantity_add":"Збільшити кількість товару","quantity_subtract":"Зменшити кількість товару","quote_nav":"Переглянути цитату від {{ name }}","range_lower":"Нижнє значення","range_upper":"Верхнє значення","remove_product":"Видалити","rss":"RSS-стрічка","skip_to_content":"Перейти до вмісту","submit":"Надіслати","unit_price_separator":"за","up":"Вгору","view_3d_model":"Переглянути 3D-модель","visit_link":"Перейти до {{ link }}"},"currency":{"dropdown_label":"Валюта"},"flash_alert":{"no_link":"Додайте посилання для кнопки","no_video":"Додайте посилання на відео"},"language":{"dropdown_label":"Мова"},"meta":{"page":"Сторінка {{ page }}","tags":"Позначено тегом \"{{ tags }}\""},"month_abbreviations":{"April":"квіт.","August":"серп.","December":"груд.","February":"лют.","January":"січ.","July":"лип.","June":"черв.","March":"бер.","May":"трав.","November":"лист.","October":"жовт.","September":"вер."},"navigation":{"home":"Головна","next":"Далі","previous":"Назад"},"newsletter_form":{"confirmation":"Дякуємо за підписку!","email_placeholder":"Ваш email","submit":"Підписатися"},"pagination":{"addresses":"адрес","blog_posts":"публікацій блогу","collections":"колекцій","comments":"коментарів","load_more":"Завантажити ще","next":"Далі","next_page":"Наступна сторінка {{ type }}","orders":"замовлень","page":"Сторінка {{ number }} з {{ type }}","previous":"Назад","previous_page":"Попередня сторінка {{ type }}","products":"товарів","results":"результатів","viewing":"Ви переглядаєте {{ of }} з {{ total }}"},"password_page":{"admin_link_html":"Ви власник магазину? <a href=\"\/admin\" class=\"btn btn--text-link\">Увійдіть тут<\/a>","login_form_heading":"Увійдіть до магазину за допомогою пароля:","login_form_password_placeholder":"Ваш пароль","login_form_submit":"Увійти","opening_soon":"Скоро відкриття","password_link":"Увійти до магазину за паролем","signup_form_button_label":"Повідомити мене","signup_form_email_placeholder":"Ваш email","signup_form_success":"Ми надішлемо вам лист перед відкриттям!"},"payment":{"method":"Способи оплати"},"social":{"alt_text":{"share_menu":"Меню поширення","share_on_facebook":"Поділитися","share_on_pinterest":"Закріпити","share_on_twitter":"Твітнути"},"copy_link":"Скопіювати посилання","link_copied":"Посилання скопійовано!","link_copy_error":"Помилка копіювання посилання.","share":"Поділитися"}},"gift_cards":{"issued":{"active":"Діє до {{ expiry }}","add_to_apple_wallet":"Додати до Apple Wallet","disabled":"Вимкнено","expired":"Термін дії завершився {{ expiry }}","gift_card_code":"Код подарункової картки","initial_value":"Номінал подарункової картки: {{ value }}","print":"Надрукувати цю подарункову картку","qr_image_alt":"QR-код — відскануйте, щоб використати подарункову картку","redeem":"Використайте цей код під час оформлення замовлення, щоб активувати подарункову картку","remaining_html":"Залишок: {{ balance }}","shop_link":"Почати покупки","subtext":"Ваша подарункова картка","title_html":"Ваша подарункова картка на {{ value }} для {{ shop }}!"}},"homepage":{"onboarding":{"article_author":"Автор","article_excerpt":"Додайте короткий опис публікації блогу для клієнтів.","blog_title":"Назва вашої публікації","product_title":"Назва вашого товару"}},"layout":{"customer":{"create_account":"Створити акаунт"}},"product":{"add_to_cart":"Додати в кошик","quick_add":"Швидке додавання","share":"Поділитися","sold_out":"Розпродано","unavailable":"Недоступно"},"products":{"inventory":{"backordered":"Доступно під замовлення","in_stock":"В наявності та готово до відправлення","low_stock":"Залишилося лише {{count}}. Замовляйте швидше!","sold_out":"Немає в наявності","unavailable":"Недоступно"},"product":{"add_to_cart":"Додати в кошик","buy_now":"Купити зараз","country_placeholder":"Країна\/регіон","description":"Опис","estimate_shipping":"Розрахувати доставку","from_lowest_price_html":"від {{ lowest_price }}","include_taxes":"Податок включено.","less_media":"Менше медіа","loader_label":"Додаємо товар до кошика","more_media":"Більше медіа","no_rates":"Тариф доставки недоступний","on_sale":"Знижка","on_sale_format_amount_off":"знижка {{ value }}","on_sale_format_minus_amount":"-{{ value }}","on_sale_format_minus_percent":"-{{ value }}%","on_sale_format_percent_off":"знижка {{ value }}%","on_sale_format_save_amount":"Економія {{ value }}","on_sale_format_save_amount_varied":"Економія до {{ value }}","on_sale_format_save_percent":"Економія {{ value }}%","on_sale_format_save_percent_varied":"Економія до {{ value }}%","on_sale_from_html":"від {{ price }}","on_sale_varied_prefix":"До","preorder":"Передзамовлення","quantity":"Кількість","quantity_error":"Вибрана кількість перевищує поточний залишок","quick_view":"Швидкий перегляд","quick_view_product_link":"Переглянути деталі товару","regular_price":"Звичайна ціна","reviews":"Відгуки клієнтів","sale_price":"Ціна зі знижкою","shipping_policy_html":"<a href=\"{{ link }}\">Доставка<\/a> розраховується під час відправки замовлення.","sku":"SKU","sku_with_value":"SKU: {{ value }}","sold_out":"Розпродано","swatch_count":{"one":"{{count}} колір","other":"{{count}} кольорів","zero":"Немає кольорів"},"swatch_overflow":"+ ще {{ overflow_amount }}","unavailable":"Недоступно","unit_price_label":"Ціна за одиницю","vendor":"Бренд","view_in_space":"Переглянути у вашому просторі","view_in_space_label":"Переглянути у вашому просторі, відкриває товар у вікні доповненої реальності","write_a_review":"Написати відгук"}},"search":{"check_spelling":"Перевірте написання або використайте інше слово чи фразу.","clear_search":"Очистити","heading":{"one":"Результат пошуку","other":"Результати пошуку"},"headings":{"articles":"Статті","collections":"Колекції","pages":"Сторінки","products":"Товари"},"no_products":"Товарів не знайдено","no_results":"Нічого не знайдено. Перевірте написання або використайте інше слово чи фразу.","no_results_html":"Немає результатів для “{{ terms }}”","placeholder":"Що ви шукаєте?","read_now":"Читати зараз","results_with_count":{"one":"{{ count }} результат для “{{ terms }}”","other":"{{ count }} результатів для “{{ terms }}”"},"search":"Пошук","suggestions":"Пошукові підказки","title":"Пошук на сайті","view_all":"Переглянути всі результати"},"sections":{"blog_posts":{"more":"більше"},"countdown_timer":{"days":"Дні","hours":"Години","minutes":"Хвилини","seconds":"Секунди"},"drawer_menu":{"account":{"logged_in":"Мій акаунт","logged_out":"Реєстрація \/ Вхід","logout":"Вийти"},"currency":"Валюта","language":"Мова","search_title":"Пошук","search_view_all":"Переглянути все"},"events":{"learn_more":"Дізнатися більше"},"featured_product":{"placeholder":{"description":"Це приклад опису товару. Після додавання товару цей текст зміниться.","title":"Приклад товару","vendor":"Бренд"},"title":"Рекомендований товар","view_product":"Переглянути повну інформацію про товар"},"footer":{"copyright":"Авторські права","headings":{"cross_border":"Валюта та мова","currency":"Валюта","language":"Мова","payment":"Оплата"},"rights":"Усі права захищено.","see_terms":"Перегляньте наші умови використання та повідомлення про конфіденційність.","social_platform":"{{ name }} у {{ platform }}"},"questions":{"answered_by":""},"sales_banner":{"sale_units":{"off":"знижка","per_month":"\/міс.","per_year":"\/рік","percent":"%"}},"social_proof":{"likes":"вподобань"}},"store_availability":{"general":{"availability":"Наявність","check_other_stores":"Перевірити наявність в інших магазинах","in_stock":"В наявності","locations":"Локації","not_in_stock":"Немає в наявності","pick_up_available":"Самовивіз доступний","pick_up_available_at":"Самовивіз доступний у {{ location_name }}","pick_up_available_time":"В наявності, {{ pickup_time }}","pick_up_currently_unavailable":"Самовивіз наразі недоступний","pick_up_unavailable_at":"Самовивіз недоступний у {{ location_name }}","view_store_info":"Переглянути інформацію про магазин"}},"shopify":{"collections":{"sorting":{"manual":"Рекомендовані","most_relevant":"Найрелевантніші","best_selling":"Найпопулярніші","az":"За алфавітом, А–Я","za":"За алфавітом, Я–А","price_ascending":"Ціна: від низької до високої","price_descending":"Ціна: від високої до низької","date_ascending":"Дата: від старих до нових","date_descending":"Дата: від нових до старих"}},"search":{"sorting":{"price_ascending":"Ціна: від низької до високої","price_descending":"Ціна: від високої до низької"}}}}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "account": {
+    "add_address": "Додати адресу",
+    "log_out": "Вийти",
+    "orders": {
+      "none": "Ви ще не оформлювали замовлень.",
+      "note": "Примітка клієнта",
+      "title": "Історія замовлень"
+    },
+    "orders_paginate": "замовлення",
+    "title": "Мій акаунт",
+    "view_addresses": "Переглянути адреси",
+    "welcome": "З поверненням, {{ name }}!",
+    "welcome_nameless": "З поверненням!"
+  },
+  "blogs": {
+    "article": {
+      "by": "Автор",
+      "pagination": {
+        "next": "Наступна публікація",
+        "previous": "Попередня публікація"
+      },
+      "read": "Читати далі",
+      "tags": "Теги"
+    },
+    "comment": "Коментар",
+    "comments": {
+      "comments_with_count": {
+        "one": "{{ count }} коментар",
+        "other": "{{ count }} коментарів"
+      },
+      "email": "Електронна пошта",
+      "message": "Повідомлення",
+      "moderated": "Зверніть увагу: коментарі мають бути схвалені перед публікацією.",
+      "name": "Ім'я",
+      "on": " на ",
+      "post": "Опублікувати коментар",
+      "success": "Ваш коментар успішно опубліковано. Дякуємо!",
+      "success_moderated": "Ваш коментар успішно надіслано. Ми опублікуємо його трохи пізніше, оскільки блог модеруються.",
+      "title": "Залишити коментар",
+      "unapproved": "Вказану email-адресу не схвалено для публікації коментарів."
+    },
+    "general": {
+      "all": "Усі"
+    }
+  },
+  "cart": {
+    "general": {
+      "add": "Додати",
+      "cart": "Ваш кошик",
+      "checkout": "Оформити замовлення",
+      "confirmation_popup_heading": "Додано до кошика",
+      "continue_shopping": "Продовжити покупки",
+      "cookies_required": "Увімкніть cookies, щоб користуватися кошиком",
+      "empty": "Ваш кошик порожній",
+      "empty_message": "У вашому кошику немає товарів",
+      "error": "У кошику вже максимальна кількість цього товару",
+      "free_shipping": "Ваше замовлення підпадає під безкоштовну доставку!",
+      "free_shipping_remaining_html": "До безкоштовної доставки залишилося лише {{ remaining_amount }}!",
+      "go_to_cart": "Перейти до кошика",
+      "inventory_warning": "Залишилося лише {{ amount }}!",
+      "items_with_count": {
+        "one": "{{ count }} товар",
+        "other": "{{ count }} товарів"
+      },
+      "order_note_button_add": "Додати примітку до замовлення",
+      "order_note_button_edit": "Редагувати примітку до замовлення",
+      "order_note_label": "Примітка до замовлення",
+      "order_note_placeholder": "Додайте спеціальні інструкції для продавця...",
+      "remove": "Видалити",
+      "subtotal": "Загалом",
+      "taxes_and_shipping_at_checkout": "Податки та доставка розраховуються під час оформлення замовлення",
+      "taxes_and_shipping_policy_at_checkout_html": "Податки та <a href=\"{{ link }}\">доставка</a> розраховуються під час оформлення замовлення",
+      "taxes_included_and_shipping_policy_html": "Податок включено. <a href=\"{{ link }}\">Доставка</a> розраховується під час відправки замовлення.",
+      "taxes_included_but_shipping_at_checkout": "Податок включено, доставка розраховується під час відправки замовлення",
+      "title": "Ваш кошик",
+      "update": "Оновити",
+      "view_cart": "Переглянути кошик ({{ cart_total }})"
+    },
+    "label": {
+      "product": "Товар",
+      "quantity": "Кількість",
+      "total": "Разом"
+    }
+  },
+  "collections": {
+    "general": {
+      "collection_label": "Колекція",
+      "no_matches": "На жаль, у цій колекції немає товарів",
+      "no_products": "Немає товарів",
+      "view_all": "Переглянути все"
+    }
+  },
+  "contact": {
+    "form": {
+      "email": "Електронна пошта",
+      "message": "Повідомлення",
+      "name": "Ім'я",
+      "phone": "Телефон",
+      "post_success": "Дякуємо за звернення. Ми зв'яжемося з вами якнайшвидше.",
+      "recaptcha_terms_html": "Цей сайт захищено reCAPTCHA, застосовуються <a href='https://policies.google.com/privacy'>Політика конфіденційності</a> та <a href='https://policies.google.com/terms'>Умови використання</a> Google.",
+      "submit": "Надіслати"
+    }
+  },
+  "customer": {
+    "account": {
+      "details": "Дані акаунта",
+      "title": "Мій акаунт"
+    },
+    "activate_account": {
+      "cancel": "Відхилити запрошення",
+      "password": "Пароль",
+      "password_confirm": "Підтвердьте пароль",
+      "submit": "Активувати акаунт",
+      "subtext": "Створіть пароль, щоб активувати акаунт.",
+      "success": "Ваш акаунт успішно активовано",
+      "title": "Активація акаунта"
+    },
+    "addresses": {
+      "add": "Додати адресу",
+      "add_new": "Додати нову адресу",
+      "address1": "Адреса",
+      "address2": "Квартира, офіс тощо",
+      "cancel": "Скасувати",
+      "city": "Місто",
+      "company": "Компанія",
+      "country": "Країна/регіон",
+      "default": "За замовчуванням",
+      "delete": "Видалити",
+      "delete_confirm": "Ви впевнені, що хочете видалити цю адресу?",
+      "edit": "Редагувати",
+      "edit_address": "Редагувати адресу",
+      "first_name": "Ім'я",
+      "last_name": "Прізвище",
+      "phone": "Телефон",
+      "province": "Область/регіон",
+      "set_default": "Зробити адресою за замовчуванням",
+      "title": "Ваші адреси",
+      "update": "Оновити адресу",
+      "zip": "Поштовий індекс"
+    },
+    "login": {
+      "email": "Електронна пошта",
+      "forgot_password": "Забули пароль?",
+      "guest_continue": "Продовжити",
+      "guest_title": "Продовжити як гість",
+      "password": "Пароль",
+      "sign_in": "Увійти",
+      "title": "Вхід"
+    },
+    "order": {
+      "billing_address": "Платіжна адреса",
+      "cancelled_html": "Замовлення скасовано {{ date }}",
+      "cancelled_reason": "Причина: {{ reason }}",
+      "date_html": "Оформлено {{ date }}",
+      "discount": "Знижка",
+      "fulfilled_at_html": "Виконано {{ date }}",
+      "fulfillment_status": "Статус виконання",
+      "payment_status": "Статус оплати",
+      "price": "Ціна",
+      "product": "Товар",
+      "quantity": "Кількість",
+      "shipping": "Доставка",
+      "shipping_address": "Адреса доставки",
+      "sku": "SKU",
+      "subtotal": "Загалом",
+      "summary": "Підсумок нарахувань",
+      "tax": "Податок",
+      "title": "Замовлення {{ name }}",
+      "total": "Разом",
+      "track_shipment": "Відстежити відправлення"
+    },
+    "orders": {
+      "date": "Дата",
+      "fulfillment_status": "Статус виконання",
+      "order_number": "Замовлення",
+      "order_number_link": "Номер замовлення {{ number }}",
+      "payment_status": "Статус оплати",
+      "total": "Разом"
+    },
+    "recover_password": {
+      "cancel": "Скасувати",
+      "email": "Електронна пошта",
+      "submit": "Надіслати",
+      "subtext": "Ми надішлемо вам лист для скидання пароля.",
+      "success": "Ми надіслали вам лист із посиланням для оновлення пароля.",
+      "title": "Скидання пароля"
+    },
+    "register": {
+      "email": "Електронна пошта",
+      "first_name": "Ім'я",
+      "last_name": "Прізвище",
+      "password": "Пароль",
+      "submit": "Створити",
+      "success": "Ваш акаунт успішно зареєстровано",
+      "title": "Створити акаунт"
+    },
+    "reset_password": {
+      "password": "Пароль",
+      "password_confirm": "Підтвердьте пароль",
+      "submit": "Скинути пароль",
+      "subtext": "Введіть новий пароль для {{ email }}",
+      "success": "Ваш пароль успішно скинуто",
+      "title": "Скидання пароля акаунта"
+    }
+  },
+  "filters": {
+    "apply": "Застосувати",
+    "clear": "Очистити",
+    "clear_all": "Очистити все",
+    "clear_filters": "Очистити фільтри",
+    "done": "Готово",
+    "from": "Від",
+    "item_count_html": "({{ value }})",
+    "many_results_html": "{{ value }} результатів",
+    "max_price": "Найвища ціна — {{ price }}",
+    "no_results": "Немає результатів",
+    "one_result_html": "{{ value }} результат",
+    "sort_title": "Сортування",
+    "title": "Фільтр",
+    "to": "До",
+    "zero_selected": "0 вибрано"
+  },
+  "general": {
+    "404": {
+      "link": "Повернутися на головну",
+      "subtext": "Запитуваної сторінки не існує.",
+      "title": "404 Сторінку не знайдено"
+    },
+    "accessibility": {
+      "accordion_groups": "Кнопки керування групами акордеона",
+      "back": "Назад",
+      "back_to_top": "Нагору",
+      "carousel_next": "Перейти до наступного слайда каруселі",
+      "carousel_previous": "Перейти до попереднього слайда каруселі",
+      "carousel_select": "Перейти до слайда {{ number }}",
+      "close_menu": "Закрити меню",
+      "close_modal": "Закрити",
+      "down": "Вниз",
+      "error": "Помилка",
+      "go_account": "Перейти на сторінку акаунта",
+      "image_thumbail": "Змінити зображення на зображення {{ number }}",
+      "loading": "завантаження&hellip;",
+      "mobile_filters": "Показати або приховати фільтри колекції",
+      "next": "Далі",
+      "open_cart": "Відкрити кошик",
+      "open_menu": "Відкрити меню",
+      "open_modal": "Відкрити модальне вікно",
+      "open_search": "Відкрити пошук",
+      "pause": "Пауза",
+      "play": "Відтворити",
+      "play_video": "Відтворити відео",
+      "previous": "Назад",
+      "quantity": "Кількість товару",
+      "quantity_add": "Збільшити кількість товару",
+      "quantity_subtract": "Зменшити кількість товару",
+      "quote_nav": "Переглянути цитату від {{ name }}",
+      "range_lower": "Нижнє значення",
+      "range_upper": "Верхнє значення",
+      "remove_product": "Видалити",
+      "rss": "RSS-стрічка",
+      "skip_to_content": "Перейти до вмісту",
+      "submit": "Надіслати",
+      "unit_price_separator": "за",
+      "up": "Вгору",
+      "view_3d_model": "Переглянути 3D-модель",
+      "visit_link": "Перейти до {{ link }}"
+    },
+    "currency": {
+      "dropdown_label": "Валюта"
+    },
+    "flash_alert": {
+      "no_link": "Додайте посилання для кнопки",
+      "no_video": "Додайте посилання на відео"
+    },
+    "language": {
+      "dropdown_label": "Мова"
+    },
+    "meta": {
+      "page": "Сторінка {{ page }}",
+      "tags": "Позначено тегом \"{{ tags }}\""
+    },
+    "month_abbreviations": {
+      "April": "квіт.",
+      "August": "серп.",
+      "December": "груд.",
+      "February": "лют.",
+      "January": "січ.",
+      "July": "лип.",
+      "June": "черв.",
+      "March": "бер.",
+      "May": "трав.",
+      "November": "лист.",
+      "October": "жовт.",
+      "September": "вер."
+    },
+    "navigation": {
+      "home": "Головна",
+      "next": "Далі",
+      "previous": "Назад"
+    },
+    "newsletter_form": {
+      "confirmation": "Дякуємо за підписку!",
+      "email_placeholder": "Ваш email",
+      "submit": "Підписатися"
+    },
+    "pagination": {
+      "addresses": "адрес",
+      "blog_posts": "публікацій блогу",
+      "collections": "колекцій",
+      "comments": "коментарів",
+      "load_more": "Завантажити ще",
+      "next": "Далі",
+      "next_page": "Наступна сторінка {{ type }}",
+      "orders": "замовлень",
+      "page": "Сторінка {{ number }} з {{ type }}",
+      "previous": "Назад",
+      "previous_page": "Попередня сторінка {{ type }}",
+      "products": "товарів",
+      "results": "результатів",
+      "viewing": "Ви переглядаєте {{ of }} з {{ total }}"
+    },
+    "password_page": {
+      "admin_link_html": "Ви власник магазину? <a href=\"/admin\" class=\"btn btn--text-link\">Увійдіть тут</a>",
+      "login_form_heading": "Увійдіть до магазину за допомогою пароля:",
+      "login_form_password_placeholder": "Ваш пароль",
+      "login_form_submit": "Увійти",
+      "opening_soon": "Скоро відкриття",
+      "password_link": "Увійти до магазину за паролем",
+      "signup_form_button_label": "Повідомити мене",
+      "signup_form_email_placeholder": "Ваш email",
+      "signup_form_success": "Ми надішлемо вам лист перед відкриттям!"
+    },
+    "payment": {
+      "method": "Способи оплати"
+    },
+    "social": {
+      "alt_text": {
+        "share_menu": "Меню поширення",
+        "share_on_facebook": "Поділитися",
+        "share_on_pinterest": "Закріпити",
+        "share_on_twitter": "Твітнути"
+      },
+      "copy_link": "Скопіювати посилання",
+      "link_copied": "Посилання скопійовано!",
+      "link_copy_error": "Помилка копіювання посилання.",
+      "share": "Поділитися"
+    }
+  },
+  "gift_cards": {
+    "issued": {
+      "active": "Діє до {{ expiry }}",
+      "add_to_apple_wallet": "Додати до Apple Wallet",
+      "disabled": "Вимкнено",
+      "expired": "Термін дії завершився {{ expiry }}",
+      "gift_card_code": "Код подарункової картки",
+      "initial_value": "Номінал подарункової картки: {{ value }}",
+      "print": "Надрукувати цю подарункову картку",
+      "qr_image_alt": "QR-код — відскануйте, щоб використати подарункову картку",
+      "redeem": "Використайте цей код під час оформлення замовлення, щоб активувати подарункову картку",
+      "remaining_html": "Залишок: {{ balance }}",
+      "shop_link": "Почати покупки",
+      "subtext": "Ваша подарункова картка",
+      "title_html": "Ваша подарункова картка на {{ value }} для {{ shop }}!"
+    }
+  },
+  "homepage": {
+    "onboarding": {
+      "article_author": "Автор",
+      "article_excerpt": "Додайте короткий опис публікації блогу для клієнтів.",
+      "blog_title": "Назва вашої публікації",
+      "product_title": "Назва вашого товару"
+    }
+  },
+  "layout": {
+    "customer": {
+      "create_account": "Створити акаунт"
+    }
+  },
+  "product": {
+    "add_to_cart": "Додати в кошик",
+    "quick_add": "Швидке додавання",
+    "share": "Поділитися",
+    "sold_out": "Розпродано",
+    "unavailable": "Недоступно"
+  },
+  "products": {
+    "inventory": {
+      "backordered": "Доступно під замовлення",
+      "in_stock": "В наявності та готово до відправлення",
+      "low_stock": "Залишилося лише {{count}}. Замовляйте швидше!",
+      "sold_out": "Немає в наявності",
+      "unavailable": "Недоступно"
+    },
+    "product": {
+      "add_to_cart": "Додати в кошик",
+      "buy_now": "Купити зараз",
+      "country_placeholder": "Країна/регіон",
+      "description": "Опис",
+      "estimate_shipping": "Розрахувати доставку",
+      "from_lowest_price_html": "від {{ lowest_price }}",
+      "include_taxes": "Податок включено.",
+      "less_media": "Менше медіа",
+      "loader_label": "Додаємо товар до кошика",
+      "more_media": "Більше медіа",
+      "no_rates": "Тариф доставки недоступний",
+      "on_sale": "Знижка",
+      "on_sale_format_amount_off": "знижка {{ value }}",
+      "on_sale_format_minus_amount": "-{{ value }}",
+      "on_sale_format_minus_percent": "-{{ value }}%",
+      "on_sale_format_percent_off": "знижка {{ value }}%",
+      "on_sale_format_save_amount": "Економія {{ value }}",
+      "on_sale_format_save_amount_varied": "Економія до {{ value }}",
+      "on_sale_format_save_percent": "Економія {{ value }}%",
+      "on_sale_format_save_percent_varied": "Економія до {{ value }}%",
+      "on_sale_from_html": "від {{ price }}",
+      "on_sale_varied_prefix": "До",
+      "preorder": "Передзамовлення",
+      "quantity": "Кількість",
+      "quantity_error": "Вибрана кількість перевищує поточний залишок",
+      "quick_view": "Швидкий перегляд",
+      "quick_view_product_link": "Переглянути деталі товару",
+      "regular_price": "Звичайна ціна",
+      "reviews": "Відгуки клієнтів",
+      "sale_price": "Ціна зі знижкою",
+      "shipping_policy_html": "<a href=\"{{ link }}\">Доставка</a> розраховується під час відправки замовлення.",
+      "sku": "SKU",
+      "sku_with_value": "SKU: {{ value }}",
+      "sold_out": "Розпродано",
+      "swatch_count": {
+        "one": "{{count}} колір",
+        "other": "{{count}} кольорів",
+        "zero": "Немає кольорів"
+      },
+      "swatch_overflow": "+ ще {{ overflow_amount }}",
+      "unavailable": "Недоступно",
+      "unit_price_label": "Ціна за одиницю",
+      "vendor": "Бренд",
+      "view_in_space": "Переглянути у вашому просторі",
+      "view_in_space_label": "Переглянути у вашому просторі, відкриває товар у вікні доповненої реальності",
+      "write_a_review": "Написати відгук"
+    }
+  },
+  "search": {
+    "check_spelling": "Перевірте написання або використайте інше слово чи фразу.",
+    "clear_search": "Очистити",
+    "heading": {
+      "one": "Результат пошуку",
+      "other": "Результати пошуку"
+    },
+    "headings": {
+      "articles": "Статті",
+      "collections": "Колекції",
+      "pages": "Сторінки",
+      "products": "Товари"
+    },
+    "no_products": "Товарів не знайдено",
+    "no_results": "Нічого не знайдено. Перевірте написання або використайте інше слово чи фразу.",
+    "no_results_html": "Немає результатів для “{{ terms }}”",
+    "placeholder": "Що ви шукаєте?",
+    "read_now": "Читати зараз",
+    "results_with_count": {
+      "one": "{{ count }} результат для “{{ terms }}”",
+      "other": "{{ count }} результатів для “{{ terms }}”"
+    },
+    "search": "Пошук",
+    "suggestions": "Пошукові підказки",
+    "title": "Пошук на сайті",
+    "view_all": "Переглянути всі результати"
+  },
+  "sections": {
+    "blog_posts": {
+      "more": "більше"
+    },
+    "countdown_timer": {
+      "days": "Дні",
+      "hours": "Години",
+      "minutes": "Хвилини",
+      "seconds": "Секунди"
+    },
+    "drawer_menu": {
+      "account": {
+        "logged_in": "Мій акаунт",
+        "logged_out": "Реєстрація / Вхід",
+        "logout": "Вийти"
+      },
+      "currency": "Валюта",
+      "language": "Мова",
+      "search_title": "Пошук",
+      "search_view_all": "Переглянути все"
+    },
+    "events": {
+      "learn_more": "Дізнатися більше"
+    },
+    "featured_product": {
+      "placeholder": {
+        "description": "Це приклад опису товару. Після додавання товару цей текст зміниться.",
+        "title": "Приклад товару",
+        "vendor": "Бренд"
+      },
+      "title": "Рекомендований товар",
+      "view_product": "Переглянути повну інформацію про товар"
+    },
+    "footer": {
+      "copyright": "Авторські права",
+      "headings": {
+        "cross_border": "Валюта та мова",
+        "currency": "Валюта",
+        "language": "Мова",
+        "payment": "Оплата"
+      },
+      "rights": "Усі права захищено.",
+      "see_terms": "Перегляньте наші умови використання та повідомлення про конфіденційність.",
+      "social_platform": "{{ name }} у {{ platform }}"
+    },
+    "questions": {
+      "answered_by": ""
+    },
+    "sales_banner": {
+      "sale_units": {
+        "off": "знижка",
+        "per_month": "/міс.",
+        "per_year": "/рік",
+        "percent": "%"
+      }
+    },
+    "social_proof": {
+      "likes": "вподобань"
+    }
+  },
+  "store_availability": {
+    "general": {
+      "availability": "Наявність",
+      "check_other_stores": "Перевірити наявність в інших магазинах",
+      "in_stock": "В наявності",
+      "locations": "Локації",
+      "not_in_stock": "Немає в наявності",
+      "pick_up_available": "Самовивіз доступний",
+      "pick_up_available_at": "Самовивіз доступний у {{ location_name }}",
+      "pick_up_available_time": "В наявності, {{ pickup_time }}",
+      "pick_up_currently_unavailable": "Самовивіз наразі недоступний",
+      "pick_up_unavailable_at": "Самовивіз недоступний у {{ location_name }}",
+      "view_store_info": "Переглянути інформацію про магазин"
+    }
+  },
+  "shopify": {
+    "collections": {
+      "sorting": {
+        "manual": "Рекомендовані",
+        "most_relevant": "Найрелевантніші",
+        "best_selling": "Найпопулярніші",
+        "az": "За алфавітом, А–Я",
+        "za": "За алфавітом, Я–А",
+        "price_ascending": "Ціна: від низької до високої",
+        "price_descending": "Ціна: від високої до низької",
+        "date_ascending": "Дата: від старих до нових",
+        "date_descending": "Дата: від нових до старих"
+      }
+    },
+    "search": {
+      "sorting": {
+        "price_ascending": "Ціна: від низької до високої",
+        "price_descending": "Ціна: від високої до низької"
+      }
+    }
+  }
+}
