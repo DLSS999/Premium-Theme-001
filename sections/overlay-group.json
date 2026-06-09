@@ -1,1 +1,33 @@
-{"type":"custom.overlay","name":"t:groups.overlay_group.name","sections":{"quick-cart":{"type":"quick-cart","settings":{"enable_quick_cart":true,"show_product_currency":true,"promotion_text":"<p>Перегляньте ці колекції.<\/p>","collection_list":[],"collection_list_button_style":"btn--secondary"}},"popup":{"type":"popup","settings":{}}},"order":["quick-cart","popup"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "custom.overlay",
+  "name": "t:groups.overlay_group.name",
+  "sections": {
+    "quick-cart": {
+      "type": "quick-cart",
+      "settings": {
+        "enable_quick_cart": true,
+        "show_product_currency": false,
+        "promotion_text": "<p>Перегляньте ці колекції.</p>",
+        "collection_list": [],
+        "collection_list_button_style": "btn--secondary"
+      }
+    },
+    "popup": {
+      "type": "popup",
+      "settings": {}
+    }
+  },
+  "order": [
+    "quick-cart",
+    "popup"
+  ]
+}
