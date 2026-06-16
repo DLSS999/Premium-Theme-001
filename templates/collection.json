@@ -144,8 +144,8 @@
     "product-grid": {
       "type": "main-collection-product-grid",
       "settings": {
-        "columns": "4",
-        "rows": "4",
+        "columns": "5",
+        "rows": "7",
         "show_item_count": true,
         "show_product_title": false,
         "custom_product_text_source": "name_type",
