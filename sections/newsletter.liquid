@@ -43,7 +43,7 @@
       --overlay-background-gradient: {{ section.settings.color_overlay_gradient }};
     {% endif %}
     --overlay-opacity: {{ overlay_opacity }};
-    {% render 'overlay-button-vars' with color_button_text: section.settings.button_text_color, color_button_background: section.settings.button_background_color %}
+    {% render 'overlay-button-vars' with color_button_text, color_button_text: section.settings.button_text_color, color_button_background: section.settings.button_background_color %}
     --max-signup-width: {{ section.settings.max_signup_width }}px;
     --max-block-content-width: {{ section.settings.max_block_content_width }}px;
   "
@@ -58,14 +58,7 @@
   >
     {%- if section.settings.background_image != blank -%}
       <div class="newsletter__background-image-wrapper">
-        {%-
-          render 'image' with
-          wrapper_class: "newsletter__background-image",
-          image: section.settings.background_image,
-          sizes: "100vw",
-          focal_point: section.settings.focal_point,
-          animate: true
-        -%}
+        {%- render 'image' with wrapper_class, wrapper_class: "newsletter__background-image", image: section.settings.background_image, sizes: "100vw", focal_point: section.settings.focal_point, animate: true -%}
       </div>
     {%- endif -%}
     <div class="newsletter__overlay"></div>
@@ -134,16 +127,7 @@
               </div>
             {%- endunless -%}
           {%- when 'image' -%}
-            {%-
-              render 'image-block' with
-              shopify_attributes: block.shopify_attributes,
-              wrapper_class: 'newsletter__block-content-image section-blocks__image  section-blocks__image',
-              image: block.settings.image,
-              width: block.settings.image_size,
-              mobile_width: block.settings.image_size_mobile,
-              break_to_mobile_at: '720',
-              align: section.settings.alignment
-            -%}
+            {%- render 'image-block' with shopify_attributes, shopify_attributes: block.shopify_attributes, wrapper_class: 'newsletter__block-content-image section-blocks__image  section-blocks__image', image: block.settings.image, width: block.settings.image_size, mobile_width: block.settings.image_size_mobile, break_to_mobile_at: '720', align: section.settings.alignment -%}
           {%- when 'border' -%}
             {%- render 'border-block' -%}
           {%- when 'spacer' -%}
@@ -556,3 +540,45 @@
   ]
 }
 {% endschema %}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'overlay-button-vars' with color_button_text: section.settings.button_text_color,
+    color_button_background: section.settings.button_background_color %}"
+  to: "{% render 'overlay-button-vars' with color_button_text, color_button_text:
+    section.settings.button_text_color, color_button_background: section.settings.button_background_color
+    %}"
+  position: 1695..1874
+- from: |-
+    {%-
+              render 'image' with
+              wrapper_class: "newsletter__background-image",
+              image: section.settings.background_image,
+              sizes: "100vw",
+              focal_point: section.settings.focal_point,
+              animate: true
+            -%}
+  to: '{%- render ''image'' with wrapper_class, wrapper_class: "newsletter__background-image",
+    image: section.settings.background_image, sizes: "100vw", focal_point: section.settings.focal_point,
+    animate: true -%}'
+  position: 2283..2487
+- from: |-
+    {%-
+                  render 'image-block' with
+                  shopify_attributes: block.shopify_attributes,
+                  wrapper_class: 'newsletter__block-content-image section-blocks__image  section-blocks__image',
+                  image: block.settings.image,
+                  width: block.settings.image_size,
+                  mobile_width: block.settings.image_size_mobile,
+                  break_to_mobile_at: '720',
+                  align: section.settings.alignment
+                -%}
+  to: "{%- render 'image-block' with shopify_attributes, shopify_attributes: block.shopify_attributes,
+    wrapper_class: 'newsletter__block-content-image section-blocks__image  section-blocks__image',
+    image: block.settings.image, width: block.settings.image_size, mobile_width: block.settings.image_size_mobile,
+    break_to_mobile_at: '720', align: section.settings.alignment -%}"
+  position: 5828..6194
+{% endcomment %}

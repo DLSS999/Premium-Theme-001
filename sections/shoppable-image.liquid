@@ -30,14 +30,7 @@
         <div class="ff-body fs-body-100 rte section-introduction__subheading">{{ section.settings.subheading }}</div>
       {%- endunless -%}
 
-      {%-
-        render 'button-block' with
-        wrapper_class: "section-introduction__button",
-        link: section.settings.link,
-        label: section.settings.link_text,
-        button_style: section.settings.button_style,
-        button_alignment: 'center',
-      -%}
+      {%- render 'button-block' with wrapper_class, wrapper_class: "section-introduction__button", link: section.settings.link, label: section.settings.link_text, button_style: section.settings.button_style, button_alignment: 'center' -%}
     </div>
 
     <div class="shoppable-image__image-container shoppable__image-container">
@@ -58,15 +51,7 @@
       </div>
 
       {%- for block in section.blocks -%}
-        {%
-          render 'shoppable-item' with
-          block: block,
-          index: forloop.index0,
-          product_item: block.settings.product_item,
-          horizontal_position: block.settings.horizontal_position,
-          vertical_position: block.settings.vertical_position,
-          aspect_ratio: section.settings.aspect_ratio,
-        %}
+        {% render 'shoppable-item' with block, block: block, index: forloop.index0, product_item: block.settings.product_item, horizontal_position: block.settings.horizontal_position, vertical_position: block.settings.vertical_position, aspect_ratio: section.settings.aspect_ratio %}
       {%- endfor -%}
     </div>
   </div>
@@ -276,3 +261,38 @@
   ]
 }
 {% endschema %}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {%-
+            render 'button-block' with
+            wrapper_class: "section-introduction__button",
+            link: section.settings.link,
+            label: section.settings.link_text,
+            button_style: section.settings.button_style,
+            button_alignment: 'center',
+          -%}
+  to: '{%- render ''button-block'' with wrapper_class, wrapper_class: "section-introduction__button",
+    link: section.settings.link, label: section.settings.link_text, button_style:
+    section.settings.button_style, button_alignment: ''center'' -%}'
+  position: 1372..1604
+- from: |-
+    {%
+              render 'shoppable-item' with
+              block: block,
+              index: forloop.index0,
+              product_item: block.settings.product_item,
+              horizontal_position: block.settings.horizontal_position,
+              vertical_position: block.settings.vertical_position,
+              aspect_ratio: section.settings.aspect_ratio,
+            %}
+  to: "{% render 'shoppable-item' with block, block: block, index: forloop.index0,
+    product_item: block.settings.product_item, horizontal_position: block.settings.horizontal_position,
+    vertical_position: block.settings.vertical_position, aspect_ratio: section.settings.aspect_ratio
+    %}"
+  position: 2422..2697
+{% endcomment %}

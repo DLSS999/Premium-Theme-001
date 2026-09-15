@@ -21,7 +21,7 @@
               inert
             {% endunless %}
           >
-            {% render 'product-card-mini' with product: block.settings.product_item, index: forloop.index, image_sizes: image_sizes %}
+            {% render 'product-card-mini' with product, product: block.settings.product_item, index: forloop.index, image_sizes: image_sizes %}
           </div>
         {%- else -%}
           <div
@@ -30,16 +30,16 @@
               inert
             {% endunless %}
           >
-            {% render 'product-card-mini' with placeholder: true, index: forloop.index, image_sizes: image_sizes %}
+            {% render 'product-card-mini' with placeholder, placeholder: true, index: forloop.index, image_sizes: image_sizes %}
           </div>
         {%- endfor -%}
       </div>
     </div>
     <button class="slider-nav-button slider-nav-button-prev" title="{{ 'general.accessibility.previous' | t }}">
-      {% render 'icon' with icon: 'chevron' %}
+      {% render 'icon' with icon, icon: 'chevron' %}
     </button>
     <button class="slider-nav-button slider-nav-button-next" title="{{ 'general.accessibility.next' | t }}">
-      {% render 'icon' with icon: 'chevron' %}
+      {% render 'icon' with icon, icon: 'chevron' %}
     </button>
     <div class="swiper-pagination fs-body-50"></div>
   </div>
@@ -64,13 +64,7 @@
       {%- endunless -%}
 
       {%- unless section.settings.link_text == blank -%}
-        {%-
-          render 'button-block' with
-          wrapper_class: "shoppable-feature__cta-button section-introduction__button",
-          link: section.settings.link,
-          label: section.settings.link_text,
-          button_style: section.settings.button_style
-        -%}
+        {%- render 'button-block' with wrapper_class, wrapper_class: "shoppable-feature__cta-button section-introduction__button", link: section.settings.link, label: section.settings.link_text, button_style: section.settings.button_style -%}
       {%- endunless -%}
     </div>
   {%- endunless -%}
@@ -94,7 +88,7 @@
   data-content-position-desktop="{{ section.settings.content_position_desktop }}"
 >
   <div class="shoppable-feature__wash" data-shoppable-wash></div>
-  {%- render 'mobile-drawer' with class: 'shoppable-feature-mobile-drawer animation--shoppable-feature-mobile-drawer', content: swiper_content -%}
+  {%- render 'mobile-drawer' with class, class: 'shoppable-feature-mobile-drawer animation--shoppable-feature-mobile-drawer', content: swiper_content -%}
   <div class="section__inner shoppable-feature__inner">
     <div class="shoppable-feature__text-block-wrap-external">
       {{ text_content }}
@@ -119,16 +113,7 @@
             %}
           </div>
           {%- for block in section.blocks -%}
-            {%
-              render 'shoppable-item' with
-              block: block,
-              index: forloop.index0,
-              product_item: block.settings.product_item,
-              horizontal_position: block.settings.horizontal_position,
-              vertical_position: block.settings.vertical_position,
-              aspect_ratio: section.settings.aspect_ratio,
-              show_hotspot_cards: show_hotspot_cards,
-            %}
+            {% render 'shoppable-item' with block, block: block, index: forloop.index0, product_item: block.settings.product_item, horizontal_position: block.settings.horizontal_position, vertical_position: block.settings.vertical_position, aspect_ratio: section.settings.aspect_ratio, show_hotspot_cards: show_hotspot_cards %}
           {%- endfor -%}
         </div>
       </div>
@@ -391,3 +376,59 @@
   ]
 }
 {% endschema %}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'product-card-mini' with product: block.settings.product_item,
+    index: forloop.index, image_sizes: image_sizes %}"
+  to: "{% render 'product-card-mini' with product, product: block.settings.product_item,
+    index: forloop.index, image_sizes: image_sizes %}"
+  position: 877..1008
+- from: "{% render 'product-card-mini' with placeholder: true, index: forloop.index,
+    image_sizes: image_sizes %}"
+  to: "{% render 'product-card-mini' with placeholder, placeholder: true, index: forloop.index,
+    image_sizes: image_sizes %}"
+  position: 1206..1322
+- from: "{% render 'icon' with icon: 'chevron' %}"
+  to: "{% render 'icon' with icon, icon: 'chevron' %}"
+  position: 1506..1552
+- from: "{% render 'icon' with icon: 'chevron' %}"
+  to: "{% render 'icon' with icon, icon: 'chevron' %}"
+  position: 1682..1728
+- from: |-
+    {%-
+              render 'button-block' with
+              wrapper_class: "shoppable-feature__cta-button section-introduction__button",
+              link: section.settings.link,
+              label: section.settings.link_text,
+              button_style: section.settings.button_style
+            -%}
+  to: '{%- render ''button-block'' with wrapper_class, wrapper_class: "shoppable-feature__cta-button
+    section-introduction__button", link: section.settings.link, label: section.settings.link_text,
+    button_style: section.settings.button_style -%}'
+  position: 2676..2910
+- from: "{%- render 'mobile-drawer' with class: 'shoppable-feature-mobile-drawer animation--shoppable-feature-mobile-drawer',
+    content: swiper_content -%}"
+  to: "{%- render 'mobile-drawer' with class, class: 'shoppable-feature-mobile-drawer
+    animation--shoppable-feature-mobile-drawer', content: swiper_content -%}"
+  position: 3660..3811
+- from: |-
+    {%
+                  render 'shoppable-item' with
+                  block: block,
+                  index: forloop.index0,
+                  product_item: block.settings.product_item,
+                  horizontal_position: block.settings.horizontal_position,
+                  vertical_position: block.settings.vertical_position,
+                  aspect_ratio: section.settings.aspect_ratio,
+                  show_hotspot_cards: show_hotspot_cards,
+                %}
+  to: "{% render 'shoppable-item' with block, block: block, index: forloop.index0,
+    product_item: block.settings.product_item, horizontal_position: block.settings.horizontal_position,
+    vertical_position: block.settings.vertical_position, aspect_ratio: section.settings.aspect_ratio,
+    show_hotspot_cards: show_hotspot_cards %}"
+  position: 4969..5284
+{% endcomment %}

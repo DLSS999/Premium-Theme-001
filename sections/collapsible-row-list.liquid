@@ -32,12 +32,7 @@
     {%- endif -%}
 
     {%- for block in section.blocks -%}
-      {%-
-        render 'collapsible-row-list-item' with
-        block: block,
-        item_heading_font: section.settings.item_heading_font,
-        forloop: forloop
-      -%}
+      {%- render 'collapsible-row-list-item' with block, block: block, item_heading_font: section.settings.item_heading_font, forloop: forloop -%}
     {%- endfor -%}
   </div>
 </div>
@@ -265,3 +260,20 @@
   ]
 }
 {% endschema %}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {%-
+            render 'collapsible-row-list-item' with
+            block: block,
+            item_heading_font: section.settings.item_heading_font,
+            forloop: forloop
+          -%}
+  to: "{%- render 'collapsible-row-list-item' with block, block: block, item_heading_font:
+    section.settings.item_heading_font, forloop: forloop -%}"
+  position: 1188..1328
+{% endcomment %}

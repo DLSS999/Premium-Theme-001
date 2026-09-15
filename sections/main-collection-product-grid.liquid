@@ -53,26 +53,9 @@
       {% paginate collection.products by per_page %}
         <div class="collection__container">
           <div class="collection__content">
-            {%
-              render 'filter-bar' with
-              results: collection,
-              show_item_count: section.settings.show_item_count,
-              show_sort: section.settings.show_sort,
-              show_filters: section.settings.show_filters,
-              show_swatch_filters: section.settings.show_swatch_filters,
-              show_chip_filters: section.settings.show_chip_filters,
-              enable_sticky_filter_bar: section.settings.enable_sticky_filter_bar,
-              collapse_filter_bar: section.settings.collapse_filter_bar,
-              chip_layout: section.settings.chip_layout
-            %}
+            {% render 'filter-bar' with results, results: collection, show_item_count: section.settings.show_item_count, show_sort: section.settings.show_sort, show_filters: section.settings.show_filters, show_swatch_filters: section.settings.show_swatch_filters, show_chip_filters: section.settings.show_chip_filters, enable_sticky_filter_bar: section.settings.enable_sticky_filter_bar, collapse_filter_bar: section.settings.collapse_filter_bar, chip_layout: section.settings.chip_layout %}
 
-            {%
-              render 'mobile-filters' with
-              results: collection,
-              show_sort: section.settings.show_sort,
-              show_filters: section.settings.show_filters,
-              enable_sticky_filter_bar: section.settings.enable_sticky_filter_bar
-            %}
+            {% render 'mobile-filters' with results, results: collection, show_sort: section.settings.show_sort, show_filters: section.settings.show_filters, enable_sticky_filter_bar: section.settings.enable_sticky_filter_bar %}
 
             <div class="collection__main-area">
               <div class="collection__window">
@@ -96,17 +79,7 @@
                     "
                   >
                     {% for product in collection.products %}
-                      {%
-                        render 'product-item' with
-                        prod: product,
-                        show_product_title: section.settings.show_product_title,
-                        custom_product_text_source: section.settings.custom_product_text_source,
-                        custom_product_text: section.settings.custom_product_text,
-                        custom_product_text_position: section.settings.custom_product_text_position,
-                        product_columns: section.settings.columns,
-                        aspect_ratio: settings.product_listing_aspect_ratio,
-                        has_grid_reveal: true
-                      %}
+                      {% render 'product-item' with prod, prod: product, show_product_title: section.settings.show_product_title, custom_product_text_source: section.settings.custom_product_text_source, custom_product_text: section.settings.custom_product_text, custom_product_text_position: section.settings.custom_product_text_position, product_columns: section.settings.columns, aspect_ratio: settings.product_listing_aspect_ratio, has_grid_reveal: true %}
                     {% else %}
                       <div class="collection__empty">
                         <div>{{ 'collections.general.no_products' | t }}</div>
@@ -119,12 +92,7 @@
 
                   {% unless paginated %}
                     <div>
-                      {%
-                        render 'pagination' with
-                        paginate: paginate,
-                        type: 'general.pagination.products',
-                        display_paginate_item_count_only: true
-                      %}
+                      {% render 'pagination' with paginate, paginate: paginate, type: 'general.pagination.products', display_paginate_item_count_only: true %}
                       <div class="collection__infinite-trigger">
                         {% if paginate.next %}
                           <a href="{{ paginate.next.url }}" class="btn btn--secondary no-transition" data-click-to-load>
@@ -138,19 +106,9 @@
                   {% if paginated %}
                     <div>
                       {% if paginate.pages > 1 %}
-                        {%
-                          render 'pagination' with
-                          paginate: paginate,
-                          type: 'general.pagination.products',
-                          show_item_count: true
-                        %}
+                        {% render 'pagination' with paginate, paginate: paginate, type: 'general.pagination.products', show_item_count: true %}
                       {% else %}
-                        {%
-                          render 'pagination' with
-                          paginate: paginate,
-                          type: 'general.pagination.products',
-                          display_paginate_item_count_only: true
-                        %}
+                        {% render 'pagination' with paginate, paginate: paginate, type: 'general.pagination.products', display_paginate_item_count_only: true %}
                       {% endif %}
                     </div>
                   {% endif %}
@@ -161,16 +119,7 @@
         </div>
       {% endpaginate %}
 
-      {%
-        render 'filter-drawer' with
-        results: collection,
-        show_sort: section.settings.show_sort,
-        show_filters: section.settings.show_filters,
-        show_swatch_filters: section.settings.show_swatch_filters,
-        show_chip_filters: section.settings.show_chip_filters,
-        chip_layout: section.settings.chip_layout,
-        collapse_filter_groups_mobile: section.settings.collapse_filter_groups_mobile
-      %}
+      {% render 'filter-drawer' with results, results: collection, show_sort: section.settings.show_sort, show_filters: section.settings.show_filters, show_swatch_filters: section.settings.show_swatch_filters, show_chip_filters: section.settings.show_chip_filters, chip_layout: section.settings.chip_layout, collapse_filter_groups_mobile: section.settings.collapse_filter_groups_mobile %}
     {%- else -%}
       <div class="collection__empty ta-c">
         <p class="fs-body-100 fs-body-200-ns">{{ 'collections.general.no_matches' | t }}</p>
@@ -453,3 +402,107 @@
 }
 
 {% endschema %}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {%
+                  render 'filter-bar' with
+                  results: collection,
+                  show_item_count: section.settings.show_item_count,
+                  show_sort: section.settings.show_sort,
+                  show_filters: section.settings.show_filters,
+                  show_swatch_filters: section.settings.show_swatch_filters,
+                  show_chip_filters: section.settings.show_chip_filters,
+                  enable_sticky_filter_bar: section.settings.enable_sticky_filter_bar,
+                  collapse_filter_bar: section.settings.collapse_filter_bar,
+                  chip_layout: section.settings.chip_layout
+                %}
+  to: "{% render 'filter-bar' with results, results: collection, show_item_count:
+    section.settings.show_item_count, show_sort: section.settings.show_sort, show_filters:
+    section.settings.show_filters, show_swatch_filters: section.settings.show_swatch_filters,
+    show_chip_filters: section.settings.show_chip_filters, enable_sticky_filter_bar:
+    section.settings.enable_sticky_filter_bar, collapse_filter_bar: section.settings.collapse_filter_bar,
+    chip_layout: section.settings.chip_layout %}"
+  position: 1896..2375
+- from: |-
+    {%
+                  render 'mobile-filters' with
+                  results: collection,
+                  show_sort: section.settings.show_sort,
+                  show_filters: section.settings.show_filters,
+                  enable_sticky_filter_bar: section.settings.enable_sticky_filter_bar
+                %}
+  to: "{% render 'mobile-filters' with results, results: collection, show_sort: section.settings.show_sort,
+    show_filters: section.settings.show_filters, enable_sticky_filter_bar: section.settings.enable_sticky_filter_bar
+    %}"
+  position: 2389..2605
+- from: |-
+    {%
+                            render 'product-item' with
+                            prod: product,
+                            show_product_title: section.settings.show_product_title,
+                            custom_product_text_source: section.settings.custom_product_text_source,
+                            custom_product_text: section.settings.custom_product_text,
+                            custom_product_text_position: section.settings.custom_product_text_position,
+                            product_columns: section.settings.columns,
+                            aspect_ratio: settings.product_listing_aspect_ratio,
+                            has_grid_reveal: true
+                          %}
+  to: "{% render 'product-item' with prod, prod: product, show_product_title: section.settings.show_product_title,
+    custom_product_text_source: section.settings.custom_product_text_source, custom_product_text:
+    section.settings.custom_product_text, custom_product_text_position: section.settings.custom_product_text_position,
+    product_columns: section.settings.columns, aspect_ratio: settings.product_listing_aspect_ratio,
+    has_grid_reveal: true %}"
+  position: 3492..3929
+- from: |-
+    {%
+                            render 'pagination' with
+                            paginate: paginate,
+                            type: 'general.pagination.products',
+                            display_paginate_item_count_only: true
+                          %}
+  to: "{% render 'pagination' with paginate, paginate: paginate, type: 'general.pagination.products',
+    display_paginate_item_count_only: true %}"
+  position: 4462..4598
+- from: |-
+    {%
+                              render 'pagination' with
+                              paginate: paginate,
+                              type: 'general.pagination.products',
+                              show_item_count: true
+                            %}
+  to: "{% render 'pagination' with paginate, paginate: paginate, type: 'general.pagination.products',
+    show_item_count: true %}"
+  position: 5198..5317
+- from: |-
+    {%
+                              render 'pagination' with
+                              paginate: paginate,
+                              type: 'general.pagination.products',
+                              display_paginate_item_count_only: true
+                            %}
+  to: "{% render 'pagination' with paginate, paginate: paginate, type: 'general.pagination.products',
+    display_paginate_item_count_only: true %}"
+  position: 5375..5511
+- from: |-
+    {%
+            render 'filter-drawer' with
+            results: collection,
+            show_sort: section.settings.show_sort,
+            show_filters: section.settings.show_filters,
+            show_swatch_filters: section.settings.show_swatch_filters,
+            show_chip_filters: section.settings.show_chip_filters,
+            chip_layout: section.settings.chip_layout,
+            collapse_filter_groups_mobile: section.settings.collapse_filter_groups_mobile
+          %}
+  to: "{% render 'filter-drawer' with results, results: collection, show_sort: section.settings.show_sort,
+    show_filters: section.settings.show_filters, show_swatch_filters: section.settings.show_swatch_filters,
+    show_chip_filters: section.settings.show_chip_filters, chip_layout: section.settings.chip_layout,
+    collapse_filter_groups_mobile: section.settings.collapse_filter_groups_mobile
+    %}"
+  position: 5729..6111
+{% endcomment %}

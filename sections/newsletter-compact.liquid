@@ -38,7 +38,7 @@
       --overlay-background-gradient: {{ section.settings.color_overlay_gradient }};
     {% endif %}
     --overlay-opacity: {{ overlay_opacity }};
-    {% render 'overlay-button-vars' with color_button_text: section.settings.button_text_color, color_button_background: section.settings.button_background_color %}
+    {% render 'overlay-button-vars' with color_button_text, color_button_text: section.settings.button_text_color, color_button_background: section.settings.button_background_color %}
     --max-signup-width: {{ section.settings.max_signup_width }}px;
     --max-block-content-width: {{ section.settings.max_block_content_width }}px;
     --text-alignment: {{ section.settings.alignment }};
@@ -54,13 +54,7 @@
   >
     {%- if section.settings.background_image != blank -%}
       <div class="newsletter-compact__background-image-wrapper">
-        {%-
-          render 'image' with
-          wrapper_class: "newsletter-compact__background-image",
-          image: section.settings.background_image,
-          sizes: "100vw",
-          focal_point: section.settings.focal_point
-        -%}
+        {%- render 'image' with wrapper_class, wrapper_class: "newsletter-compact__background-image", image: section.settings.background_image, sizes: "100vw", focal_point: section.settings.focal_point -%}
       </div>
     {%- endif -%}
     <div class="newsletter-compact__overlay"></div>
@@ -142,16 +136,7 @@
               </div>
             {%- endif -%}
           {%- when 'image' -%}
-            {%-
-              render 'image-block' with
-              shopify_attributes: block.shopify_attributes,
-              wrapper_class: 'newsletter-compact__block-content-image newsletter-compact__block-item section-blocks__image  section-blocks__image',
-              image: block.settings.image,
-              width: block.settings.image_size,
-              mobile_width: block.settings.image_size_mobile,
-              break_to_mobile_at: '720',
-              align: section.settings.alignment
-            -%}
+            {%- render 'image-block' with shopify_attributes, shopify_attributes: block.shopify_attributes, wrapper_class: 'newsletter-compact__block-content-image newsletter-compact__block-item section-blocks__image  section-blocks__image', image: block.settings.image, width: block.settings.image_size, mobile_width: block.settings.image_size_mobile, break_to_mobile_at: '720', align: section.settings.alignment -%}
           {%- when 'social_icons' -%}
             {% render 'social-icons-block',
               position: section.settings.alignment,
@@ -522,3 +507,45 @@
   ]
 }
 {% endschema %}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'overlay-button-vars' with color_button_text: section.settings.button_text_color,
+    color_button_background: section.settings.button_background_color %}"
+  to: "{% render 'overlay-button-vars' with color_button_text, color_button_text:
+    section.settings.button_text_color, color_button_background: section.settings.button_background_color
+    %}"
+  position: 1518..1697
+- from: |-
+    {%-
+              render 'image' with
+              wrapper_class: "newsletter-compact__background-image",
+              image: section.settings.background_image,
+              sizes: "100vw",
+              focal_point: section.settings.focal_point
+            -%}
+  to: '{%- render ''image'' with wrapper_class, wrapper_class: "newsletter-compact__background-image",
+    image: section.settings.background_image, sizes: "100vw", focal_point: section.settings.focal_point
+    -%}'
+  position: 2178..2375
+- from: |-
+    {%-
+                  render 'image-block' with
+                  shopify_attributes: block.shopify_attributes,
+                  wrapper_class: 'newsletter-compact__block-content-image newsletter-compact__block-item section-blocks__image  section-blocks__image',
+                  image: block.settings.image,
+                  width: block.settings.image_size,
+                  mobile_width: block.settings.image_size_mobile,
+                  break_to_mobile_at: '720',
+                  align: section.settings.alignment
+                -%}
+  to: "{%- render 'image-block' with shopify_attributes, shopify_attributes: block.shopify_attributes,
+    wrapper_class: 'newsletter-compact__block-content-image newsletter-compact__block-item
+    section-blocks__image  section-blocks__image', image: block.settings.image, width:
+    block.settings.image_size, mobile_width: block.settings.image_size_mobile, break_to_mobile_at:
+    '720', align: section.settings.alignment -%}"
+  position: 6594..6999
+{% endcomment %}

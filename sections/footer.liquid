@@ -39,7 +39,7 @@
         {%- assign rendered_image = blank -%}
         {%- if block.settings.image != blank -%}
           {%- capture rendered_image -%}
-            {%- render 'image' with image: block.settings.image, wrapper_class: 'footer__image', sizes_px: block.settings.image_max_width -%}
+            {%- render 'image' with image, image: block.settings.image, wrapper_class: 'footer__image', sizes_px: block.settings.image_max_width -%}
           {%- endcapture -%}
         {%- endif -%}
         <div
@@ -149,12 +149,7 @@
     <div class="footer__bottom">
       <div class="footer__bottom-left">
         {%- if locale_selector or country_selector -%}
-          {%
-            render 'cross-border' with
-            show_locale: locale_selector,
-            show_country: country_selector,
-            id: 'footer'
-          %}
+          {% render 'cross-border' with show_locale, show_locale: locale_selector, show_country: country_selector, id: 'footer' %}
         {%- endif -%}
         <div class="footer__credits fs-body-50">
           <p>
@@ -479,3 +474,25 @@
   }
 }
 {% endschema %}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{%- render 'image' with image: block.settings.image, wrapper_class: 'footer__image',
+    sizes_px: block.settings.image_max_width -%}"
+  to: "{%- render 'image' with image, image: block.settings.image, wrapper_class:
+    'footer__image', sizes_px: block.settings.image_max_width -%}"
+  position: 1534..1670
+- from: |-
+    {%
+                render 'cross-border' with
+                show_locale: locale_selector,
+                show_country: country_selector,
+                id: 'footer'
+              %}
+  to: "{% render 'cross-border' with show_locale, show_locale: locale_selector, show_country:
+    country_selector, id: 'footer' %}"
+  position: 6720..6840
+{% endcomment %}

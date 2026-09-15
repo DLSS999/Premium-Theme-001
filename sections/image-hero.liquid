@@ -61,36 +61,16 @@
       --overlay-background-gradient: {{ section.settings.color_overlay_gradient }};
     {% endif %}
     --overlay-opacity: {{ overlay_opacity }};
-    {% render 'overlay-button-vars' with color_button_text: section.settings.button_text_color, color_button_background: section.settings.button_background_color %}
+    {% render 'overlay-button-vars' with color_button_text, color_button_text: section.settings.button_text_color, color_button_background: section.settings.button_background_color %}
   "
 >
   <div class="image-hero__inner">
     <div class="image-hero__image-container">
       {%- if section.settings.image_mobile != blank -%}
-        {%-
-          render 'image' with
-          wrapper_class: "image-hero__image image-hero__image--mobile",
-          image: section.settings.image_mobile,
-          sizes: "100vw",
-          focal_point: section.settings.mobile_focal_point,
-          placeholder_name: "lifestyle-2",
-          animate: true,
-          src_set_type: "full-width"
-        -%}
+        {%- render 'image' with wrapper_class, wrapper_class: "image-hero__image image-hero__image--mobile", image: section.settings.image_mobile, sizes: "100vw", focal_point: section.settings.mobile_focal_point, placeholder_name: "lifestyle-2", animate: true, src_set_type: "full-width" -%}
       {%- endif -%}
 
-      {%-
-        render 'image' with
-        wrapper_class: "image-hero__image",
-        image: section.settings.image,
-        sizes: "100vw",
-        focal_point: section.settings.focal_point,
-        include_placeholder: true,
-        placeholder_natural_fallback_ratio: placeholder_aspect_ratio,
-        placeholder_name: "lifestyle-2",
-        animate: true,
-        src_set_type: "full-width"
-      -%}
+      {%- render 'image' with wrapper_class, wrapper_class: "image-hero__image", image: section.settings.image, sizes: "100vw", focal_point: section.settings.focal_point, include_placeholder: true, placeholder_natural_fallback_ratio: placeholder_aspect_ratio, placeholder_name: "lifestyle-2", animate: true, src_set_type: "full-width" -%}
     </div>
     <div class="image-hero__overlay"></div>
 
@@ -132,47 +112,15 @@
                   </div>
                 {%- endunless -%}
               {%- when 'image' -%}
-                {%-
-                  render 'image-block' with
-                  shopify_attributes: block.shopify_attributes,
-                  wrapper_class: 'image-hero__text-container-image  section-blocks__image',
-                  image: block.settings.image,
-                  width: block.settings.image_size,
-                  mobile_width: block.settings.image_size_mobile,
-                  break_to_mobile_at: '480',
-                  align: text_position_modifier,
-                  align_mobile: text_position_modifier_mobile,
-                -%}
+                {%- render 'image-block' with shopify_attributes, shopify_attributes: block.shopify_attributes, wrapper_class: 'image-hero__text-container-image  section-blocks__image', image: block.settings.image, width: block.settings.image_size, mobile_width: block.settings.image_size_mobile, break_to_mobile_at: '480', align: text_position_modifier, align_mobile: text_position_modifier_mobile -%}
               {%- when 'button' -%}
-                {%-
-                  render 'button-block' with
-                  wrapper_class: "image-hero__text-container-image-button section-blocks__button",
-                  link: block.settings.link,
-                  label: block.settings.link_text,
-                  button_style: block.settings.button_style,
-                  is_overlay: true,
-                  button_alignment: text_position_modifier,
-                  button_alignment_mobile: text_position_modifier_mobile,
-                  buttons_can_inline: true,
-                  forloop: forloop
-                -%}
+                {%- render 'button-block' with wrapper_class, wrapper_class: "image-hero__text-container-image-button section-blocks__button", link: block.settings.link, label: block.settings.link_text, button_style: block.settings.button_style, is_overlay: true, button_alignment: text_position_modifier, button_alignment_mobile: text_position_modifier_mobile, buttons_can_inline: true, forloop: forloop -%}
               {%- when 'play-button' -%}
-                {%-
-                  render 'play-button-block' with
-                  wrapper_class: 'image-hero__text-container-image-play-button section-blocks__video-button',
-                  shopify_attributes: block.shopify_attributes,
-                  poster_image: block.settings.poster_image,
-                  poster_aspect: block.settings.aspect_ratio,
-                  video_url: block.settings.video_url,
-                  label: block.settings.text,
-                  button_alignment: text_position_modifier,
-                  button_alignment_mobile: text_position_modifier_mobile,
-                  icon_style: block.settings.icon_style
-                -%}
+                {%- render 'play-button-block' with wrapper_class, wrapper_class: 'image-hero__text-container-image-play-button section-blocks__video-button', shopify_attributes: block.shopify_attributes, poster_image: block.settings.poster_image, poster_aspect: block.settings.aspect_ratio, video_url: block.settings.video_url, label: block.settings.text, button_alignment: text_position_modifier, button_alignment_mobile: text_position_modifier_mobile, icon_style: block.settings.icon_style -%}
               {%- when 'border' -%}
                 {%- render 'border-block' -%}
               {%- when 'spacer' -%}
-                {%- render 'spacer-block' with space: block.settings.space -%}
+                {%- render 'spacer-block' with space, space: block.settings.space -%}
             {%- endcase -%}
           {%- endfor -%}
         </div>
@@ -646,3 +594,110 @@
   ]
 }
 {% endschema %}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'overlay-button-vars' with color_button_text: section.settings.button_text_color,
+    color_button_background: section.settings.button_background_color %}"
+  to: "{% render 'overlay-button-vars' with color_button_text, color_button_text:
+    section.settings.button_text_color, color_button_background: section.settings.button_background_color
+    %}"
+  position: 2408..2587
+- from: |-
+    {%-
+              render 'image' with
+              wrapper_class: "image-hero__image image-hero__image--mobile",
+              image: section.settings.image_mobile,
+              sizes: "100vw",
+              focal_point: section.settings.mobile_focal_point,
+              placeholder_name: "lifestyle-2",
+              animate: true,
+              src_set_type: "full-width"
+            -%}
+  to: '{%- render ''image'' with wrapper_class, wrapper_class: "image-hero__image
+    image-hero__image--mobile", image: section.settings.image_mobile, sizes: "100vw",
+    focal_point: section.settings.mobile_focal_point, placeholder_name: "lifestyle-2",
+    animate: true, src_set_type: "full-width" -%}'
+  position: 2738..3021
+- from: |-
+    {%-
+            render 'image' with
+            wrapper_class: "image-hero__image",
+            image: section.settings.image,
+            sizes: "100vw",
+            focal_point: section.settings.focal_point,
+            include_placeholder: true,
+            placeholder_natural_fallback_ratio: placeholder_aspect_ratio,
+            placeholder_name: "lifestyle-2",
+            animate: true,
+            src_set_type: "full-width"
+          -%}
+  to: '{%- render ''image'' with wrapper_class, wrapper_class: "image-hero__image",
+    image: section.settings.image, sizes: "100vw", focal_point: section.settings.focal_point,
+    include_placeholder: true, placeholder_natural_fallback_ratio: placeholder_aspect_ratio,
+    placeholder_name: "lifestyle-2", animate: true, src_set_type: "full-width" -%}'
+  position: 3049..3381
+- from: |-
+    {%-
+                      render 'image-block' with
+                      shopify_attributes: block.shopify_attributes,
+                      wrapper_class: 'image-hero__text-container-image  section-blocks__image',
+                      image: block.settings.image,
+                      width: block.settings.image_size,
+                      mobile_width: block.settings.image_size_mobile,
+                      break_to_mobile_at: '480',
+                      align: text_position_modifier,
+                      align_mobile: text_position_modifier_mobile,
+                    -%}
+  to: "{%- render 'image-block' with shopify_attributes, shopify_attributes: block.shopify_attributes,
+    wrapper_class: 'image-hero__text-container-image  section-blocks__image', image:
+    block.settings.image, width: block.settings.image_size, mobile_width: block.settings.image_size_mobile,
+    break_to_mobile_at: '480', align: text_position_modifier, align_mobile: text_position_modifier_mobile
+    -%}"
+  position: 5384..5770
+- from: |-
+    {%-
+                      render 'button-block' with
+                      wrapper_class: "image-hero__text-container-image-button section-blocks__button",
+                      link: block.settings.link,
+                      label: block.settings.link_text,
+                      button_style: block.settings.button_style,
+                      is_overlay: true,
+                      button_alignment: text_position_modifier,
+                      button_alignment_mobile: text_position_modifier_mobile,
+                      buttons_can_inline: true,
+                      forloop: forloop
+                    -%}
+  to: '{%- render ''button-block'' with wrapper_class, wrapper_class: "image-hero__text-container-image-button
+    section-blocks__button", link: block.settings.link, label: block.settings.link_text,
+    button_style: block.settings.button_style, is_overlay: true, button_alignment:
+    text_position_modifier, button_alignment_mobile: text_position_modifier_mobile,
+    buttons_can_inline: true, forloop: forloop -%}'
+  position: 5823..6215
+- from: |-
+    {%-
+                      render 'play-button-block' with
+                      wrapper_class: 'image-hero__text-container-image-play-button section-blocks__video-button',
+                      shopify_attributes: block.shopify_attributes,
+                      poster_image: block.settings.poster_image,
+                      poster_aspect: block.settings.aspect_ratio,
+                      video_url: block.settings.video_url,
+                      label: block.settings.text,
+                      button_alignment: text_position_modifier,
+                      button_alignment_mobile: text_position_modifier_mobile,
+                      icon_style: block.settings.icon_style
+                    -%}
+  to: "{%- render 'play-button-block' with wrapper_class, wrapper_class: 'image-hero__text-container-image-play-button
+    section-blocks__video-button', shopify_attributes: block.shopify_attributes, poster_image:
+    block.settings.poster_image, poster_aspect: block.settings.aspect_ratio, video_url:
+    block.settings.video_url, label: block.settings.text, button_alignment: text_position_modifier,
+    button_alignment_mobile: text_position_modifier_mobile, icon_style: block.settings.icon_style
+    -%}"
+  position: 6273..6753
+- from: "{%- render 'spacer-block' with space: block.settings.space -%}"
+  to: "{%- render 'spacer-block' with space, space: block.settings.space -%}"
+  position: 6888..6957
+{% endcomment %}

@@ -59,25 +59,10 @@
               data-product-media-wrapper
               data-aspect-ratio="{{ section.settings.image_aspect_ratio }}"
             >
-              {%
-                render 'media' with
-                fallback_alt: featured_product.title,
-                media: media,
-                featured_media: featured_media,
-                enable_product_lightbox: section.settings.enable_product_lightbox,
-                loop_video: section.settings.enable_video_looping,
-                aspect_ratio: section.settings.image_aspect_ratio,
-                sizes: "90vw",
-                within_carousel: true
-              %}
+              {% render 'media' with fallback_alt, fallback_alt: featured_product.title, media: media, featured_media: featured_media, enable_product_lightbox: section.settings.enable_product_lightbox, loop_video: section.settings.enable_video_looping, aspect_ratio: section.settings.image_aspect_ratio, sizes: "90vw", within_carousel: true %}
             </div>
           {%- else -%}
-            {%-
-              render 'placeholder-image' with
-              wrapper_class: 'product__media-item placeholder-image',
-              aspect_ratio: section.settings.image_aspect_ratio,
-              natural_fallback_ratio: 'square'
-            -%}
+            {%- render 'placeholder-image' with wrapper_class, wrapper_class: 'product__media-item placeholder-image', aspect_ratio: section.settings.image_aspect_ratio, natural_fallback_ratio: 'square' -%}
           {%- endfor -%}
         </div>
         <div class="swiper-pagination"></div>
@@ -107,25 +92,10 @@
                 data-aspect-ratio="{{ section.settings.image_aspect_ratio }}"
               {% endif %}
             >
-              {%
-                render 'media' with
-                media: media,
-                fallback_alt: featured_product.title,
-                featured_media: featured_media,
-                enable_product_lightbox: section.settings.enable_product_lightbox,
-                loop_video: section.settings.enable_video_looping,
-                aspect_ratio: section.settings.image_aspect_ratio,
-                sizes: desktop_image_sizes_attribute,
-                animate: animate_media
-              %}
+              {% render 'media' with media, media: media, fallback_alt: featured_product.title, featured_media: featured_media, enable_product_lightbox: section.settings.enable_product_lightbox, loop_video: section.settings.enable_video_looping, aspect_ratio: section.settings.image_aspect_ratio, sizes: desktop_image_sizes_attribute, animate: animate_media %}
             </div>
           {%- else -%}
-            {%-
-              render 'placeholder-image' with
-              wrapper_class: 'product__media-item placeholder-image',
-              aspect_ratio: section.settings.image_aspect_ratio,
-              natural_fallback_ratio: 'square'
-            -%}
+            {%- render 'placeholder-image' with wrapper_class, wrapper_class: 'product__media-item placeholder-image', aspect_ratio: section.settings.image_aspect_ratio, natural_fallback_ratio: 'square' -%}
           {%- endfor -%}
         </div>
       </div>
@@ -148,15 +118,7 @@
       {%- endif -%}
 
       {% capture left_side_blocks %}
-        {%-
-          render 'product-blocks' with
-          blocks: section.blocks,
-          prod: featured_product,
-          is_quick: false,
-          is_featured: true,
-          column: 'left',
-          featured_media: product_featured_image_url
-        -%}
+        {%- render 'product-blocks' with blocks, blocks: section.blocks, prod: featured_product, is_quick: false, is_featured: true, column: 'left', featured_media: product_featured_image_url -%}
       {% endcapture %}
 
       {% if left_side_blocks.size > 10 %}
@@ -168,16 +130,7 @@
 
     <div class="product__details product__primary-right">
       <div class="product__meta">
-        {%-
-          render 'product-blocks' with
-          blocks: section.blocks,
-          prod: featured_product,
-          is_quick: false,
-          is_featured: true,
-          column: 'right',
-          current_variant: current_variant,
-          featured_media: featured_media
-        -%}
+        {%- render 'product-blocks' with blocks, blocks: section.blocks, prod: featured_product, is_quick: false, is_featured: true, column: 'right', current_variant: current_variant, featured_media: featured_media -%}
 
         {% # Render a dummy product form if buy buttons are absent -%}
 
@@ -3726,3 +3679,95 @@
     {% endif %}
   }
 </script>
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {%
+                    render 'media' with
+                    fallback_alt: featured_product.title,
+                    media: media,
+                    featured_media: featured_media,
+                    enable_product_lightbox: section.settings.enable_product_lightbox,
+                    loop_video: section.settings.enable_video_looping,
+                    aspect_ratio: section.settings.image_aspect_ratio,
+                    sizes: "90vw",
+                    within_carousel: true
+                  %}
+  to: '{% render ''media'' with fallback_alt, fallback_alt: featured_product.title,
+    media: media, featured_media: featured_media, enable_product_lightbox: section.settings.enable_product_lightbox,
+    loop_video: section.settings.enable_video_looping, aspect_ratio: section.settings.image_aspect_ratio,
+    sizes: "90vw", within_carousel: true %}'
+  position: 2637..2966
+- from: |-
+    {%-
+                  render 'placeholder-image' with
+                  wrapper_class: 'product__media-item placeholder-image',
+                  aspect_ratio: section.settings.image_aspect_ratio,
+                  natural_fallback_ratio: 'square'
+                -%}
+  to: "{%- render 'placeholder-image' with wrapper_class, wrapper_class: 'product__media-item
+    placeholder-image', aspect_ratio: section.settings.image_aspect_ratio, natural_fallback_ratio:
+    'square' -%}"
+  position: 3021..3215
+- from: |-
+    {%
+                    render 'media' with
+                    media: media,
+                    fallback_alt: featured_product.title,
+                    featured_media: featured_media,
+                    enable_product_lightbox: section.settings.enable_product_lightbox,
+                    loop_video: section.settings.enable_video_looping,
+                    aspect_ratio: section.settings.image_aspect_ratio,
+                    sizes: desktop_image_sizes_attribute,
+                    animate: animate_media
+                  %}
+  to: "{% render 'media' with media, media: media, fallback_alt: featured_product.title,
+    featured_media: featured_media, enable_product_lightbox: section.settings.enable_product_lightbox,
+    loop_video: section.settings.enable_video_looping, aspect_ratio: section.settings.image_aspect_ratio,
+    sizes: desktop_image_sizes_attribute, animate: animate_media %}"
+  position: 4386..4732
+- from: |-
+    {%-
+                  render 'placeholder-image' with
+                  wrapper_class: 'product__media-item placeholder-image',
+                  aspect_ratio: section.settings.image_aspect_ratio,
+                  natural_fallback_ratio: 'square'
+                -%}
+  to: "{%- render 'placeholder-image' with wrapper_class, wrapper_class: 'product__media-item
+    placeholder-image', aspect_ratio: section.settings.image_aspect_ratio, natural_fallback_ratio:
+    'square' -%}"
+  position: 4787..4981
+- from: |-
+    {%-
+              render 'product-blocks' with
+              blocks: section.blocks,
+              prod: featured_product,
+              is_quick: false,
+              is_featured: true,
+              column: 'left',
+              featured_media: product_featured_image_url
+            -%}
+  to: "{%- render 'product-blocks' with blocks, blocks: section.blocks, prod: featured_product,
+    is_quick: false, is_featured: true, column: 'left', featured_media: product_featured_image_url
+    -%}"
+  position: 5737..5924
+- from: |-
+    {%-
+              render 'product-blocks' with
+              blocks: section.blocks,
+              prod: featured_product,
+              is_quick: false,
+              is_featured: true,
+              column: 'right',
+              current_variant: current_variant,
+              featured_media: featured_media
+            -%}
+  to: "{%- render 'product-blocks' with blocks, blocks: section.blocks, prod: featured_product,
+    is_quick: false, is_featured: true, column: 'right', current_variant: current_variant,
+    featured_media: featured_media -%}"
+  position: 6220..6430
+{% endcomment %}

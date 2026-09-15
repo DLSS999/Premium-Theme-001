@@ -52,7 +52,7 @@
     --color-text-link: {{ section.settings.text_color }};
     --text-alignment: {{ section.settings.text_alignment }};
     --small-image-placeholder-color: {{ settings.color_text | color_modify: 'alpha', 0.7 }};
-    {% render 'overlay-button-vars' with color_button_text: section.settings.button_text_color, color_button_background: section.settings.button_background_color %}
+    {% render 'overlay-button-vars' with color_button_text, color_button_text: section.settings.button_text_color, color_button_background: section.settings.button_background_color %}
   "
 >
   <div
@@ -67,16 +67,7 @@
       <div class="image-with-text__image-container">
         <div class="image-with-text__image-container-inner">
           <figure class="image-with-text__image-wrapper">
-            {%-
-              render 'image' with
-              wrapper_class: "image-with-text__image",
-              image: section.settings.image,
-              sizes: image_sizes,
-              aspect_ratio: section.settings.aspect_ratio,
-              focal_point: section.settings.focal_point,
-              include_placeholder: true,
-              animate: show_animations
-            -%}
+            {%- render 'image' with wrapper_class, wrapper_class: "image-with-text__image", image: section.settings.image, sizes: image_sizes, aspect_ratio: section.settings.aspect_ratio, focal_point: section.settings.focal_point, include_placeholder: true, animate: show_animations -%}
 
             {%- unless section.settings.image_caption == blank -%}
               <figcaption class="image-with-text__image-caption ff-body fs-body-50">
@@ -87,16 +78,7 @@
 
           {%- if section.settings.show_small_image -%}
             <div class="image-with-text__small-image-wrapper">
-              {%-
-                render 'image' with
-                wrapper_class: "image-with-text__small-image",
-                image: section.settings.image_small,
-                sizes: "(max-width: 720px) calc(90vw * .42), (max-width: 1500px) calc(50vw * .42), 300px",
-                aspect_ratio: section.settings.image_small_aspect_ratio,
-                focal_point: section.settings.image_small_focal_point,
-                include_placeholder: true,
-                animate: show_animations
-              -%}
+              {%- render 'image' with wrapper_class, wrapper_class: "image-with-text__small-image", image: section.settings.image_small, sizes: "(max-width: 720px) calc(90vw * .42), (max-width: 1500px) calc(50vw * .42), 300px", aspect_ratio: section.settings.image_small_aspect_ratio, focal_point: section.settings.image_small_focal_point, include_placeholder: true, animate: show_animations -%}
             </div>
           {%- endif -%}
         </div>
@@ -137,44 +119,15 @@
                   </div>
                 {%- endunless -%}
               {%- when 'image' -%}
-                {%-
-                  render 'image-block' with
-                  shopify_attributes: block.shopify_attributes,
-                  wrapper_class: 'image-with-text__text-container-image section-blocks__image  section-blocks__image',
-                  image: block.settings.image,
-                  width: block.settings.image_size,
-                  mobile_width: block.settings.image_size_mobile,
-                  break_to_mobile_at: '720',
-                  align: section.settings.text_alignment
-                -%}
+                {%- render 'image-block' with shopify_attributes, shopify_attributes: block.shopify_attributes, wrapper_class: 'image-with-text__text-container-image section-blocks__image  section-blocks__image', image: block.settings.image, width: block.settings.image_size, mobile_width: block.settings.image_size_mobile, break_to_mobile_at: '720', align: section.settings.text_alignment -%}
               {%- when 'button' -%}
-                {%-
-                  render 'button-block' with
-                  wrapper_class: "image-with-text__text-container-button section-blocks__button",
-                  link: block.settings.link,
-                  label: block.settings.link_text,
-                  button_style: block.settings.button_style,
-                  is_overlay: true,
-                  button_alignment: section.settings.text_alignment,
-                  buttons_can_inline: true,
-                  forloop: forloop
-                -%}
+                {%- render 'button-block' with wrapper_class, wrapper_class: "image-with-text__text-container-button section-blocks__button", link: block.settings.link, label: block.settings.link_text, button_style: block.settings.button_style, is_overlay: true, button_alignment: section.settings.text_alignment, buttons_can_inline: true, forloop: forloop -%}
               {%- when 'play-button' -%}
-                {%-
-                  render 'play-button-block' with
-                  wrapper_class: 'image-with-text__text-container-play-button section-blocks__video-button',
-                  shopify_attributes: block.shopify_attributes,
-                  poster_image: block.settings.poster_image,
-                  poster_aspect: block.settings.aspect_ratio,
-                  video_url: block.settings.video_url,
-                  label: block.settings.text,
-                  button_alignment: section.settings.text_alignment,
-                  icon_style: block.settings.icon_style
-                -%}
+                {%- render 'play-button-block' with wrapper_class, wrapper_class: 'image-with-text__text-container-play-button section-blocks__video-button', shopify_attributes: block.shopify_attributes, poster_image: block.settings.poster_image, poster_aspect: block.settings.aspect_ratio, video_url: block.settings.video_url, label: block.settings.text, button_alignment: section.settings.text_alignment, icon_style: block.settings.icon_style -%}
               {%- when 'border' -%}
                 {%- render 'border-block' -%}
               {%- when 'spacer' -%}
-                {%- render 'spacer-block' with space: block.settings.space -%}
+                {%- render 'spacer-block' with space, space: block.settings.space -%}
             {%- endcase -%}
           {%- endfor -%}
         </div>
@@ -667,3 +620,103 @@
   ]
 }
 {% endschema %}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'overlay-button-vars' with color_button_text: section.settings.button_text_color,
+    color_button_background: section.settings.button_background_color %}"
+  to: "{% render 'overlay-button-vars' with color_button_text, color_button_text:
+    section.settings.button_text_color, color_button_background: section.settings.button_background_color
+    %}"
+  position: 1922..2101
+- from: |-
+    {%-
+                  render 'image' with
+                  wrapper_class: "image-with-text__image",
+                  image: section.settings.image,
+                  sizes: image_sizes,
+                  aspect_ratio: section.settings.aspect_ratio,
+                  focal_point: section.settings.focal_point,
+                  include_placeholder: true,
+                  animate: show_animations
+                -%}
+  to: '{%- render ''image'' with wrapper_class, wrapper_class: "image-with-text__image",
+    image: section.settings.image, sizes: image_sizes, aspect_ratio: section.settings.aspect_ratio,
+    focal_point: section.settings.focal_point, include_placeholder: true, animate:
+    show_animations -%}'
+  position: 2477..2751
+- from: |-
+    {%-
+                    render 'image' with
+                    wrapper_class: "image-with-text__small-image",
+                    image: section.settings.image_small,
+                    sizes: "(max-width: 720px) calc(90vw * .42), (max-width: 1500px) calc(50vw * .42), 300px",
+                    aspect_ratio: section.settings.image_small_aspect_ratio,
+                    focal_point: section.settings.image_small_focal_point,
+                    include_placeholder: true,
+                    animate: show_animations
+                  -%}
+  to: '{%- render ''image'' with wrapper_class, wrapper_class: "image-with-text__small-image",
+    image: section.settings.image_small, sizes: "(max-width: 720px) calc(90vw * .42),
+    (max-width: 1500px) calc(50vw * .42), 300px", aspect_ratio: section.settings.image_small_aspect_ratio,
+    focal_point: section.settings.image_small_focal_point, include_placeholder: true,
+    animate: show_animations -%}'
+  position: 3169..3550
+- from: |-
+    {%-
+                      render 'image-block' with
+                      shopify_attributes: block.shopify_attributes,
+                      wrapper_class: 'image-with-text__text-container-image section-blocks__image  section-blocks__image',
+                      image: block.settings.image,
+                      width: block.settings.image_size,
+                      mobile_width: block.settings.image_size_mobile,
+                      break_to_mobile_at: '720',
+                      align: section.settings.text_alignment
+                    -%}
+  to: "{%- render 'image-block' with shopify_attributes, shopify_attributes: block.shopify_attributes,
+    wrapper_class: 'image-with-text__text-container-image section-blocks__image  section-blocks__image',
+    image: block.settings.image, width: block.settings.image_size, mobile_width: block.settings.image_size_mobile,
+    break_to_mobile_at: '720', align: section.settings.text_alignment -%}"
+  position: 5377..5754
+- from: |-
+    {%-
+                      render 'button-block' with
+                      wrapper_class: "image-with-text__text-container-button section-blocks__button",
+                      link: block.settings.link,
+                      label: block.settings.link_text,
+                      button_style: block.settings.button_style,
+                      is_overlay: true,
+                      button_alignment: section.settings.text_alignment,
+                      buttons_can_inline: true,
+                      forloop: forloop
+                    -%}
+  to: '{%- render ''button-block'' with wrapper_class, wrapper_class: "image-with-text__text-container-button
+    section-blocks__button", link: block.settings.link, label: block.settings.link_text,
+    button_style: block.settings.button_style, is_overlay: true, button_alignment:
+    section.settings.text_alignment, buttons_can_inline: true, forloop: forloop -%}'
+  position: 5807..6151
+- from: |-
+    {%-
+                      render 'play-button-block' with
+                      wrapper_class: 'image-with-text__text-container-play-button section-blocks__video-button',
+                      shopify_attributes: block.shopify_attributes,
+                      poster_image: block.settings.poster_image,
+                      poster_aspect: block.settings.aspect_ratio,
+                      video_url: block.settings.video_url,
+                      label: block.settings.text,
+                      button_alignment: section.settings.text_alignment,
+                      icon_style: block.settings.icon_style
+                    -%}
+  to: "{%- render 'play-button-block' with wrapper_class, wrapper_class: 'image-with-text__text-container-play-button
+    section-blocks__video-button', shopify_attributes: block.shopify_attributes, poster_image:
+    block.settings.poster_image, poster_aspect: block.settings.aspect_ratio, video_url:
+    block.settings.video_url, label: block.settings.text, button_alignment: section.settings.text_alignment,
+    icon_style: block.settings.icon_style -%}"
+  position: 6209..6641
+- from: "{%- render 'spacer-block' with space: block.settings.space -%}"
+  to: "{%- render 'spacer-block' with space, space: block.settings.space -%}"
+  position: 6776..6845
+{% endcomment %}
