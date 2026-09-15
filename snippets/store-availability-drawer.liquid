@@ -35,7 +35,7 @@
           data-store-availability-close
           aria-label="{{ 'general.accessibility.close_modal' | t }}"
         >
-          {% render 'icon-button' with small: true, icon: 'close' %}
+          {% render 'icon-button' with small, small: true, icon: 'close' %}
         </button>
       </div>
       <div class="store-availbility-drawer__product" data-store-availability-product></div>
@@ -44,3 +44,13 @@
     </div>
   </div>
 </div>
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'icon-button' with small: true, icon: 'close' %}"
+  to: "{% render 'icon-button' with small, small: true, icon: 'close' %}"
+  position: 1297..1362
+{% endcomment %}

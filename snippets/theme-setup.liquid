@@ -1,13 +1,13 @@
 {%- capture close_icon -%}
-  {% render 'icon' with icon: 'close' %}
+  {% render 'icon' with icon, icon: 'close' %}
 {%- endcapture -%}
 
 {%- capture chevron_icon -%}
-  {% render 'icon' with icon: 'chevron' %}
+  {% render 'icon' with icon, icon: 'chevron' %}
 {%- endcapture -%}
 
 {%- capture zoom_icon -%}
-  {% render 'icon' with icon: 'zoom' %}
+  {% render 'icon' with icon, icon: 'zoom' %}
 {%- endcapture -%}
 
 <script>
@@ -87,3 +87,19 @@
     window.theme.allCountryOptionTags = {{ all_country_option_tags | json }};
   {% endif %}
 </script>
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'icon' with icon: 'close' %}"
+  to: "{% render 'icon' with icon, icon: 'close' %}"
+  position: 29..73
+- from: "{% render 'icon' with icon: 'chevron' %}"
+  to: "{% render 'icon' with icon, icon: 'chevron' %}"
+  position: 125..171
+- from: "{% render 'icon' with icon: 'zoom' %}"
+  to: "{% render 'icon' with icon, icon: 'zoom' %}"
+  position: 220..263
+{% endcomment %}

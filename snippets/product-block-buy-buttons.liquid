@@ -5,15 +5,7 @@
 >
   {{ 'products.product.quantity_error' | t }}
 </div>
-{%
-  render 'product-form' with
-  block: block,
-  blocks: blocks,
-  product: product,
-  current_variant: current_variant,
-  show_dynamic_checkout: block.settings.show_dynamic_checkout,
-  is_quick: is_quick
-%}
+{% render 'product-form' with block, block: block, blocks: blocks, product: product, current_variant: current_variant, show_dynamic_checkout: block.settings.show_dynamic_checkout, is_quick: is_quick %}
 
 {%- unless is_quick -%}
   {%- if shop.taxes_included or shop.shipping_policy.body != blank -%}
@@ -27,3 +19,24 @@
     </div>
   {%- endif -%}
 {%- endunless -%}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {%
+      render 'product-form' with
+      block: block,
+      blocks: blocks,
+      product: product,
+      current_variant: current_variant,
+      show_dynamic_checkout: block.settings.show_dynamic_checkout,
+      is_quick: is_quick
+    %}
+  to: "{% render 'product-form' with block, block: block, blocks: blocks, product:
+    product, current_variant: current_variant, show_dynamic_checkout: block.settings.show_dynamic_checkout,
+    is_quick: is_quick %}"
+  position: 237..438
+{% endcomment %}

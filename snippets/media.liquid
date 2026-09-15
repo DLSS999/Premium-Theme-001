@@ -37,15 +37,7 @@
       {%- endif -%}
     {%- endcapture -%}
     <{{ media_link_element }} {{ media_atributes }}>
-      {%
-        render 'image' with
-        image: media,
-        aspect_ratio: aspect_ratio,
-        sizes: sizes,
-        prioritize_loading: prioritize_loading,
-        fallback_alt: fallback_alt,
-        animate: animate
-      %}
+      {% render 'image' with image, image: media, aspect_ratio: aspect_ratio, sizes: sizes, prioritize_loading: prioritize_loading, fallback_alt: fallback_alt, animate: animate %}
     </{{ media_link_element }}>
   {%- elsif media.media_type == 'video' -%}
     {{ media | video_tag: image_size: '1024x' }}
@@ -80,8 +72,32 @@
       title="{{ 'general.accessibility.view_3d_model' | t }}"
     >
       <span class="media-badge model in-poster">
-        {% render 'icon' with icon: '3d-button-control' %}
+        {% render 'icon' with icon, icon: '3d-button-control' %}
       </span>
     </a>
   {%- endif -%}
 </div>
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {%
+            render 'image' with
+            image: media,
+            aspect_ratio: aspect_ratio,
+            sizes: sizes,
+            prioritize_loading: prioritize_loading,
+            fallback_alt: fallback_alt,
+            animate: animate
+          %}
+  to: "{% render 'image' with image, image: media, aspect_ratio: aspect_ratio, sizes:
+    sizes, prioritize_loading: prioritize_loading, fallback_alt: fallback_alt, animate:
+    animate %}"
+  position: 1323..1496
+- from: "{% render 'icon' with icon: '3d-button-control' %}"
+  to: "{% render 'icon' with icon, icon: '3d-button-control' %}"
+  position: 2694..2750
+{% endcomment %}

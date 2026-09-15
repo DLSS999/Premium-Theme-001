@@ -63,14 +63,7 @@
           style="--featured-image-width: {{ featured_article_image_width }}%"
         {% endif %}
       >
-        {%-
-          render 'image' with
-          wrapper_class: "article-item__image",
-          image: blog_article.image,
-          sizes: image_sizes,
-          aspect_ratio: aspect_ratio,
-          animate: true
-        -%}
+        {%- render 'image' with wrapper_class, wrapper_class: "article-item__image", image: blog_article.image, sizes: image_sizes, aspect_ratio: aspect_ratio, animate: true -%}
       </a>
     {%- endif -%}
 
@@ -110,24 +103,12 @@
         {%- endif -%}
 
         {%- assign button_label = 'blogs.article.read' | t -%}
-        {%-
-          render 'button-block' with
-          wrapper_class: "article-item__read-button",
-          link: blog_article.url,
-          label: button_label,
-          button_style: "btn--callout"
-        -%}
+        {%- render 'button-block' with wrapper_class, wrapper_class: "article-item__read-button", link: blog_article.url, label: button_label, button_style: "btn--callout" -%}
       </div>
     </div>
   {%- else -%}
     <div class="article-item__image-wrapper">
-      {%-
-        render 'image' with
-        wrapper_class: "article-item__image",
-        sizes: image_sizes,
-        aspect_ratio: aspect_ratio,
-        include_placeholder: true
-      -%}
+      {%- render 'image' with wrapper_class, wrapper_class: "article-item__image", sizes: image_sizes, aspect_ratio: aspect_ratio, include_placeholder: true -%}
     </div>
     <div class="article-item__content">
       <div class="article-item__content-inner">
@@ -144,3 +125,45 @@
     </div>
   {%- endif -%}
 </div>
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {%-
+              render 'image' with
+              wrapper_class: "article-item__image",
+              image: blog_article.image,
+              sizes: image_sizes,
+              aspect_ratio: aspect_ratio,
+              animate: true
+            -%}
+  to: '{%- render ''image'' with wrapper_class, wrapper_class: "article-item__image",
+    image: blog_article.image, sizes: image_sizes, aspect_ratio: aspect_ratio, animate:
+    true -%}'
+  position: 1886..2055
+- from: |-
+    {%-
+              render 'button-block' with
+              wrapper_class: "article-item__read-button",
+              link: blog_article.url,
+              label: button_label,
+              button_style: "btn--callout"
+            -%}
+  to: '{%- render ''button-block'' with wrapper_class, wrapper_class: "article-item__read-button",
+    link: blog_article.url, label: button_label, button_style: "btn--callout" -%}'
+  position: 3402..3569
+- from: |-
+    {%-
+            render 'image' with
+            wrapper_class: "article-item__image",
+            sizes: image_sizes,
+            aspect_ratio: aspect_ratio,
+            include_placeholder: true
+          -%}
+  to: '{%- render ''image'' with wrapper_class, wrapper_class: "article-item__image",
+    sizes: image_sizes, aspect_ratio: aspect_ratio, include_placeholder: true -%}'
+  position: 3661..3815
+{% endcomment %}

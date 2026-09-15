@@ -148,15 +148,7 @@
   {% endcapture %}
 
   {% if block.settings.display_as_collapsible_row %}
-    {%-
-      render 'product-block-accordion' with
-      block: block,
-      block_settings: block.settings,
-      classes: 'product__block-featured-products product__block-featured-products--compact-images',
-      heading: block.settings.heading,
-      disable_rte: true,
-      content: content
-    -%}
+    {%- render 'product-block-accordion' with block, block: block, block_settings: block.settings, classes: 'product__block-featured-products product__block-featured-products--compact-images', heading: block.settings.heading, disable_rte: true, content: content -%}
   {% else %}
     <div
       class="product__block product__block-featured-products product__block-featured-products--compact-images{% if block.settings.product_source == 'app-recommendations' %} hidden{% endif %} product__block--medium"
@@ -171,4 +163,24 @@
       {{ content }}
     </div>
   {% endif %}
-{%- endif -%}
+{%- endif -%}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {%-
+          render 'product-block-accordion' with
+          block: block,
+          block_settings: block.settings,
+          classes: 'product__block-featured-products product__block-featured-products--compact-images',
+          heading: block.settings.heading,
+          disable_rte: true,
+          content: content
+        -%}
+  to: "{%- render 'product-block-accordion' with block, block: block, block_settings:
+    block.settings, classes: 'product__block-featured-products product__block-featured-products--compact-images',
+    heading: block.settings.heading, disable_rte: true, content: content -%}"
+  position: 6066..6327
+{%- endcomment -%}

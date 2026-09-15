@@ -153,33 +153,33 @@
     --line-height-subheading: 1.33;
     --line-height-body: 1.5;
 
-    --logo-font-size: {% render 'font-size-clamp' with multiplier: 1, desktop_size: settings.logo_base_size, mobile_scale: settings.logo_mobile_base_scale %};
+    --logo-font-size: {% render 'font-size-clamp' with multiplier, multiplier: 1, desktop_size: settings.logo_base_size, mobile_scale: settings.logo_mobile_base_scale %};
 
     --font-size-navigation-base: {{ settings.navigation_base_size | append: 'px' }};
     --font-navigation-base-letter-spacing: {{ settings.navigation_letter_spacing | times: 0.001 | append: 'em' }};
     --font-navigation-base-text-transform: {{ navigation_text_transform }};
 
-    --font-size-heading-display-1: {% render 'font-size-clamp' with multiplier: 1.5, desktop_size: settings.heading_base_size, mobile_scale: settings.heading_mobile_base_scale %};
-    --font-size-heading-display-2: {% render 'font-size-clamp' with multiplier: 1.333, desktop_size: settings.heading_base_size, mobile_scale: settings.heading_mobile_base_scale %};
-    --font-size-heading-display-3: {% render 'font-size-clamp' with multiplier: 1.1666, desktop_size: settings.heading_base_size, mobile_scale: settings.heading_mobile_base_scale %};
-    --font-size-heading-1-base: {% render 'font-size-clamp' with multiplier: 1, desktop_size: settings.heading_base_size, mobile_scale: settings.heading_mobile_base_scale %};
-    --font-size-heading-2-base: {% render 'font-size-clamp' with multiplier: 0.875, desktop_size: settings.heading_base_size, mobile_scale: settings.heading_mobile_base_scale %};
-    --font-size-heading-3-base: {% render 'font-size-clamp' with multiplier: 0.75, desktop_size: settings.heading_base_size, mobile_scale: settings.heading_mobile_base_scale %};
-    --font-size-heading-4-base: {% render 'font-size-clamp' with multiplier: 0.583, desktop_size: settings.heading_base_size, mobile_scale: settings.heading_mobile_base_scale %};
-    --font-size-heading-5-base: {% render 'font-size-clamp' with multiplier: 0.5, desktop_size: settings.heading_base_size, mobile_scale: settings.heading_mobile_base_scale %};
-    --font-size-heading-6-base: {% render 'font-size-clamp' with multiplier: 0.416, desktop_size: settings.heading_base_size, mobile_scale: settings.heading_mobile_base_scale %};
-    --font-size-body-400: {% render 'font-size-clamp' with multiplier: 1.666, desktop_size: settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %};
-    --font-size-body-350: {% render 'font-size-clamp' with multiplier: 1.555, desktop_size: settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %};
-    --font-size-body-300: {% render 'font-size-clamp' with multiplier: 1.444, desktop_size: settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %};
-    --font-size-body-250: {% render 'font-size-clamp' with multiplier: 1.333, desktop_size: settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %};
-    --font-size-body-200: {% render 'font-size-clamp' with multiplier: 1.222, desktop_size: settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %};
-    --font-size-body-150: {% render 'font-size-clamp' with multiplier: 1.111, desktop_size: settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %};
-    --font-size-body-100: {% render 'font-size-clamp' with multiplier: 1, desktop_size: settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %};
-    --font-size-body-75: {% render 'font-size-clamp' with multiplier: 0.888, desktop_size: settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %};
-    --font-size-body-60: {% render 'font-size-clamp' with multiplier: 0.8222, desktop_size: settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %};
-    --font-size-body-50: {% render 'font-size-clamp' with multiplier: 0.777, desktop_size: settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %};
-    --font-size-body-25: {% render 'font-size-clamp' with multiplier: 0.722, desktop_size: settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %};
-    --font-size-body-20: {% render 'font-size-clamp' with multiplier: 0.666, desktop_size: settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %};
+    --font-size-heading-display-1: {% render 'font-size-clamp' with multiplier, multiplier: 1.5, desktop_size: settings.heading_base_size, mobile_scale: settings.heading_mobile_base_scale %};
+    --font-size-heading-display-2: {% render 'font-size-clamp' with multiplier, multiplier: 1.333, desktop_size: settings.heading_base_size, mobile_scale: settings.heading_mobile_base_scale %};
+    --font-size-heading-display-3: {% render 'font-size-clamp' with multiplier, multiplier: 1.1666, desktop_size: settings.heading_base_size, mobile_scale: settings.heading_mobile_base_scale %};
+    --font-size-heading-1-base: {% render 'font-size-clamp' with multiplier, multiplier: 1, desktop_size: settings.heading_base_size, mobile_scale: settings.heading_mobile_base_scale %};
+    --font-size-heading-2-base: {% render 'font-size-clamp' with multiplier, multiplier: 0.875, desktop_size: settings.heading_base_size, mobile_scale: settings.heading_mobile_base_scale %};
+    --font-size-heading-3-base: {% render 'font-size-clamp' with multiplier, multiplier: 0.75, desktop_size: settings.heading_base_size, mobile_scale: settings.heading_mobile_base_scale %};
+    --font-size-heading-4-base: {% render 'font-size-clamp' with multiplier, multiplier: 0.583, desktop_size: settings.heading_base_size, mobile_scale: settings.heading_mobile_base_scale %};
+    --font-size-heading-5-base: {% render 'font-size-clamp' with multiplier, multiplier: 0.5, desktop_size: settings.heading_base_size, mobile_scale: settings.heading_mobile_base_scale %};
+    --font-size-heading-6-base: {% render 'font-size-clamp' with multiplier, multiplier: 0.416, desktop_size: settings.heading_base_size, mobile_scale: settings.heading_mobile_base_scale %};
+    --font-size-body-400: {% render 'font-size-clamp' with multiplier, multiplier: 1.666, desktop_size: settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %};
+    --font-size-body-350: {% render 'font-size-clamp' with multiplier, multiplier: 1.555, desktop_size: settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %};
+    --font-size-body-300: {% render 'font-size-clamp' with multiplier, multiplier: 1.444, desktop_size: settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %};
+    --font-size-body-250: {% render 'font-size-clamp' with multiplier, multiplier: 1.333, desktop_size: settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %};
+    --font-size-body-200: {% render 'font-size-clamp' with multiplier, multiplier: 1.222, desktop_size: settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %};
+    --font-size-body-150: {% render 'font-size-clamp' with multiplier, multiplier: 1.111, desktop_size: settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %};
+    --font-size-body-100: {% render 'font-size-clamp' with multiplier, multiplier: 1, desktop_size: settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %};
+    --font-size-body-75: {% render 'font-size-clamp' with multiplier, multiplier: 0.888, desktop_size: settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %};
+    --font-size-body-60: {% render 'font-size-clamp' with multiplier, multiplier: 0.8222, desktop_size: settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %};
+    --font-size-body-50: {% render 'font-size-clamp' with multiplier, multiplier: 0.777, desktop_size: settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %};
+    --font-size-body-25: {% render 'font-size-clamp' with multiplier, multiplier: 0.722, desktop_size: settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %};
+    --font-size-body-20: {% render 'font-size-clamp' with multiplier, multiplier: 0.666, desktop_size: settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %};
 
     /* Buttons */
     {% if settings.capitalize_buttons %}
@@ -221,28 +221,28 @@
 
   @supports not (font-size: clamp(10px, 3.3vw, 20px)) {
     :root {
-      --logo-font-size: {% render 'font-size-clamp-fallback' with multiplier: 1, desktop_size: settings.logo_base_size, mobile_scale: settings.logo_mobile_base_scale %};
-      --font-size-heading-display-1: {% render 'font-size-clamp-fallback' with multiplier: 1.5, desktop_size: settings.heading_base_size, mobile_scale: settings.heading_mobile_base_scale %};
-      --font-size-heading-display-2: {% render 'font-size-clamp-fallback' with multiplier: 1.333, desktop_size: settings.heading_base_size, mobile_scale: settings.heading_mobile_base_scale %};
-      --font-size-heading-display-3: {% render 'font-size-clamp-fallback' with multiplier: 1.1666, desktop_size: settings.heading_base_size, mobile_scale: settings.heading_mobile_base_scale %};
-      --font-size-heading-1-base: {% render 'font-size-clamp-fallback' with multiplier: 1, desktop_size: settings.heading_base_size, mobile_scale: settings.heading_mobile_base_scale %};
-      --font-size-heading-2-base: {% render 'font-size-clamp-fallback' with multiplier: 0.875, desktop_size: settings.heading_base_size, mobile_scale: settings.heading_mobile_base_scale %};
-      --font-size-heading-3-base: {% render 'font-size-clamp-fallback' with multiplier: 0.75, desktop_size: settings.heading_base_size, mobile_scale: settings.heading_mobile_base_scale %};
-      --font-size-heading-4-base: {% render 'font-size-clamp-fallback' with multiplier: 0.583, desktop_size: settings.heading_base_size, mobile_scale: settings.heading_mobile_base_scale %};
-      --font-size-heading-5-base: {% render 'font-size-clamp-fallback' with multiplier: 0.5, desktop_size: settings.heading_base_size, mobile_scale: settings.heading_mobile_base_scale %};
-      --font-size-heading-6-base: {% render 'font-size-clamp-fallback' with multiplier: 0.416, desktop_size: settings.heading_base_size, mobile_scale: settings.heading_mobile_base_scale %};
-      --font-size-body-400: {% render 'font-size-clamp-fallback' with multiplier: 1.666, desktop_size: settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %};
-      --font-size-body-350: {% render 'font-size-clamp-fallback' with multiplier: 1.555, desktop_size: settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %};
-      --font-size-body-300: {% render 'font-size-clamp-fallback' with multiplier: 1.444, desktop_size: settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %};
-      --font-size-body-250: {% render 'font-size-clamp-fallback' with multiplier: 1.333, desktop_size: settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %};
-      --font-size-body-200: {% render 'font-size-clamp-fallback' with multiplier: 1.222, desktop_size: settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %};
-      --font-size-body-150: {% render 'font-size-clamp-fallback' with multiplier: 1.111, desktop_size: settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %};
-      --font-size-body-100: {% render 'font-size-clamp-fallback' with multiplier: 1, desktop_size: settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %};
-      --font-size-body-75: {% render 'font-size-clamp-fallback' with multiplier: 0.888, desktop_size: settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %};
-      --font-size-body-60: {% render 'font-size-clamp-fallback' with multiplier: 0.8222, desktop_size: settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %};
-      --font-size-body-50: {% render 'font-size-clamp-fallback' with multiplier: 0.777, desktop_size: settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %};
-      --font-size-body-25: {% render 'font-size-clamp-fallback' with multiplier: 0.722, desktop_size: settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %};
-      --font-size-body-20: {% render 'font-size-clamp-fallback' with multiplier: 0.666, desktop_size: settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %};
+      --logo-font-size: {% render 'font-size-clamp-fallback' with multiplier, multiplier: 1, desktop_size: settings.logo_base_size, mobile_scale: settings.logo_mobile_base_scale %};
+      --font-size-heading-display-1: {% render 'font-size-clamp-fallback' with multiplier, multiplier: 1.5, desktop_size: settings.heading_base_size, mobile_scale: settings.heading_mobile_base_scale %};
+      --font-size-heading-display-2: {% render 'font-size-clamp-fallback' with multiplier, multiplier: 1.333, desktop_size: settings.heading_base_size, mobile_scale: settings.heading_mobile_base_scale %};
+      --font-size-heading-display-3: {% render 'font-size-clamp-fallback' with multiplier, multiplier: 1.1666, desktop_size: settings.heading_base_size, mobile_scale: settings.heading_mobile_base_scale %};
+      --font-size-heading-1-base: {% render 'font-size-clamp-fallback' with multiplier, multiplier: 1, desktop_size: settings.heading_base_size, mobile_scale: settings.heading_mobile_base_scale %};
+      --font-size-heading-2-base: {% render 'font-size-clamp-fallback' with multiplier, multiplier: 0.875, desktop_size: settings.heading_base_size, mobile_scale: settings.heading_mobile_base_scale %};
+      --font-size-heading-3-base: {% render 'font-size-clamp-fallback' with multiplier, multiplier: 0.75, desktop_size: settings.heading_base_size, mobile_scale: settings.heading_mobile_base_scale %};
+      --font-size-heading-4-base: {% render 'font-size-clamp-fallback' with multiplier, multiplier: 0.583, desktop_size: settings.heading_base_size, mobile_scale: settings.heading_mobile_base_scale %};
+      --font-size-heading-5-base: {% render 'font-size-clamp-fallback' with multiplier, multiplier: 0.5, desktop_size: settings.heading_base_size, mobile_scale: settings.heading_mobile_base_scale %};
+      --font-size-heading-6-base: {% render 'font-size-clamp-fallback' with multiplier, multiplier: 0.416, desktop_size: settings.heading_base_size, mobile_scale: settings.heading_mobile_base_scale %};
+      --font-size-body-400: {% render 'font-size-clamp-fallback' with multiplier, multiplier: 1.666, desktop_size: settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %};
+      --font-size-body-350: {% render 'font-size-clamp-fallback' with multiplier, multiplier: 1.555, desktop_size: settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %};
+      --font-size-body-300: {% render 'font-size-clamp-fallback' with multiplier, multiplier: 1.444, desktop_size: settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %};
+      --font-size-body-250: {% render 'font-size-clamp-fallback' with multiplier, multiplier: 1.333, desktop_size: settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %};
+      --font-size-body-200: {% render 'font-size-clamp-fallback' with multiplier, multiplier: 1.222, desktop_size: settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %};
+      --font-size-body-150: {% render 'font-size-clamp-fallback' with multiplier, multiplier: 1.111, desktop_size: settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %};
+      --font-size-body-100: {% render 'font-size-clamp-fallback' with multiplier, multiplier: 1, desktop_size: settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %};
+      --font-size-body-75: {% render 'font-size-clamp-fallback' with multiplier, multiplier: 0.888, desktop_size: settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %};
+      --font-size-body-60: {% render 'font-size-clamp-fallback' with multiplier, multiplier: 0.8222, desktop_size: settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %};
+      --font-size-body-50: {% render 'font-size-clamp-fallback' with multiplier, multiplier: 0.777, desktop_size: settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %};
+      --font-size-body-25: {% render 'font-size-clamp-fallback' with multiplier, multiplier: 0.722, desktop_size: settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %};
+      --font-size-body-20: {% render 'font-size-clamp-fallback' with multiplier, multiplier: 0.666, desktop_size: settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %};
     }
   }
 
@@ -260,3 +260,230 @@
     {% endunless %}
   {%- endfor -%}
 </style>
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'font-size-clamp' with multiplier: 1, desktop_size: settings.logo_base_size,
+    mobile_scale: settings.logo_mobile_base_scale %}"
+  to: "{% render 'font-size-clamp' with multiplier, multiplier: 1, desktop_size: settings.logo_base_size,
+    mobile_scale: settings.logo_mobile_base_scale %}"
+  position: 7582..7729
+- from: "{% render 'font-size-clamp' with multiplier: 1.5, desktop_size: settings.heading_base_size,
+    mobile_scale: settings.heading_mobile_base_scale %}"
+  to: "{% render 'font-size-clamp' with multiplier, multiplier: 1.5, desktop_size:
+    settings.heading_base_size, mobile_scale: settings.heading_mobile_base_scale %}"
+  position: 8044..8199
+- from: "{% render 'font-size-clamp' with multiplier: 1.333, desktop_size: settings.heading_base_size,
+    mobile_scale: settings.heading_mobile_base_scale %}"
+  to: "{% render 'font-size-clamp' with multiplier, multiplier: 1.333, desktop_size:
+    settings.heading_base_size, mobile_scale: settings.heading_mobile_base_scale %}"
+  position: 8236..8393
+- from: "{% render 'font-size-clamp' with multiplier: 1.1666, desktop_size: settings.heading_base_size,
+    mobile_scale: settings.heading_mobile_base_scale %}"
+  to: "{% render 'font-size-clamp' with multiplier, multiplier: 1.1666, desktop_size:
+    settings.heading_base_size, mobile_scale: settings.heading_mobile_base_scale %}"
+  position: 8430..8588
+- from: "{% render 'font-size-clamp' with multiplier: 1, desktop_size: settings.heading_base_size,
+    mobile_scale: settings.heading_mobile_base_scale %}"
+  to: "{% render 'font-size-clamp' with multiplier, multiplier: 1, desktop_size: settings.heading_base_size,
+    mobile_scale: settings.heading_mobile_base_scale %}"
+  position: 8622..8775
+- from: "{% render 'font-size-clamp' with multiplier: 0.875, desktop_size: settings.heading_base_size,
+    mobile_scale: settings.heading_mobile_base_scale %}"
+  to: "{% render 'font-size-clamp' with multiplier, multiplier: 0.875, desktop_size:
+    settings.heading_base_size, mobile_scale: settings.heading_mobile_base_scale %}"
+  position: 8809..8966
+- from: "{% render 'font-size-clamp' with multiplier: 0.75, desktop_size: settings.heading_base_size,
+    mobile_scale: settings.heading_mobile_base_scale %}"
+  to: "{% render 'font-size-clamp' with multiplier, multiplier: 0.75, desktop_size:
+    settings.heading_base_size, mobile_scale: settings.heading_mobile_base_scale %}"
+  position: 9000..9156
+- from: "{% render 'font-size-clamp' with multiplier: 0.583, desktop_size: settings.heading_base_size,
+    mobile_scale: settings.heading_mobile_base_scale %}"
+  to: "{% render 'font-size-clamp' with multiplier, multiplier: 0.583, desktop_size:
+    settings.heading_base_size, mobile_scale: settings.heading_mobile_base_scale %}"
+  position: 9190..9347
+- from: "{% render 'font-size-clamp' with multiplier: 0.5, desktop_size: settings.heading_base_size,
+    mobile_scale: settings.heading_mobile_base_scale %}"
+  to: "{% render 'font-size-clamp' with multiplier, multiplier: 0.5, desktop_size:
+    settings.heading_base_size, mobile_scale: settings.heading_mobile_base_scale %}"
+  position: 9381..9536
+- from: "{% render 'font-size-clamp' with multiplier: 0.416, desktop_size: settings.heading_base_size,
+    mobile_scale: settings.heading_mobile_base_scale %}"
+  to: "{% render 'font-size-clamp' with multiplier, multiplier: 0.416, desktop_size:
+    settings.heading_base_size, mobile_scale: settings.heading_mobile_base_scale %}"
+  position: 9570..9727
+- from: "{% render 'font-size-clamp' with multiplier: 1.666, desktop_size: settings.body_base_size,
+    mobile_scale: settings.body_mobile_base_scale %}"
+  to: "{% render 'font-size-clamp' with multiplier, multiplier: 1.666, desktop_size:
+    settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %}"
+  position: 9755..9906
+- from: "{% render 'font-size-clamp' with multiplier: 1.555, desktop_size: settings.body_base_size,
+    mobile_scale: settings.body_mobile_base_scale %}"
+  to: "{% render 'font-size-clamp' with multiplier, multiplier: 1.555, desktop_size:
+    settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %}"
+  position: 9934..10085
+- from: "{% render 'font-size-clamp' with multiplier: 1.444, desktop_size: settings.body_base_size,
+    mobile_scale: settings.body_mobile_base_scale %}"
+  to: "{% render 'font-size-clamp' with multiplier, multiplier: 1.444, desktop_size:
+    settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %}"
+  position: 10113..10264
+- from: "{% render 'font-size-clamp' with multiplier: 1.333, desktop_size: settings.body_base_size,
+    mobile_scale: settings.body_mobile_base_scale %}"
+  to: "{% render 'font-size-clamp' with multiplier, multiplier: 1.333, desktop_size:
+    settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %}"
+  position: 10292..10443
+- from: "{% render 'font-size-clamp' with multiplier: 1.222, desktop_size: settings.body_base_size,
+    mobile_scale: settings.body_mobile_base_scale %}"
+  to: "{% render 'font-size-clamp' with multiplier, multiplier: 1.222, desktop_size:
+    settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %}"
+  position: 10471..10622
+- from: "{% render 'font-size-clamp' with multiplier: 1.111, desktop_size: settings.body_base_size,
+    mobile_scale: settings.body_mobile_base_scale %}"
+  to: "{% render 'font-size-clamp' with multiplier, multiplier: 1.111, desktop_size:
+    settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %}"
+  position: 10650..10801
+- from: "{% render 'font-size-clamp' with multiplier: 1, desktop_size: settings.body_base_size,
+    mobile_scale: settings.body_mobile_base_scale %}"
+  to: "{% render 'font-size-clamp' with multiplier, multiplier: 1, desktop_size: settings.body_base_size,
+    mobile_scale: settings.body_mobile_base_scale %}"
+  position: 10829..10976
+- from: "{% render 'font-size-clamp' with multiplier: 0.888, desktop_size: settings.body_base_size,
+    mobile_scale: settings.body_mobile_base_scale %}"
+  to: "{% render 'font-size-clamp' with multiplier, multiplier: 0.888, desktop_size:
+    settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %}"
+  position: 11003..11154
+- from: "{% render 'font-size-clamp' with multiplier: 0.8222, desktop_size: settings.body_base_size,
+    mobile_scale: settings.body_mobile_base_scale %}"
+  to: "{% render 'font-size-clamp' with multiplier, multiplier: 0.8222, desktop_size:
+    settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %}"
+  position: 11181..11333
+- from: "{% render 'font-size-clamp' with multiplier: 0.777, desktop_size: settings.body_base_size,
+    mobile_scale: settings.body_mobile_base_scale %}"
+  to: "{% render 'font-size-clamp' with multiplier, multiplier: 0.777, desktop_size:
+    settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %}"
+  position: 11360..11511
+- from: "{% render 'font-size-clamp' with multiplier: 0.722, desktop_size: settings.body_base_size,
+    mobile_scale: settings.body_mobile_base_scale %}"
+  to: "{% render 'font-size-clamp' with multiplier, multiplier: 0.722, desktop_size:
+    settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %}"
+  position: 11538..11689
+- from: "{% render 'font-size-clamp' with multiplier: 0.666, desktop_size: settings.body_base_size,
+    mobile_scale: settings.body_mobile_base_scale %}"
+  to: "{% render 'font-size-clamp' with multiplier, multiplier: 0.666, desktop_size:
+    settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %}"
+  position: 11716..11867
+- from: "{% render 'font-size-clamp-fallback' with multiplier: 1, desktop_size: settings.logo_base_size,
+    mobile_scale: settings.logo_mobile_base_scale %}"
+  to: "{% render 'font-size-clamp-fallback' with multiplier, multiplier: 1, desktop_size:
+    settings.logo_base_size, mobile_scale: settings.logo_mobile_base_scale %}"
+  position: 13414..13570
+- from: "{% render 'font-size-clamp-fallback' with multiplier: 1.5, desktop_size:
+    settings.heading_base_size, mobile_scale: settings.heading_mobile_base_scale %}"
+  to: "{% render 'font-size-clamp-fallback' with multiplier, multiplier: 1.5, desktop_size:
+    settings.heading_base_size, mobile_scale: settings.heading_mobile_base_scale %}"
+  position: 13609..13773
+- from: "{% render 'font-size-clamp-fallback' with multiplier: 1.333, desktop_size:
+    settings.heading_base_size, mobile_scale: settings.heading_mobile_base_scale %}"
+  to: "{% render 'font-size-clamp-fallback' with multiplier, multiplier: 1.333, desktop_size:
+    settings.heading_base_size, mobile_scale: settings.heading_mobile_base_scale %}"
+  position: 13812..13978
+- from: "{% render 'font-size-clamp-fallback' with multiplier: 1.1666, desktop_size:
+    settings.heading_base_size, mobile_scale: settings.heading_mobile_base_scale %}"
+  to: "{% render 'font-size-clamp-fallback' with multiplier, multiplier: 1.1666, desktop_size:
+    settings.heading_base_size, mobile_scale: settings.heading_mobile_base_scale %}"
+  position: 14017..14184
+- from: "{% render 'font-size-clamp-fallback' with multiplier: 1, desktop_size: settings.heading_base_size,
+    mobile_scale: settings.heading_mobile_base_scale %}"
+  to: "{% render 'font-size-clamp-fallback' with multiplier, multiplier: 1, desktop_size:
+    settings.heading_base_size, mobile_scale: settings.heading_mobile_base_scale %}"
+  position: 14220..14382
+- from: "{% render 'font-size-clamp-fallback' with multiplier: 0.875, desktop_size:
+    settings.heading_base_size, mobile_scale: settings.heading_mobile_base_scale %}"
+  to: "{% render 'font-size-clamp-fallback' with multiplier, multiplier: 0.875, desktop_size:
+    settings.heading_base_size, mobile_scale: settings.heading_mobile_base_scale %}"
+  position: 14418..14584
+- from: "{% render 'font-size-clamp-fallback' with multiplier: 0.75, desktop_size:
+    settings.heading_base_size, mobile_scale: settings.heading_mobile_base_scale %}"
+  to: "{% render 'font-size-clamp-fallback' with multiplier, multiplier: 0.75, desktop_size:
+    settings.heading_base_size, mobile_scale: settings.heading_mobile_base_scale %}"
+  position: 14620..14785
+- from: "{% render 'font-size-clamp-fallback' with multiplier: 0.583, desktop_size:
+    settings.heading_base_size, mobile_scale: settings.heading_mobile_base_scale %}"
+  to: "{% render 'font-size-clamp-fallback' with multiplier, multiplier: 0.583, desktop_size:
+    settings.heading_base_size, mobile_scale: settings.heading_mobile_base_scale %}"
+  position: 14821..14987
+- from: "{% render 'font-size-clamp-fallback' with multiplier: 0.5, desktop_size:
+    settings.heading_base_size, mobile_scale: settings.heading_mobile_base_scale %}"
+  to: "{% render 'font-size-clamp-fallback' with multiplier, multiplier: 0.5, desktop_size:
+    settings.heading_base_size, mobile_scale: settings.heading_mobile_base_scale %}"
+  position: 15023..15187
+- from: "{% render 'font-size-clamp-fallback' with multiplier: 0.416, desktop_size:
+    settings.heading_base_size, mobile_scale: settings.heading_mobile_base_scale %}"
+  to: "{% render 'font-size-clamp-fallback' with multiplier, multiplier: 0.416, desktop_size:
+    settings.heading_base_size, mobile_scale: settings.heading_mobile_base_scale %}"
+  position: 15223..15389
+- from: "{% render 'font-size-clamp-fallback' with multiplier: 1.666, desktop_size:
+    settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %}"
+  to: "{% render 'font-size-clamp-fallback' with multiplier, multiplier: 1.666, desktop_size:
+    settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %}"
+  position: 15419..15579
+- from: "{% render 'font-size-clamp-fallback' with multiplier: 1.555, desktop_size:
+    settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %}"
+  to: "{% render 'font-size-clamp-fallback' with multiplier, multiplier: 1.555, desktop_size:
+    settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %}"
+  position: 15609..15769
+- from: "{% render 'font-size-clamp-fallback' with multiplier: 1.444, desktop_size:
+    settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %}"
+  to: "{% render 'font-size-clamp-fallback' with multiplier, multiplier: 1.444, desktop_size:
+    settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %}"
+  position: 15799..15959
+- from: "{% render 'font-size-clamp-fallback' with multiplier: 1.333, desktop_size:
+    settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %}"
+  to: "{% render 'font-size-clamp-fallback' with multiplier, multiplier: 1.333, desktop_size:
+    settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %}"
+  position: 15989..16149
+- from: "{% render 'font-size-clamp-fallback' with multiplier: 1.222, desktop_size:
+    settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %}"
+  to: "{% render 'font-size-clamp-fallback' with multiplier, multiplier: 1.222, desktop_size:
+    settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %}"
+  position: 16179..16339
+- from: "{% render 'font-size-clamp-fallback' with multiplier: 1.111, desktop_size:
+    settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %}"
+  to: "{% render 'font-size-clamp-fallback' with multiplier, multiplier: 1.111, desktop_size:
+    settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %}"
+  position: 16369..16529
+- from: "{% render 'font-size-clamp-fallback' with multiplier: 1, desktop_size: settings.body_base_size,
+    mobile_scale: settings.body_mobile_base_scale %}"
+  to: "{% render 'font-size-clamp-fallback' with multiplier, multiplier: 1, desktop_size:
+    settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %}"
+  position: 16559..16715
+- from: "{% render 'font-size-clamp-fallback' with multiplier: 0.888, desktop_size:
+    settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %}"
+  to: "{% render 'font-size-clamp-fallback' with multiplier, multiplier: 0.888, desktop_size:
+    settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %}"
+  position: 16744..16904
+- from: "{% render 'font-size-clamp-fallback' with multiplier: 0.8222, desktop_size:
+    settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %}"
+  to: "{% render 'font-size-clamp-fallback' with multiplier, multiplier: 0.8222, desktop_size:
+    settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %}"
+  position: 16933..17094
+- from: "{% render 'font-size-clamp-fallback' with multiplier: 0.777, desktop_size:
+    settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %}"
+  to: "{% render 'font-size-clamp-fallback' with multiplier, multiplier: 0.777, desktop_size:
+    settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %}"
+  position: 17123..17283
+- from: "{% render 'font-size-clamp-fallback' with multiplier: 0.722, desktop_size:
+    settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %}"
+  to: "{% render 'font-size-clamp-fallback' with multiplier, multiplier: 0.722, desktop_size:
+    settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %}"
+  position: 17312..17472
+- from: "{% render 'font-size-clamp-fallback' with multiplier: 0.666, desktop_size:
+    settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %}"
+  to: "{% render 'font-size-clamp-fallback' with multiplier, multiplier: 0.666, desktop_size:
+    settings.body_base_size, mobile_scale: settings.body_mobile_base_scale %}"
+  position: 17501..17661
+{% endcomment %}

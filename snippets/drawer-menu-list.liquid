@@ -54,7 +54,7 @@
         {{ link.title }}
       </span>
       {%- if has_children -%}
-        {% render 'icon' with icon: 'chevron', class: 'menu-icon' %}
+        {% render 'icon' with icon, icon: 'chevron', class: 'menu-icon' %}
       {%- endif -%}
     </a>
 
@@ -71,7 +71,7 @@
             data-item="back"
             aria-label="{{ 'general.accessibility.back' | t }}"
           >
-            {% render 'icon' with icon: 'arrow-long', class: 'back-link-icon' %}
+            {% render 'icon' with icon, icon: 'arrow-long', class: 'back-link-icon' %}
           </span>
           <a
             class="drawer-menu__link"
@@ -88,3 +88,16 @@
     {%- endif -%}
   </li>
 {%- endfor -%}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'icon' with icon: 'chevron', class: 'menu-icon' %}"
+  to: "{% render 'icon' with icon, icon: 'chevron', class: 'menu-icon' %}"
+  position: 1419..1485
+- from: "{% render 'icon' with icon: 'arrow-long', class: 'back-link-icon' %}"
+  to: "{% render 'icon' with icon, icon: 'arrow-long', class: 'back-link-icon' %}"
+  position: 2128..2202
+{% endcomment %}

@@ -68,20 +68,20 @@
           aria-expanded="{% if collapse_filter_bar == false or active_filter_count > 0 %}true{% else %}false{% endif %}"
           aria-controls="filter-bar-filters"
         >
-          {% render 'icon' with icon: 'filter' %}
+          {% render 'icon' with icon, icon: 'filter' %}
           {{ 'filters.title' | t }}
 
           {%- if active_filter_count > 0 -%}
             <span class="filter-bar__button-count" data-active-filter-count>{{ active_filter_count }}</span>
           {%- endif -%}
 
-          {% render 'icon' with icon: 'chevron-small' %}
+          {% render 'icon' with icon, icon: 'chevron-small' %}
         </button>
       {%- endif -%}
 
       {%- if show_item_count -%}
         <p class="filter-bar__results-count fs-body-75" data-results-count>
-          {% render 'results-count' with results_count: results_count %}
+          {% render 'results-count' with results_count, results_count: results_count %}
         </p>
       {%- endif -%}
 
@@ -105,7 +105,7 @@
             aria-controls="filter-bar-sort"
           >
             <span data-sort-label>{{ 'filters.sort_title' | t }}: {{ sort_by }}</span>
-            {% render 'icon' with icon: 'chevron-small' %}
+            {% render 'icon' with icon, icon: 'chevron-small' %}
           </button>
 
           <div
@@ -214,7 +214,7 @@
                   {%- endif -%}
                 {%- endif -%}
 
-                {% render 'icon' with icon: 'chevron-small' %}
+                {% render 'icon' with icon, icon: 'chevron-small' %}
               </button>
               <div
                 id="{{ filter.label | handle }}"
@@ -266,26 +266,11 @@
                     >
                       {%- for filter_value in filter.values -%}
                         {%- if swatch_options contains group_name and show_swatch_filters == true -%}
-                          {%
-                            render 'filter-item' with
-                            type: 'swatch',
-                            filter_value: filter_value,
-                            scope: 'top-bar'
-                          %}
+                          {% render 'filter-item' with type, type: 'swatch', filter_value: filter_value, scope: 'top-bar' %}
                         {%- elsif chip_options contains group_name and show_chip_filters == true -%}
-                          {%
-                            render 'filter-item' with
-                            type: 'chip',
-                            filter_value: filter_value,
-                            scope: 'top-bar'
-                          %}
+                          {% render 'filter-item' with type, type: 'chip', filter_value: filter_value, scope: 'top-bar' %}
                         {%- else -%}
-                          {%
-                            render 'filter-item' with
-                            type: 'checkbox',
-                            filter_value: filter_value,
-                            scope: 'top-bar'
-                          %}
+                          {% render 'filter-item' with type, type: 'checkbox', filter_value: filter_value, scope: 'top-bar' %}
                         {%- endif -%}
                       {%- endfor -%}
                     </ul>
@@ -352,9 +337,67 @@
     {%- endif -%}
 
     <div class="filter-bar__active-filters">
-      {%- render 'active-filters' with results: results, show_swatch_filters: show_swatch_filters -%}
+      {%- render 'active-filters' with results, results: results, show_swatch_filters: show_swatch_filters -%}
     </div>
   {%- endif -%}
 </form>
 
 <div class="filter-bar__wash"></div>
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'icon' with icon: 'filter' %}"
+  to: "{% render 'icon' with icon, icon: 'filter' %}"
+  position: 2346..2391
+- from: "{% render 'icon' with icon: 'chevron-small' %}"
+  to: "{% render 'icon' with icon, icon: 'chevron-small' %}"
+  position: 2618..2670
+- from: "{% render 'results-count' with results_count: results_count %}"
+  to: "{% render 'results-count' with results_count, results_count: results_count
+    %}"
+  position: 2829..2906
+- from: "{% render 'icon' with icon: 'chevron-small' %}"
+  to: "{% render 'icon' with icon, icon: 'chevron-small' %}"
+  position: 3703..3755
+- from: "{% render 'icon' with icon: 'chevron-small' %}"
+  to: "{% render 'icon' with icon, icon: 'chevron-small' %}"
+  position: 8156..8208
+- from: |-
+    {%
+                                render 'filter-item' with
+                                type: 'swatch',
+                                filter_value: filter_value,
+                                scope: 'top-bar'
+                              %}
+  to: "{% render 'filter-item' with type, type: 'swatch', filter_value: filter_value,
+    scope: 'top-bar' %}"
+  position: 10811..10909
+- from: |-
+    {%
+                                render 'filter-item' with
+                                type: 'chip',
+                                filter_value: filter_value,
+                                scope: 'top-bar'
+                              %}
+  to: "{% render 'filter-item' with type, type: 'chip', filter_value: filter_value,
+    scope: 'top-bar' %}"
+  position: 11037..11133
+- from: |-
+    {%
+                                render 'filter-item' with
+                                type: 'checkbox',
+                                filter_value: filter_value,
+                                scope: 'top-bar'
+                              %}
+  to: "{% render 'filter-item' with type, type: 'checkbox', filter_value: filter_value,
+    scope: 'top-bar' %}"
+  position: 11197..11297
+- from: "{%- render 'active-filters' with results: results, show_swatch_filters: show_swatch_filters
+    -%}"
+  to: "{%- render 'active-filters' with results, results: results, show_swatch_filters:
+    show_swatch_filters -%}"
+  position: 14743..14847
+{% endcomment %}

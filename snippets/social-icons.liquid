@@ -29,10 +29,20 @@
             target="_blank"
             rel="noopener"
           >
-            {% render 'icon' with icon: social_handle %}
+            {% render 'icon' with icon, icon: social_handle %}
           </a>
         </li>
       {%- endif -%}
     {%- endfor -%}
   </ul>
 {%- endif -%}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'icon' with icon: social_handle %}"
+  to: "{% render 'icon' with icon, icon: social_handle %}"
+  position: 1100..1150
+{% endcomment %}

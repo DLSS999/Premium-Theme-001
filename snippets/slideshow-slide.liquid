@@ -52,7 +52,7 @@
       --overlay-background-gradient: {{ block.settings.color_overlay_gradient }};
     {% endif %}
     --overlay-opacity: {{ overlay_opacity }};
-    {% render 'overlay-button-vars' with color_button_text: block.settings.button_text_color, color_button_background: block.settings.button_background_color %}
+    {% render 'overlay-button-vars' with color_button_text, color_button_text: block.settings.button_text_color, color_button_background: block.settings.button_background_color %}
   "
   data-slide="{{ index }}"
   data-bullet-label="{{ 'general.accessibility.carousel_select' | t: number: index }}"
@@ -64,26 +64,10 @@
   <div class="slideshow-slide__inner">
     <div class="slideshow-slide__image-container">
       {%- if block.settings.image_mobile != blank -%}
-        {%- render 'image' with
-          wrapper_class: "slideshow-slide__image slideshow-slide__image--mobile",
-          image: block.settings.image_mobile,
-          sizes: "100vw",
-          focal_point: block.settings.mobile_focal_point,
-          placeholder_name: "lifestyle-1",
-          animate: true
-        -%}
+        {%- render 'image' with wrapper_class, wrapper_class: "slideshow-slide__image slideshow-slide__image--mobile", image: block.settings.image_mobile, sizes: "100vw", focal_point: block.settings.mobile_focal_point, placeholder_name: "lifestyle-1", animate: true -%}
       {%- endif -%}
 
-      {%- render 'image' with
-        wrapper_class: "slideshow-slide__image",
-        image: block.settings.image,
-        sizes: "100vw",
-        focal_point: block.settings.focal_point,
-        include_placeholder: true,
-        placeholder_natural_fallback_ratio: placeholder_aspect_ratio,
-        placeholder_name: "lifestyle-1",
-        animate: true
-      -%}
+      {%- render 'image' with wrapper_class, wrapper_class: "slideshow-slide__image", image: block.settings.image, sizes: "100vw", focal_point: block.settings.focal_point, include_placeholder: true, placeholder_natural_fallback_ratio: placeholder_aspect_ratio, placeholder_name: "lifestyle-1", animate: true -%}
     </div>
     <div class="slideshow-slide__overlay"></div>
 
@@ -130,27 +114,11 @@
           {% endif %}
 
           {%- if block.settings.link_1 != blank and block.settings.link_text_1 -%}
-            {%- render 'button-block' with
-              wrapper_class: "slideshow-slide__text-container-image-button section-blocks__button",
-              link: block.settings.link_1,
-              label: block.settings.link_text_1,
-              button_style: block.settings.button_style_1,
-              is_overlay: true,
-              button_alignment: text_position_modifier,
-              button_alignment_mobile: text_position_modifier_mobile,
-            -%}
+            {%- render 'button-block' with wrapper_class, wrapper_class: "slideshow-slide__text-container-image-button section-blocks__button", link: block.settings.link_1, label: block.settings.link_text_1, button_style: block.settings.button_style_1, is_overlay: true, button_alignment: text_position_modifier, button_alignment_mobile: text_position_modifier_mobile -%}
           {%- endif -%}
 
           {%- if block.settings.link_2 != blank and block.settings.link_text_2 -%}
-            {%- render 'button-block' with
-              wrapper_class: "slideshow-slide__text-container-image-button section-blocks__button",
-              link: block.settings.link_2,
-              label: block.settings.link_text_2,
-              button_style: block.settings.button_style_2,
-              is_overlay: true,
-              button_alignment: text_position_modifier,
-              button_alignment_mobile: text_position_modifier_mobile,
-            -%}
+            {%- render 'button-block' with wrapper_class, wrapper_class: "slideshow-slide__text-container-image-button section-blocks__button", link: block.settings.link_2, label: block.settings.link_text_2, button_style: block.settings.button_style_2, is_overlay: true, button_alignment: text_position_modifier, button_alignment_mobile: text_position_modifier_mobile -%}
           {%- endif -%}
 
           {% if has_2_buttons %}
@@ -161,3 +129,78 @@
     </div>
   </div>
 </div>
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'overlay-button-vars' with color_button_text: block.settings.button_text_color,
+    color_button_background: block.settings.button_background_color %}"
+  to: "{% render 'overlay-button-vars' with color_button_text, color_button_text:
+    block.settings.button_text_color, color_button_background: block.settings.button_background_color
+    %}"
+  position: 2198..2373
+- from: |-
+    {%- render 'image' with
+              wrapper_class: "slideshow-slide__image slideshow-slide__image--mobile",
+              image: block.settings.image_mobile,
+              sizes: "100vw",
+              focal_point: block.settings.mobile_focal_point,
+              placeholder_name: "lifestyle-1",
+              animate: true
+            -%}
+  to: '{%- render ''image'' with wrapper_class, wrapper_class: "slideshow-slide__image
+    slideshow-slide__image--mobile", image: block.settings.image_mobile, sizes: "100vw",
+    focal_point: block.settings.mobile_focal_point, placeholder_name: "lifestyle-1",
+    animate: true -%}'
+  position: 2733..2994
+- from: |-
+    {%- render 'image' with
+            wrapper_class: "slideshow-slide__image",
+            image: block.settings.image,
+            sizes: "100vw",
+            focal_point: block.settings.focal_point,
+            include_placeholder: true,
+            placeholder_natural_fallback_ratio: placeholder_aspect_ratio,
+            placeholder_name: "lifestyle-1",
+            animate: true
+          -%}
+  to: '{%- render ''image'' with wrapper_class, wrapper_class: "slideshow-slide__image",
+    image: block.settings.image, sizes: "100vw", focal_point: block.settings.focal_point,
+    include_placeholder: true, placeholder_natural_fallback_ratio: placeholder_aspect_ratio,
+    placeholder_name: "lifestyle-1", animate: true -%}'
+  position: 3022..3327
+- from: |-
+    {%- render 'button-block' with
+                  wrapper_class: "slideshow-slide__text-container-image-button section-blocks__button",
+                  link: block.settings.link_1,
+                  label: block.settings.link_text_1,
+                  button_style: block.settings.button_style_1,
+                  is_overlay: true,
+                  button_alignment: text_position_modifier,
+                  button_alignment_mobile: text_position_modifier_mobile,
+                -%}
+  to: '{%- render ''button-block'' with wrapper_class, wrapper_class: "slideshow-slide__text-container-image-button
+    section-blocks__button", link: block.settings.link_1, label: block.settings.link_text_1,
+    button_style: block.settings.button_style_1, is_overlay: true, button_alignment:
+    text_position_modifier, button_alignment_mobile: text_position_modifier_mobile
+    -%}'
+  position: 5453..5812
+- from: |-
+    {%- render 'button-block' with
+                  wrapper_class: "slideshow-slide__text-container-image-button section-blocks__button",
+                  link: block.settings.link_2,
+                  label: block.settings.link_text_2,
+                  button_style: block.settings.button_style_2,
+                  is_overlay: true,
+                  button_alignment: text_position_modifier,
+                  button_alignment_mobile: text_position_modifier_mobile,
+                -%}
+  to: '{%- render ''button-block'' with wrapper_class, wrapper_class: "slideshow-slide__text-container-image-button
+    section-blocks__button", link: block.settings.link_2, label: block.settings.link_text_2,
+    button_style: block.settings.button_style_2, is_overlay: true, button_alignment:
+    text_position_modifier, button_alignment_mobile: text_position_modifier_mobile
+    -%}'
+  position: 5933..6292
+{% endcomment %}

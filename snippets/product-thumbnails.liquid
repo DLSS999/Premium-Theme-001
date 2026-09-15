@@ -13,7 +13,7 @@
       data-direction="backwards"
       title="{{ 'general.accessibility.up' | t }}"
     >
-      {% render 'icon' with icon: 'chevron' %}
+      {% render 'icon' with icon, icon: 'chevron' %}
     </button>
     <div class="product-thumbnails__viewport" data-scroll-container-viewport>
       <div class="scroll-sentinal scroll-sentinal--start" data-position="start"></div>
@@ -27,26 +27,20 @@
               data-product-thumbnail
               aria-label="{{ 'general.accessibility.image_thumbail' | t: number: forloop.index }}"
             >
-              {%
-                render 'image' with
-                image: media.preview_image,
-                id: media.id
-                wrapper_class: 'product-thumbnails__item-image',
-                aspect_ratio: aspect_ratio
-              %}
+              {% render 'image' with image, image: media.preview_image, id: media.id, wrapper_class: 'product-thumbnails__item-image', aspect_ratio: aspect_ratio %}
 
               {% case media.media_type %}
                 {% when 'video' %}
                   <div class="product-thumbnails__item-badge">
-                    {% render 'icon' with icon: 'play-badge' %}
+                    {% render 'icon' with icon, icon: 'play-badge' %}
                   </div>
                 {% when 'external_video' %}
                   <div class="product-thumbnails__item-badge">
-                    {% render 'icon' with icon: 'play-badge' %}
+                    {% render 'icon' with icon, icon: 'play-badge' %}
                   </div>
                 {% when 'model' %}
                   <div class="product-thumbnails__item-badge">
-                    {% render 'icon' with icon: '3d-badge' %}
+                    {% render 'icon' with icon, icon: '3d-badge' %}
                   </div>
               {% endcase %}
             </button>
@@ -61,7 +55,40 @@
       data-direction="forwards"
       title="{{ 'general.accessibility.down' | t }}"
     >
-      {% render 'icon' with icon: 'chevron' %}
+      {% render 'icon' with icon, icon: 'chevron' %}
     </button>
   </div>
 {% endif %}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'icon' with icon: 'chevron' %}"
+  to: "{% render 'icon' with icon, icon: 'chevron' %}"
+  position: 366..412
+- from: |-
+    {%
+                    render 'image' with
+                    image: media.preview_image,
+                    id: media.id
+                    wrapper_class: 'product-thumbnails__item-image',
+                    aspect_ratio: aspect_ratio
+                  %}
+  to: "{% render 'image' with image, image: media.preview_image, id: media.id, wrapper_class:
+    'product-thumbnails__item-image', aspect_ratio: aspect_ratio %}"
+  position: 1095..1245
+- from: "{% render 'icon' with icon: 'play-badge' %}"
+  to: "{% render 'icon' with icon, icon: 'play-badge' %}"
+  position: 1407..1456
+- from: "{% render 'icon' with icon: 'play-badge' %}"
+  to: "{% render 'icon' with icon, icon: 'play-badge' %}"
+  position: 1609..1658
+- from: "{% render 'icon' with icon: '3d-badge' %}"
+  to: "{% render 'icon' with icon, icon: '3d-badge' %}"
+  position: 1802..1849
+- from: "{% render 'icon' with icon: 'chevron' %}"
+  to: "{% render 'icon' with icon, icon: 'chevron' %}"
+  position: 2231..2277
+{% endcomment %}

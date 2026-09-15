@@ -37,7 +37,7 @@
     aria-expanded="false"
     aria-controls="social-sharing--{{ title | handle }}"
   >
-    {%- render 'icon' with icon: 'share' -%}
+    {%- render 'icon' with icon, icon: 'share' -%}
     {{ share_text }}
   </button>
 
@@ -62,7 +62,7 @@
         data-error-message="{{ 'general.social.link_copy_error' | t }}"
         data-success-message="{{ 'general.social.link_copied' | t }}"
       >
-        {%- render 'icon' with icon: 'copy' -%}
+        {%- render 'icon' with icon, icon: 'copy' -%}
       </button>
 
       <div class="social-share__success-message social-share__success-message--hidden" role="alert">
@@ -71,12 +71,29 @@
     </div>
 
     <div class="social-share__icons">
-      {%
-        render 'share-icons' with
-        url: url,
-        title: title,
-        image: image
-      %}
+      {% render 'share-icons' with url, url: url, title: title, image: image %}
     </div>
   </div>
 </div>
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{%- render 'icon' with icon: 'share' -%}"
+  to: "{%- render 'icon' with icon, icon: 'share' -%}"
+  position: 927..973
+- from: "{%- render 'icon' with icon: 'copy' -%}"
+  to: "{%- render 'icon' with icon, icon: 'copy' -%}"
+  position: 1609..1654
+- from: |-
+    {%
+            render 'share-icons' with
+            url: url,
+            title: title,
+            image: image
+          %}
+  to: "{% render 'share-icons' with url, url: url, title: title, image: image %}"
+  position: 1889..1962
+{% endcomment %}

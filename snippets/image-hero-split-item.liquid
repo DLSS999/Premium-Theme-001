@@ -20,14 +20,7 @@
 >
   <div class="image-hero-split-item__image-container">
     {%- if block.settings.image_mobile != blank -%}
-      {%-
-        render 'image' with
-        wrapper_class: "image-hero-split-item__image image-hero-split-item__image--mobile",
-        image: block.settings.image_mobile,
-        sizes: "100vw",
-        focal_point: block.settings.mobile_focal_point,
-        animate: true
-      -%}
+      {%- render 'image' with wrapper_class, wrapper_class: "image-hero-split-item__image image-hero-split-item__image--mobile", image: block.settings.image_mobile, sizes: "100vw", focal_point: block.settings.mobile_focal_point, animate: true -%}
     {%- endif -%}
 
     {%- liquid
@@ -38,16 +31,7 @@
       endif
     -%}
 
-    {%-
-      render 'image' with
-      wrapper_class: "image-hero-split-item__image",
-      image: block.settings.image,
-      sizes: "(max-width: 45em) 100vw, (max-width: 45em) 50vw",
-      focal_point: block.settings.focal_point,
-      include_placeholder: true,
-      placeholder_natural_fallback_ratio: placeholder_aspect_ratio,
-      animate: true
-    -%}
+    {%- render 'image' with wrapper_class, wrapper_class: "image-hero-split-item__image", image: block.settings.image, sizes: "(max-width: 45em) 100vw, (max-width: 45em) 50vw", focal_point: block.settings.focal_point, include_placeholder: true, placeholder_natural_fallback_ratio: placeholder_aspect_ratio, animate: true -%}
   </div>
   <div class="image-hero-split-item__text-container">
     <div class="image-hero-split-item__text-container-inner section-blocks animation--section-blocks">
@@ -64,16 +48,59 @@
       {%- endunless -%}
 
       {% if block.settings.link_text != blank and block.settings.link != blank %}
-        {%-
-          render 'button-block' with
-          wrapper_class: "image-hero-split-item__button-container section-blocks__button",
-          link: block.settings.link,
-          label: block.settings.link_text,
-          is_overlay: true,
-          button_alignment: 'center',
-          button_style: block.settings.button_style
-        -%}
+        {%- render 'button-block' with wrapper_class, wrapper_class: "image-hero-split-item__button-container section-blocks__button", link: block.settings.link, label: block.settings.link_text, is_overlay: true, button_alignment: 'center', button_style: block.settings.button_style -%}
       {% endif %}
     </div>
   </div>
 </{{ tag }}>
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {%-
+            render 'image' with
+            wrapper_class: "image-hero-split-item__image image-hero-split-item__image--mobile",
+            image: block.settings.image_mobile,
+            sizes: "100vw",
+            focal_point: block.settings.mobile_focal_point,
+            animate: true
+          -%}
+  to: '{%- render ''image'' with wrapper_class, wrapper_class: "image-hero-split-item__image
+    image-hero-split-item__image--mobile", image: block.settings.image_mobile, sizes:
+    "100vw", focal_point: block.settings.mobile_focal_point, animate: true -%}'
+  position: 707..947
+- from: |-
+    {%-
+          render 'image' with
+          wrapper_class: "image-hero-split-item__image",
+          image: block.settings.image,
+          sizes: "(max-width: 45em) 100vw, (max-width: 45em) 50vw",
+          focal_point: block.settings.focal_point,
+          include_placeholder: true,
+          placeholder_natural_fallback_ratio: placeholder_aspect_ratio,
+          animate: true
+        -%}
+  to: '{%- render ''image'' with wrapper_class, wrapper_class: "image-hero-split-item__image",
+    image: block.settings.image, sizes: "(max-width: 45em) 100vw, (max-width: 45em)
+    50vw", focal_point: block.settings.focal_point, include_placeholder: true, placeholder_natural_fallback_ratio:
+    placeholder_aspect_ratio, animate: true -%}'
+  position: 1161..1481
+- from: |-
+    {%-
+              render 'button-block' with
+              wrapper_class: "image-hero-split-item__button-container section-blocks__button",
+              link: block.settings.link,
+              label: block.settings.link_text,
+              is_overlay: true,
+              button_alignment: 'center',
+              button_style: block.settings.button_style
+            -%}
+  to: '{%- render ''button-block'' with wrapper_class, wrapper_class: "image-hero-split-item__button-container
+    section-blocks__button", link: block.settings.link, label: block.settings.link_text,
+    is_overlay: true, button_alignment: ''center'', button_style: block.settings.button_style
+    -%}'
+  position: 2186..2464
+{% endcomment %}

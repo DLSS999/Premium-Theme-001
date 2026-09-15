@@ -12,20 +12,36 @@
 -%}
 
 {%- for star in (1..solid_star_rating) -%}
-  {%- render 'icon' with icon: 'star-filled' -%}
+  {%- render 'icon' with icon, icon: 'star-filled' -%}
 {%- endfor -%}
 
 {%- if remaining_stars > 0 -%}
   {%- assign remaining_stars_includes_half_star = remaining_stars | modulo: 1 -%}
   {%- if remaining_stars_includes_half_star != 0 -%}
-    {%- render 'icon' with icon: 'star-half' -%}
+    {%- render 'icon' with icon, icon: 'star-half' -%}
   {%- endif -%}
 
   {%- assign remaining_empty_stars = remaining_stars | floor -%}
 
   {%- if remaining_empty_stars > 0 -%}
     {%- for empty_star in (1..remaining_empty_stars) -%}
-      {%- render 'icon' with icon: 'star-empty' -%}
+      {%- render 'icon' with icon, icon: 'star-empty' -%}
     {%- endfor -%}
   {%- endif -%}
 {%- endif -%}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{%- render 'icon' with icon: 'star-filled' -%}"
+  to: "{%- render 'icon' with icon, icon: 'star-filled' -%}"
+  position: 296..348
+- from: "{%- render 'icon' with icon: 'star-half' -%}"
+  to: "{%- render 'icon' with icon, icon: 'star-half' -%}"
+  position: 535..585
+- from: "{%- render 'icon' with icon: 'star-empty' -%}"
+  to: "{%- render 'icon' with icon, icon: 'star-empty' -%}"
+  position: 771..822
+{% endcomment %}

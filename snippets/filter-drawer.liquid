@@ -84,7 +84,7 @@
               aria-label="{{ 'general.accessibility.close_modal' | t }}"
               data-close-icon
             >
-              {% render 'icon-button' with small: true, icon: 'close' %}
+              {% render 'icon-button' with small, small: true, icon: 'close' %}
             </button>
           </div>
 
@@ -126,7 +126,7 @@
                   {%- endif -%}
                 </span>
 
-                {% render 'icon' with icon: 'chevron' %}
+                {% render 'icon' with icon, icon: 'chevron' %}
               </button>
 
               <div
@@ -154,26 +154,11 @@
                     >
                       {%- for filter_value in filter.values -%}
                         {%- if swatch_options contains group_name and show_swatch_filters == true -%}
-                          {%
-                            render 'filter-item' with
-                            type: 'swatch',
-                            filter_value: filter_value,
-                            scope: 'drawer'
-                          %}
+                          {% render 'filter-item' with type, type: 'swatch', filter_value: filter_value, scope: 'drawer' %}
                         {%- elsif chip_options contains group_name and show_chip_filters == true -%}
-                          {%
-                            render 'filter-item' with
-                            type: 'chip',
-                            filter_value: filter_value,
-                            scope: 'drawer'
-                          %}
+                          {% render 'filter-item' with type, type: 'chip', filter_value: filter_value, scope: 'drawer' %}
                         {%- else -%}
-                          {%
-                            render 'filter-item' with
-                            type: 'checkbox',
-                            filter_value: filter_value,
-                            scope: 'drawer'
-                          %}
+                          {% render 'filter-item' with type, type: 'checkbox', filter_value: filter_value, scope: 'drawer' %}
                         {%- endif -%}
                       {%- endfor -%}
                     </ul>
@@ -250,7 +235,7 @@
 
         <div class="filter-drawer__footer animation--filter-drawer-item">
           <div class="filter-drawer__footer-active-filters" data-scroll-lock-ignore>
-            {%- render 'active-filters' with results: results, show_swatch_filters: show_swatch_filters -%}
+            {%- render 'active-filters' with results, results: results, show_swatch_filters: show_swatch_filters -%}
           </div>
 
           <div class="filter-drawer__footer-buttons">
@@ -263,7 +248,7 @@
             </button>
 
             <p class="filter-drawer__results-count fs-body-50 fc" data-results-count>
-              {% render 'results-count' with results_count: results_count %}
+              {% render 'results-count' with results_count, results_count: results_count %}
             </p>
 
             <button type="button" class="filter-drawer__button-apply btn btn--primary" data-button="close">
@@ -299,7 +284,7 @@
               aria-label="{{ 'general.accessibility.close_modal' | t }}"
               data-close-icon
             >
-              {% render 'icon-button' with small: true, icon: 'close' %}
+              {% render 'icon-button' with small, small: true, icon: 'close' %}
             </button>
           </div>
 
@@ -347,3 +332,58 @@
     {%- endif -%}
   </form>
 {%- endif -%}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'icon-button' with small: true, icon: 'close' %}"
+  to: "{% render 'icon-button' with small, small: true, icon: 'close' %}"
+  position: 2986..3051
+- from: "{% render 'icon' with icon: 'chevron' %}"
+  to: "{% render 'icon' with icon, icon: 'chevron' %}"
+  position: 4795..4841
+- from: |-
+    {%
+                                render 'filter-item' with
+                                type: 'swatch',
+                                filter_value: filter_value,
+                                scope: 'drawer'
+                              %}
+  to: "{% render 'filter-item' with type, type: 'swatch', filter_value: filter_value,
+    scope: 'drawer' %}"
+  position: 6245..6342
+- from: |-
+    {%
+                                render 'filter-item' with
+                                type: 'chip',
+                                filter_value: filter_value,
+                                scope: 'drawer'
+                              %}
+  to: "{% render 'filter-item' with type, type: 'chip', filter_value: filter_value,
+    scope: 'drawer' %}"
+  position: 6470..6565
+- from: |-
+    {%
+                                render 'filter-item' with
+                                type: 'checkbox',
+                                filter_value: filter_value,
+                                scope: 'drawer'
+                              %}
+  to: "{% render 'filter-item' with type, type: 'checkbox', filter_value: filter_value,
+    scope: 'drawer' %}"
+  position: 6629..6728
+- from: "{%- render 'active-filters' with results: results, show_swatch_filters: show_swatch_filters
+    -%}"
+  to: "{%- render 'active-filters' with results, results: results, show_swatch_filters:
+    show_swatch_filters -%}"
+  position: 10796..10900
+- from: "{% render 'results-count' with results_count: results_count %}"
+  to: "{% render 'results-count' with results_count, results_count: results_count
+    %}"
+  position: 11320..11397
+- from: "{% render 'icon-button' with small: true, icon: 'close' %}"
+  to: "{% render 'icon-button' with small, small: true, icon: 'close' %}"
+  position: 12491..12556
+{% endcomment %}

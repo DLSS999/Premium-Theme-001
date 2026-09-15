@@ -47,7 +47,7 @@
                   {% if account_visible -%}
                     <li class="drawer-menu__item drawer-menu__item--account-item" data-list-item>
                       {%- if customer -%}
-                        {% render 'icon' with icon: 'header-account' %}
+                        {% render 'icon' with icon, icon: 'header-account' %}
 
                         <a class="drawer-menu__link" href="{{ routes.account_url }}">
                           {{ 'sections.drawer_menu.account.logged_in' | t }}
@@ -59,7 +59,7 @@
                         </span>
 
                       {% else %}
-                        {% render 'icon' with icon: 'header-account' %}
+                        {% render 'icon' with icon, icon: 'header-account' %}
                         <a class="drawer-menu__link" href="{{ routes.account_url }}">
                           {{ 'sections.drawer_menu.account.logged_out' | t }}
                         </a>
@@ -85,7 +85,7 @@
                   <ul class="drawer-menu__list drawer-menu__list--sub drawer-menu__list--country-selector">
                     <li class="drawer-menu__item drawer-menu__item--heading">
                       <span class="drawer-menu__item--heading-back-link" data-item="secondaryHeading" aria-label="{{ 'general.accessibility.back' | t }}">
-                        {% render 'icon' with icon: 'arrow-long', class: 'back-link-icon' %}
+                        {% render 'icon' with icon, icon: 'arrow-long', class: 'back-link-icon' %}
                       </span>
                       <span class="drawer-menu__link without-link">
                         <span class="fs-body-300">{{ 'sections.drawer_menu.currency' | t }}</span>
@@ -97,7 +97,7 @@
                           <span class="flag-icon flag-icon-{{ country.iso_code | handleize }}"></span>
                           <span>{{ country.name }} ({{ country.currency.iso_code }} {{ country.currency.symbol }})</span>
                           {% if country.iso_code == localization.country.iso_code %}
-                            {% render 'icon' with icon: 'checkmark', class: 'drawer-menu__checkmark-icon' %}
+                            {% render 'icon' with icon, icon: 'checkmark', class: 'drawer-menu__checkmark-icon' %}
                           {% endif %}
                         </a>
                       </li>
@@ -113,16 +113,16 @@
               {%- if locale_selector -%}
                 <li class="drawer-menu__item localization-item-trigger" data-list-item>
                   <a class="drawer-menu__link fs-body-50" href="#" data-item="viewLanguage">
-                    {% render 'icon' with icon: 'globe' %}
+                    {% render 'icon' with icon, icon: 'globe' %}
                     <span class="drawer-menu__link--label">{{ form.current_locale.endonym_name | capitalize }}</span>
                   </a>
                   <ul class="drawer-menu__list drawer-menu__list--sub drawer-menu__list--language-selector">
                     <li class="drawer-menu__item drawer-menu__item--heading">
                       <span class="drawer-menu__item--heading-back-link" data-item="secondaryHeading" aria-label="{{ 'general.accessibility.back' | t }}">
-                        {% render 'icon' with icon: 'arrow-long', class: 'back-link-icon' %}
+                        {% render 'icon' with icon, icon: 'arrow-long', class: 'back-link-icon' %}
                       </span>
                       <span class="drawer-menu__link without-link">
-                        {% render 'icon' with icon: 'chevron-left' %}
+                        {% render 'icon' with icon, icon: 'chevron-left' %}
                         <span class="fs-body-300">{{ 'sections.drawer_menu.language' | t }}</span>
                       </span>
                     </li>
@@ -131,7 +131,7 @@
                         <a class="drawer-menu__link drawer-menu__link--cb" href="#" data-item="locale" data-value="{{ locale.iso_code }}">
                           <span>{{ locale.endonym_name }}</span>
                           {% if locale.iso_code == form.current_locale.iso_code %}
-                            {% render 'icon' with icon: 'checkmark', class: 'drawer-menu__checkmark-icon' %}
+                            {% render 'icon' with icon, icon: 'checkmark', class: 'drawer-menu__checkmark-icon' %}
                           {% endif %}
 
                         </a>
@@ -154,3 +154,38 @@
     </div>
   </div>
 </section>
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'icon' with icon: 'header-account' %}"
+  to: "{% render 'icon' with icon, icon: 'header-account' %}"
+  position: 1796..1849
+- from: "{% render 'icon' with icon: 'header-account' %}"
+  to: "{% render 'icon' with icon, icon: 'header-account' %}"
+  position: 2401..2454
+- from: "{% render 'icon' with icon: 'arrow-long', class: 'back-link-icon' %}"
+  to: "{% render 'icon' with icon, icon: 'arrow-long', class: 'back-link-icon' %}"
+  position: 4019..4093
+- from: "{% render 'icon' with icon: 'checkmark', class: 'drawer-menu__checkmark-icon'
+    %}"
+  to: "{% render 'icon' with icon, icon: 'checkmark', class: 'drawer-menu__checkmark-icon'
+    %}"
+  position: 4987..5073
+- from: "{% render 'icon' with icon: 'globe' %}"
+  to: "{% render 'icon' with icon, icon: 'globe' %}"
+  position: 5796..5840
+- from: "{% render 'icon' with icon: 'arrow-long', class: 'back-link-icon' %}"
+  to: "{% render 'icon' with icon, icon: 'arrow-long', class: 'back-link-icon' %}"
+  position: 6348..6422
+- from: "{% render 'icon' with icon: 'chevron-left' %}"
+  to: "{% render 'icon' with icon, icon: 'chevron-left' %}"
+  position: 6545..6596
+- from: "{% render 'icon' with icon: 'checkmark', class: 'drawer-menu__checkmark-icon'
+    %}"
+  to: "{% render 'icon' with icon, icon: 'checkmark', class: 'drawer-menu__checkmark-icon'
+    %}"
+  position: 7217..7303
+{% endcomment %}

@@ -17,7 +17,7 @@
               data-disclosure-toggle
             >
               {{ form.current_locale.endonym_name | capitalize }}
-              {% render 'icon' with icon: 'chevron-small' %}
+              {% render 'icon' with icon, icon: 'chevron-small' %}
             </button>
             <ul
               id="lang-list-{{ id }}"
@@ -40,7 +40,7 @@
                     <span class="disclosure-list__option-label">{{ locale.endonym_name | capitalize }}</span>
 
                     {%- if locale.iso_code == form.current_locale.iso_code -%}
-                      {% render 'icon' with icon: 'checkmark' %}
+                      {% render 'icon' with icon, icon: 'checkmark' %}
                     {%- endif -%}
                   </a>
                 </li>
@@ -75,7 +75,7 @@
               <span class="flag-icon flag-icon-{{ localization.country.iso_code | handleize }}"></span>
               {{ localization.country.name }} ({{ localization.country.currency.iso_code }}
               {{ localization.country.currency.symbol }})
-              {% render 'icon' with icon: 'chevron-small' %}
+              {% render 'icon' with icon, icon: 'chevron-small' %}
             </button>
             <ul
               id="currency-list-{{ id }}"
@@ -102,7 +102,7 @@
                     >
 
                     {%- if country.iso_code == localization.country.iso_code -%}
-                      {% render 'icon' with icon: 'checkmark' %}
+                      {% render 'icon' with icon, icon: 'checkmark' %}
                     {%- endif -%}
                   </a>
                 </li>
@@ -122,3 +122,22 @@
   {%- endform -%}
   {{ 'partial-flag-icons.css' | asset_url | stylesheet_tag }}
 {%- endif -%}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'icon' with icon: 'chevron-small' %}"
+  to: "{% render 'icon' with icon, icon: 'chevron-small' %}"
+  position: 821..873
+- from: "{% render 'icon' with icon: 'checkmark' %}"
+  to: "{% render 'icon' with icon, icon: 'checkmark' %}"
+  position: 1933..1981
+- from: "{% render 'icon' with icon: 'chevron-small' %}"
+  to: "{% render 'icon' with icon, icon: 'chevron-small' %}"
+  position: 3312..3364
+- from: "{% render 'icon' with icon: 'checkmark' %}"
+  to: "{% render 'icon' with icon, icon: 'checkmark' %}"
+  position: 4606..4654
+{% endcomment %}

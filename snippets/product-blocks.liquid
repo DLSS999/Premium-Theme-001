@@ -24,14 +24,7 @@ Pass in:
 
       {%- when 'product_header' -%}
         {% if is_quick %}<div class="quick-product--header-block-wrap">{% endif %}
-        {%- render 'product-block-header' with
-          product: prod,
-          block: block,
-          block_settings: block.settings,
-          current_variant: current_variant,
-          is_quick: is_quick,
-          featured_media: featured_media
-        -%}
+        {%- render 'product-block-header' with product, product: prod, block: block, block_settings: block.settings, current_variant: current_variant, is_quick: is_quick, featured_media: featured_media -%}
         {% if is_quick %}</div>{% endif %}
       {%- when 'spacer' -%}
         <div class="product-block-spacer product__block product__block--medium" style="height: {{ block.settings.space }}px" {{ block.shopify_attributes }}></div>
@@ -45,22 +38,12 @@ Pass in:
               assign show_siblings = false
             endif
           -%}
-          {%- render 'product-block-variant-picker' with
-            product: prod,
-            block: block,
-            block_settings: block.settings,
-            current_variant: current_variant,
-            show_siblings: show_siblings
-          -%}
+          {%- render 'product-block-variant-picker' with product, product: prod, block: block, block_settings: block.settings, current_variant: current_variant, show_siblings: show_siblings -%}
         {%- endif -%}
 
       {%- when 'quantity_selector' -%}
         {%- if prod != blank -%}
-          {%- render 'product-block-quantity-selector' with
-            product: prod,
-            block: block,
-            block_settings: block.settings,
-          -%}
+          {%- render 'product-block-quantity-selector' with product, product: prod, block: block, block_settings: block.settings -%}
         {%- endif -%}
 
       {%- when 'custom_option'-%}
@@ -71,13 +54,7 @@ Pass in:
 
       {%- when 'buy_buttons' -%}
         {%- if prod != blank -%}
-          {%- render 'product-block-buy-buttons' with
-            product: prod,
-            block: block,
-            blocks: blocks,
-            block_settings: block.settings,
-            current_variant: current_variant
-          -%}
+          {%- render 'product-block-buy-buttons' with product, product: prod, block: block, blocks: blocks, block_settings: block.settings, current_variant: current_variant -%}
         {%- else -%}
           <div class="product-form">
             <div class="product-form__controls-group product-form__controls-group--submit">
@@ -96,24 +73,16 @@ Pass in:
         {%- endif -%}
 
       {%- when 'description' -%}
-        {%- render 'product-block-description' with
-          product: prod,
-          block: block,
-          block_settings: block.settings,
-        -%}
+        {%- render 'product-block-description' with product, product: prod, block: block, block_settings: block.settings -%}
 
       {%- when 'product_callouts' -%}
-        {%- render 'product-block-callouts' with block: block, block_settings: block.settings %}
+        {%- render 'product-block-callouts' with block, block: block, block_settings: block.settings %}
 
       {%- when 'product_callouts_mini' -%}
-        {%- render 'product-block-callouts-mini' with block: block, block_settings: block.settings %}
+        {%- render 'product-block-callouts-mini' with block, block: block, block_settings: block.settings %}
 
       {%- when 'text' -%}
-        {% render 'product-block-text' with
-          content: block.settings.text,
-          block_settings: block.settings,
-          block: block,
-        %}
+        {% render 'product-block-text' with content, content: block.settings.text, block_settings: block.settings, block: block %}
 
       {%- when 'share' -%}
         {%- if prod != blank -%}
@@ -137,21 +106,11 @@ Pass in:
 
       {%- when 'inventory-counter' -%}
         {%- if prod != blank -%}
-          {%- render 'inventory-counter' with
-            product: prod,
-            block: block,
-            block_settings: block.settings,
-            current_variant: current_variant,
-          -%}
+          {%- render 'inventory-counter' with product, product: prod, block: block, block_settings: block.settings, current_variant: current_variant -%}
         {%- endif -%}
 
       {%- when 'accordion' -%}
-        {%- render 'product-block-accordion' with
-          block: block,
-          block_settings: block.settings
-          heading: block.settings.heading,
-          content: block.settings.content,
-        -%}
+        {%- render 'product-block-accordion' with block, block: block, block_settings: block.settings, heading: block.settings.heading, content: block.settings.content -%}
 
       {%- when 'custom_liquid' -%}
         {%- unless block.settings.custom_liquid == blank -%}
@@ -164,14 +123,7 @@ Pass in:
         {%- assign popup_modal_page = pages[block.settings.popup_page] -%}
 
         {%- if block.settings.popup_text != blank and popup_modal_page.content != blank -%}
-          {% render 'product-block-information-popup' with
-            block: block,
-            popup_page_target: block.settings.popup_page,
-            popup_page: popup_modal_page,
-            icon: block.settings.popup_icon,
-            custom_icon_image: block.settings.custom_icon_image,
-            text: block.settings.popup_text
-          %}
+          {% render 'product-block-information-popup' with block, block: block, popup_page_target: block.settings.popup_page, popup_page: popup_modal_page, icon: block.settings.popup_icon, custom_icon_image: block.settings.custom_icon_image, text: block.settings.popup_text %}
         {%- endif -%}
       {%- when 'featured_products' -%}
         {%- render 'product-block-featured-products', block: block, product: prod -%}
@@ -184,16 +136,7 @@ Pass in:
             product__block--medium
           "
         >
-          {%-
-            render 'image-block' with
-            shopify_attributes: block.shopify_attributes,
-            wrapper_class: 'product-block-image__text-container-image  section-blocks__image',
-            image: block.settings.image,
-            width: block.settings.image_size,
-            mobile_width: block.settings.image_size_mobile,
-            break_to_mobile_at: '720',
-            align: block.settings.alignment,
-          -%}
+          {%- render 'image-block' with shopify_attributes, shopify_attributes: block.shopify_attributes, wrapper_class: 'product-block-image__text-container-image  section-blocks__image', image: block.settings.image, width: block.settings.image_size, mobile_width: block.settings.image_size_mobile, break_to_mobile_at: '720', align: block.settings.alignment -%}
         </div>
 
       {%- when 'secure_payment' -%}
@@ -203,4 +146,135 @@ Pass in:
           block_settings: block.settings, -%}
     {%- endcase -%}
   {% endif %}
-{%- endfor -%}
+{%- endfor -%}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {%- render 'product-block-header' with
+              product: prod,
+              block: block,
+              block_settings: block.settings,
+              current_variant: current_variant,
+              is_quick: is_quick,
+              featured_media: featured_media
+            -%}
+  to: "{%- render 'product-block-header' with product, product: prod, block: block,
+    block_settings: block.settings, current_variant: current_variant, is_quick: is_quick,
+    featured_media: featured_media -%}"
+  position: 878..1075
+- from: |-
+    {%- render 'product-block-variant-picker' with
+                product: prod,
+                block: block,
+                block_settings: block.settings,
+                current_variant: current_variant,
+                show_siblings: show_siblings
+              -%}
+  to: "{%- render 'product-block-variant-picker' with product, product: prod, block:
+    block, block_settings: block.settings, current_variant: current_variant, show_siblings:
+    show_siblings -%}"
+  position: 1566..1749
+- from: |-
+    {%- render 'product-block-quantity-selector' with
+                product: prod,
+                block: block,
+                block_settings: block.settings,
+              -%}
+  to: "{%- render 'product-block-quantity-selector' with product, product: prod, block:
+    block, block_settings: block.settings -%}"
+  position: 1855..1977
+- from: |-
+    {%- render 'product-block-buy-buttons' with
+                product: prod,
+                block: block,
+                blocks: blocks,
+                block_settings: block.settings,
+                current_variant: current_variant
+              -%}
+  to: "{%- render 'product-block-buy-buttons' with product, product: prod, block:
+    block, blocks: blocks, block_settings: block.settings, current_variant: current_variant
+    -%}"
+  position: 2247..2413
+- from: |-
+    {%- render 'product-block-description' with
+              product: prod,
+              block: block,
+              block_settings: block.settings,
+            -%}
+  to: "{%- render 'product-block-description' with product, product: prod, block:
+    block, block_settings: block.settings -%}"
+  position: 3000..3116
+- from: "{%- render 'product-block-callouts' with block: block, block_settings: block.settings
+    %}"
+  to: "{%- render 'product-block-callouts' with block, block: block, block_settings:
+    block.settings %}"
+  position: 3164..3259
+- from: "{%- render 'product-block-callouts-mini' with block: block, block_settings:
+    block.settings %}"
+  to: "{%- render 'product-block-callouts-mini' with block, block: block, block_settings:
+    block.settings %}"
+  position: 3312..3412
+- from: |-
+    {% render 'product-block-text' with
+              content: block.settings.text,
+              block_settings: block.settings,
+              block: block,
+            %}
+  to: "{% render 'product-block-text' with content, content: block.settings.text,
+    block_settings: block.settings, block: block %}"
+  position: 3448..3570
+- from: |-
+    {%- render 'inventory-counter' with
+                product: prod,
+                block: block,
+                block_settings: block.settings,
+                current_variant: current_variant,
+              -%}
+  to: "{%- render 'inventory-counter' with product, product: prod, block: block, block_settings:
+    block.settings, current_variant: current_variant -%}"
+  position: 4277..4419
+- from: |-
+    {%- render 'product-block-accordion' with
+              block: block,
+              block_settings: block.settings
+              heading: block.settings.heading,
+              content: block.settings.content,
+            -%}
+  to: "{%- render 'product-block-accordion' with block, block: block, block_settings:
+    block.settings, heading: block.settings.heading, content: block.settings.content
+    -%}"
+  position: 4482..4645
+- from: |-
+    {% render 'product-block-information-popup' with
+                block: block,
+                popup_page_target: block.settings.popup_page,
+                popup_page: popup_modal_page,
+                icon: block.settings.popup_icon,
+                custom_icon_image: block.settings.custom_icon_image,
+                text: block.settings.popup_text
+              %}
+  to: "{% render 'product-block-information-popup' with block, block: block, popup_page_target:
+    block.settings.popup_page, popup_page: popup_modal_page, icon: block.settings.popup_icon,
+    custom_icon_image: block.settings.custom_icon_image, text: block.settings.popup_text
+    %}"
+  position: 5172..5438
+- from: |-
+    {%-
+                render 'image-block' with
+                shopify_attributes: block.shopify_attributes,
+                wrapper_class: 'product-block-image__text-container-image  section-blocks__image',
+                image: block.settings.image,
+                width: block.settings.image_size,
+                mobile_width: block.settings.image_size_mobile,
+                break_to_mobile_at: '720',
+                align: block.settings.alignment,
+              -%}
+  to: "{%- render 'image-block' with shopify_attributes, shopify_attributes: block.shopify_attributes,
+    wrapper_class: 'product-block-image__text-container-image  section-blocks__image',
+    image: block.settings.image, width: block.settings.image_size, mobile_width: block.settings.image_size_mobile,
+    break_to_mobile_at: '720', align: block.settings.alignment -%}"
+  position: 5771..6123
+{%- endcomment -%}

@@ -59,9 +59,9 @@
 -%}
 
 {% if settings.enable_product_card_swatches %}
-  {% capture first_swatchified_option %}{%- render "get-first-swatchified-option" with prod: prod -%}{%- endcapture -%}
+  {% capture first_swatchified_option %}{%- render "get-first-swatchified-option" with prod, prod: prod -%}{%- endcapture -%}
 
-  {% capture displayed_swatch_count %}{% render "get-variant-count-for-option" with prod: prod, option_name: first_swatchified_option %}{% endcapture %}
+  {% capture displayed_swatch_count %}{% render "get-variant-count-for-option" with prod, prod: prod, option_name: first_swatchified_option %}{% endcapture %}
   {% assign displayed_swatch_count = displayed_swatch_count | plus: 0 %}
 
   {% if displayed_swatch_count != 0 %}
@@ -84,49 +84,14 @@
     <div class="product-item__media{% if show_multiple_images %} product-item__media--multiple-images{% endif %}">
       <a class="product-item__image-link" href="{{ prod.url | within: collection }}" aria-label="{{ prod.title }}">
         {%- if show_multiple_images -%}
-          {%
-            render 'image' with
-            image: prod.media[0].preview_image,
-            wrapper_class: 'product-item__image product-item__image--one',
-            aspect_ratio: settings.product_listing_aspect_ratio,
-            object_fit: settings.product_listing_media_fit
-            include_placeholder: true,
-            sizes: sizes
-            src_set_type: "grid"
-          %}
-          {%
-            render 'image' with
-            image: prod.media[1].preview_image,
-            wrapper_class: 'product-item__image product-item__image--two',
-            aspect_ratio: settings.product_listing_aspect_ratio,
-            object_fit: settings.product_listing_media_fit
-            include_placeholder: true,
-            sizes: sizes,
-            no_lazy_load: true,
-            src_set_type: "grid"
-          %}
+          {% render 'image' with image, image: prod.media[0].preview_image, wrapper_class: 'product-item__image product-item__image--one', aspect_ratio: settings.product_listing_aspect_ratio, object_fit: settings.product_listing_media_fit, include_placeholder: true, sizes: sizes, src_set_type: "grid" %}
+          {% render 'image' with image, image: prod.media[1].preview_image, wrapper_class: 'product-item__image product-item__image--two', aspect_ratio: settings.product_listing_aspect_ratio, object_fit: settings.product_listing_media_fit, include_placeholder: true, sizes: sizes, no_lazy_load: true, src_set_type: "grid" %}
         {%- else -%}
-          {%
-            render 'image' with
-            image: prod.featured_media,
-            wrapper_class: 'product-item__image',
-            aspect_ratio: settings.product_listing_aspect_ratio,
-            object_fit: settings.product_listing_media_fit,
-            include_placeholder: true
-            include_placeholder: true,
-            sizes: sizes
-            src_set_type: "grid"
-          %}
+          {% render 'image' with image, image: prod.featured_media, wrapper_class: 'product-item__image', aspect_ratio: settings.product_listing_aspect_ratio, object_fit: settings.product_listing_media_fit, include_placeholder: true, sizes: sizes, src_set_type: "grid" %}
         {%- endif -%}
       </a>
       {% unless placeholder %}
-        {%-
-          render 'product-badges'
-          with prod: prod,
-          show_sale_badge: settings.product_listing_show_sale_badge,
-          show_custom_badges: settings.product_listing_show_custom_badges,
-          show_sold_out_badge: settings.product_listing_show_sold_out_badge
-        -%}
+        {%- render 'product-badges' with prod, prod: prod, show_sale_badge: settings.product_listing_show_sale_badge, show_custom_badges: settings.product_listing_show_custom_badges, show_sold_out_badge: settings.product_listing_show_sold_out_badge -%}
       {% endunless %}
 
       {% if settings.enable_quick_view and quick_view_is_beneath != true %}
@@ -148,7 +113,7 @@
           href="{{ prod.url | within: collection }}"
           title="{{ 'products.product.quick_view' | t }}"
         >
-          {% render 'icon' with icon: 'quick-buy' %}
+          {% render 'icon' with icon, icon: 'quick-buy' %}
         </button>
       {% endif %}
     </div>
@@ -233,11 +198,7 @@
 
           {% if settings.product_listing_show_discount %}
             <span class="displayed-discount fs-body-50">
-              {%-
-                render "get-display-discount"
-                with prod: prod,
-                format: settings.product_listing_discount_format
-              -%}
+              {%- render "get-display-discount" with prod, prod: prod, format: settings.product_listing_discount_format -%}
             </span>
           {% endif %}
 
@@ -273,7 +234,7 @@
 
       {%- if has_hover_swatches -%}
         <div class="product-item__variant-info">
-          {%- render 'product-item-swatches' with prod: prod, option_name: first_swatchified_option -%}
+          {%- render 'product-item-swatches' with prod, prod: prod, option_name: first_swatchified_option -%}
         </div>
       {%- endif -%}
 
@@ -286,3 +247,97 @@
     <div class="product-item__hover-container"></div>
   </div>
 </div>
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: '{%- render "get-first-swatchified-option" with prod: prod -%}'
+  to: '{%- render "get-first-swatchified-option" with prod, prod: prod -%}'
+  position: 2457..2524
+- from: '{% render "get-variant-count-for-option" with prod: prod, option_name: first_swatchified_option
+    %}'
+  to: '{% render "get-variant-count-for-option" with prod, prod: prod, option_name:
+    first_swatchified_option %}'
+  position: 2582..2686
+- from: |-
+    {%
+                render 'image' with
+                image: prod.media[0].preview_image,
+                wrapper_class: 'product-item__image product-item__image--one',
+                aspect_ratio: settings.product_listing_aspect_ratio,
+                object_fit: settings.product_listing_media_fit
+                include_placeholder: true,
+                sizes: sizes
+                src_set_type: "grid"
+              %}
+  to: '{% render ''image'' with image, image: prod.media[0].preview_image, wrapper_class:
+    ''product-item__image product-item__image--one'', aspect_ratio: settings.product_listing_aspect_ratio,
+    object_fit: settings.product_listing_media_fit, include_placeholder: true, sizes:
+    sizes, src_set_type: "grid" %}'
+  position: 3551..3845
+- from: |-
+    {%
+                render 'image' with
+                image: prod.media[1].preview_image,
+                wrapper_class: 'product-item__image product-item__image--two',
+                aspect_ratio: settings.product_listing_aspect_ratio,
+                object_fit: settings.product_listing_media_fit
+                include_placeholder: true,
+                sizes: sizes,
+                no_lazy_load: true,
+                src_set_type: "grid"
+              %}
+  to: '{% render ''image'' with image, image: prod.media[1].preview_image, wrapper_class:
+    ''product-item__image product-item__image--two'', aspect_ratio: settings.product_listing_aspect_ratio,
+    object_fit: settings.product_listing_media_fit, include_placeholder: true, sizes:
+    sizes, no_lazy_load: true, src_set_type: "grid" %}'
+  position: 3856..4170
+- from: |-
+    {%
+                render 'image' with
+                image: prod.featured_media,
+                wrapper_class: 'product-item__image',
+                aspect_ratio: settings.product_listing_aspect_ratio,
+                object_fit: settings.product_listing_media_fit,
+                include_placeholder: true
+                include_placeholder: true,
+                sizes: sizes
+                src_set_type: "grid"
+              %}
+  to: '{% render ''image'' with image, image: prod.featured_media, wrapper_class:
+    ''product-item__image'', aspect_ratio: settings.product_listing_aspect_ratio,
+    object_fit: settings.product_listing_media_fit, include_placeholder: true, sizes:
+    sizes, src_set_type: "grid" %}'
+  position: 4202..4463
+- from: |-
+    {%-
+              render 'product-badges'
+              with prod: prod,
+              show_sale_badge: settings.product_listing_show_sale_badge,
+              show_custom_badges: settings.product_listing_show_custom_badges,
+              show_sold_out_badge: settings.product_listing_show_sold_out_badge
+            -%}
+  to: "{%- render 'product-badges' with prod, prod: prod, show_sale_badge: settings.product_listing_show_sale_badge,
+    show_custom_badges: settings.product_listing_show_custom_badges, show_sold_out_badge:
+    settings.product_listing_show_sold_out_badge -%}"
+  position: 4536..4780
+- from: "{% render 'icon' with icon: 'quick-buy' %}"
+  to: "{% render 'icon' with icon, icon: 'quick-buy' %}"
+  position: 5536..5584
+- from: |-
+    {%-
+                    render "get-display-discount"
+                    with prod: prod,
+                    format: settings.product_listing_discount_format
+                  -%}
+  to: '{%- render "get-display-discount" with prod, prod: prod, format: settings.product_listing_discount_format
+    -%}'
+  position: 8806..8915
+- from: "{%- render 'product-item-swatches' with prod: prod, option_name: first_swatchified_option
+    -%}"
+  to: "{%- render 'product-item-swatches' with prod, prod: prod, option_name: first_swatchified_option
+    -%}"
+  position: 10736..10835
+{% endcomment %}

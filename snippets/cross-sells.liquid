@@ -121,7 +121,7 @@
         title="{{ 'general.accessibility.previous' | t }}"
         data-prev
       >
-        {% render 'icon' with icon: 'chevron' %}
+        {% render 'icon' with icon, icon: 'chevron' %}
       </button>
       <button
         type="button"
@@ -129,9 +129,21 @@
         title="{{ 'general.accessibility.next' | t }}"
         data-next
       >
-        {% render 'icon' with icon: 'chevron' %}
+        {% render 'icon' with icon, icon: 'chevron' %}
       </button>
     {% endif %}
   </div>
 </div>
-{%- endif -%}
+{%- endif -%}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'icon' with icon: 'chevron' %}"
+  to: "{% render 'icon' with icon, icon: 'chevron' %}"
+  position: 5117..5163
+- from: "{% render 'icon' with icon: 'chevron' %}"
+  to: "{% render 'icon' with icon, icon: 'chevron' %}"
+  position: 5362..5408
+{%- endcomment -%}
